@@ -1,4 +1,4 @@
-export default {
+const theme = {
     colors: {
         red: '#A82C2A',
         orange: '#C94B0A',
@@ -6,13 +6,14 @@ export default {
         green: '#329466',
         black: '#1A2228',
         alterdataBlue: '#03569C',
-        gray: '#555555'
+        gray: '#DEDEDE'
     },
-
+    
     fonts: {
         title: 'Rajdhani',
         paragraph: 'Inter'
     },
-
-
+    
+    
 }; 
+export default theme
