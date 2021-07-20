@@ -11,6 +11,9 @@ const Container = styled.div`
   margin-top: 35px;
   margin-right: 10%;
   margin-left: 10%;
+
+  overflow: hidden;
+  box-shadow: 0px 5px 10px ${theme.colors.gray};
 `;
 
 const InfoContainer = styled.div`
@@ -43,18 +46,34 @@ const Icon = styled.img`
   margin-right: 9px;
 `;
 
-const Function = styled.p`
+const PositionContainer = styled.div`
   margin-left: auto;
+  display: flex;
+  flex-direction: row;
   padding-top: 20px;
   padding-right: 35px;
-  font-family: ${theme.fonts.paragraph};
 `;
 
-export { Container };
-export { InfoContainer };
-export { Name };
-export { Function };
-export { Username };
-export { StatusContainer };
-export { Icon };
-export { Status };
+const Position = styled.p`
+  font-family: ${theme.fonts.paragraph};
+`;
+const Flag = styled.div`
+  background-color: ${theme.colors.red};
+  transform: rotate(45deg);
+  margin-right: -25px;
+  height: 200px;
+  width: 20px;
+`;
+
+export {
+  Container,
+  InfoContainer,
+  Name,
+  Position,
+  Username,
+  StatusContainer,
+  Icon,
+  Status,
+  PositionContainer,
+  Flag,
+};
