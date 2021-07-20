@@ -12,7 +12,11 @@ export default function Sidebar() {
       <GroupList>
         <GroupContainer>
         <GroupName>Pack</GroupName>
-        <SignIn/>
+        <SignIn  color='#FFF' weight="bold" size={22}/>
+        </GroupContainer>
+        <GroupContainer>
+        <GroupName>Pack</GroupName>
+        <SignIn  color='#FFF' weight="bold" size={22}/>
         </GroupContainer>
       </GroupList> 
     </Container>
