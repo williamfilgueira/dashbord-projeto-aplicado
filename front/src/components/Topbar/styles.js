@@ -3,7 +3,7 @@ import theme from "../../global/theme";
 
 const Container = styled.div`
     display: flex;
-    width: 100%;
+    width: auto;
     padding-left: 45px;
     align-items: center;
     background-color: ${theme.colors.alterdataBlue};

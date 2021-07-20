@@ -7,8 +7,8 @@ const Container = styled.div`
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};
   padding: 30px 30px 0 30px;
-  width: 300px;
-  height: 100%;
+  width: 20%;
+  height: 100vh;
 `
 
 const GroupList = styled.div`

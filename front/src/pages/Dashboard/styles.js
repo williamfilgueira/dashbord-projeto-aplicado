@@ -2,9 +2,19 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `
 
-export {Container}
+const CardSection = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+`
+
+const CardContainer = styled.div`
+  margin-top: 35px;
+`
+
+export {Container ,CardSection, CardContainer}
