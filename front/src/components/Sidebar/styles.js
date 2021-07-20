@@ -6,9 +6,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};
-  margin-top: -100px;
-  padding-top: 40px;
-  width: 280px;
+  padding: 30px 30px 0 30px;
+  width: 300px;
   height: 100%;
 `
 
