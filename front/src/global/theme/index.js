@@ -6,7 +6,7 @@ export default {
         green: '#329466',
         black: '#1A2228',
         alterdataBlue: '#03569C',
-        gray: '#555555'
+        gray: '#DEDEDE'
     },
 
     fonts: {
