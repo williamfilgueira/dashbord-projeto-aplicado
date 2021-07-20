@@ -14,7 +14,7 @@ export default function Dashboard() {
       <Sidebar />
       <CardSection>
         <Topbar />
-          <Scrollbars autoHeightMax='100vh' autoHeight>
+          <Scrollbars autoHeightMax="100vh" autoHeight>
           <Card />
           <Card />
           <Card />

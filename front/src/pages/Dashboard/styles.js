@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
 `
 
 const CardSection = styled.div`
@@ -14,7 +14,7 @@ const CardSection = styled.div`
 `
 
 const CardContainer = styled.div`
-  margin-top: 35px;
+  height: auto;
 `
 
 export {Container ,CardSection, CardContainer}
