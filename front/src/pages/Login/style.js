@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.section`
   display: flex;
@@ -29,16 +30,20 @@ export const Actions = styled.div`
 export const RememberPassword = styled.div`
   display: flex;
   align-items: center;
-  div{
+  justify-content: space-between;
+  div {
     align-items: center;
-    input{
+    input {
       margin-right: 5px;
     }
-    .forgotPassword{
+    h3 {
+      font-weight: 100;
+    }
+    .forgotPassword {
       background-color: red;
     }
   }
-  color:white;
+  color: white;
   .forgotPassword {
   }
 `;
@@ -50,7 +55,29 @@ export const ContaineirCreateAccount = styled.div`
   color: white;
   font-size: 13px;
   h3 {
+    padding: 10px;
     font-weight: 100;
-    text-decoration:none;
+    text-decoration: none;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  color: white;
+  transition: 0.3s;
+  h3 {
+    font-weight: 100;
+  }
+  h4 {
+    font-size: 20px;
+    font-weight: 100;
+  }
+  :hover {
+    color: #03759c;
+  }
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
   }
 `;
