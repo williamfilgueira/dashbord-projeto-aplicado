@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import theme from "../../global/theme";
+
 
 export const Container = styled.section`
   display: flex;
@@ -24,7 +26,8 @@ export const Actions = styled.div`
   div {
     display: flex;
     padding: 5px;
-    font-size: 13px;
+    font-size: 10px;
+    font-family:${theme.fonts.paragraph};
   }
 `;
 export const RememberPassword = styled.div`
@@ -54,6 +57,7 @@ export const ContaineirCreateAccount = styled.div`
   align-items: center;
   color: white;
   font-size: 13px;
+  font-family:${theme.fonts.paragraph};
   h3 {
     padding: 10px;
     font-weight: 100;

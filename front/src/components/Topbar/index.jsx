@@ -6,7 +6,7 @@ import Input from '../Common/Input'
 export default function Topbar () {
     return (
         <Container>
-            <Input title="Pesquise pelo login" icon='MagnifyingGlass' />
+            <Input placeholder="Pesquise pelo login" icon='MagnifyingGlass' size='big' />
         </Container>
     )
 };
