@@ -15,11 +15,8 @@ const Button = styled.div`
     background-color: #F5F8FA;
     box-shadow: 2px 1px 5px black;
     transition: 0.3s;
-    font-family:${theme.fonts.paragraph};
-    :hover{
-        cursor: pointer;
-        box-shadow: 2px 1px 2px #5f6161;
-    }
+    font-family:${theme.fonts.title};
+    cursor: pointer;
 `;
 
 export default function ButtonCommon(props){
