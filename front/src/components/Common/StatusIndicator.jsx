@@ -12,11 +12,11 @@ import Sleeping from "../../assets/emoji/Sleeping.png";
 import Traffic from "../../assets/emoji/Traffic.png";
 import Workout from "../../assets/emoji/Workout.png";
 
-export default function StatusIndicator() {
+export default function StatusIndicator({color}) {
     return (
         <> 
           <Icon src={Workout} />
-          <Status>hora do café</Status>
+          <Status color={color} >hora do café</Status>
         </>
     )
 };
@@ -24,6 +24,7 @@ export default function StatusIndicator() {
 const Status = styled.p`
   font-family: ${theme.fonts.paragraph};
   font-size: 1rem;
+  color: ${props => props.color === 'white' ? '#FFF' : '#000'}
 `;
 
 const Icon = styled.img`
