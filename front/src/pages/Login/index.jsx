@@ -8,19 +8,21 @@ import { Actions } from "./style";
 import Logo from "../../components/Common/Logo";
 import Fundo from "../../assets/images/Fundo.png";
 import ButtonCommon from "../../components/Common/Button";
-import CustomInput from "../../components/Common/Input";
+import Input from "../../components/Common/Input";
+
+
 export default function Login() {
   
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  
+
   return (
     <Container>
       <ContainerLogin>
         <Logo />
         <Actions>
-          <CustomInput title="Login" onClick={()=>setLogin}/>
-          <CustomInput title="Senha" onClick={()=>setPassword} />
+          <Input title="Login" onChangeFunction={(events)=>(events.target.value)}/>
+          <Input title="Senha" onChangeFunction={(events)=>(events.target.value)} />
           <RememberPassword>
             <div>
               <input type="checkbox" />

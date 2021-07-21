@@ -5,10 +5,10 @@ import React from "react";
 import { MagnifyingGlass,PaperPlaneTilt } from 'phosphor-react'
 
 
-export default function Input({icon, title}) {
+export default function Input({icon, title, onChangeFunction}) {
   return (
     <InputContainer>
-    <CustomInput placeholder={title} />
+    <CustomInput  placeholder={title} onChange={onChangeFunction} />
     <IconContainer>
       {
       icon === 'MagnifyingGlass' ? 
@@ -24,16 +24,17 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 500px;
+  width: 335px;
   height: 40px;
   border-radius: 10px;
   background: #FFF;
   overflow: hidden;
+  margin:5px;
   `
 
 const CustomInput = styled.input` 
   font-family: ${theme.fonts.paragraph};
-  width: 100%;
+  width: 80%;
   padding-left: 14px;
   padding-right: 14px;
   font-size: 16px;
