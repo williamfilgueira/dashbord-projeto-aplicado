@@ -1,6 +1,6 @@
-import Modal from 'styled-react-modal';
-import styled from 'styled-components';
-import theme from '../../global/theme';
+import Modal from "styled-react-modal";
+import styled from "styled-components";
+import theme from "../../global/theme";
 
 const StyledModal = Modal.styled`
   width: 500px;
@@ -8,48 +8,56 @@ const StyledModal = Modal.styled`
   display: flex;
   flex-direction: column; 
   align-items: center;
-  background-color: ${theme.colors.alterdataBlue};
+  background-color: ${theme.colors.alterdataSecondaryBlue};
   border-radius: 10px;
-`
+`;
 const FormAddMember = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 440px;
-    justify-content: space-between;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 440px;
+  justify-content: space-between;
+`;
 const HeaderContainer = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-`
+`;
 const Title = styled.h1`
-   font-family: ${theme.fonts.title};
-   font-size: 1.37rem;
-   color: white;
-   text-align: center;
-   margin: 20px auto 20px auto;
-   
-`
+  font-family: ${theme.fonts.title};
+  font-size: 1.37rem;
+  color: white;
+  text-align: center;
+  margin: 20px auto 20px auto;
+`;
 const IconContainer = styled.div`
-  cursor: pointer; 
+  cursor: pointer;
   padding: 15px;
-`
+`;
 const Label = styled.label`
-font-family: ${theme.fonts.paragraph};
-color: white;
-`
+  font-family: ${theme.fonts.paragraph};
+  color: white;
+`;
 
 const Select = styled.select`
-border-radius: 3px;
-height: 25px;
-`
+  border-radius: 3px;
+  height: 25px;
+`;
 
 const Option = styled.option`
-   font-family: ${theme.fonts.paragraph};
-   font-size: 0.9rem;
-`
+  font-family: ${theme.fonts.paragraph};
+  font-size: 0.9rem;
+`;
 
-export { StyledModal, Title, FormAddMember, Label, Option, Select, HeaderContainer, IconContainer };
+export {
+  StyledModal,
+  Title,
+  FormAddMember,
+  Label,
+  Option,
+  Select,
+  HeaderContainer,
+  IconContainer,
+};
