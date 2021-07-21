@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { Container, GroupList, GroupContainer, GroupName } from './styles'
-import { SignIn } from 'phosphor-react'
+import { Container,  GroupList } from './styles'
 
+import Group from '../Group'
+import MyGroup from '../MyGroup'
 import Logo from '../Common/Logo'
 
 export default function Sidebar() {
@@ -10,14 +11,10 @@ export default function Sidebar() {
     <Container>
       <Logo />
       <GroupList>
-        <GroupContainer>
-        <GroupName>Pack</GroupName>
-        <SignIn  color='#FFF' weight="bold" size={22}/>
-        </GroupContainer>
-        <GroupContainer>
-        <GroupName>Pack</GroupName>
-        <SignIn  color='#FFF' weight="bold" size={22}/>
-        </GroupContainer>
+        <MyGroup name="Meu grupo" />
+        <Group name="Pack 04" />
+        <Group name="E-commerce" />
+        <Group name="Pack 01" />
       </GroupList> 
     </Container>
   )
