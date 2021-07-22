@@ -18,7 +18,8 @@ export default function ModalNewMember({isOpen, toggleModal, title}) {
           <div>
             <Input placeholder='Nome' />
             <Input placeholder='Username' />
-            <Input placeholder='Senha' />
+            <Input placeholder='Email' type='email' />
+            <Input placeholder='Senha'  type='password'/>
           </div>
           <div>
             <Label for="GET-name">Selecione a equipe: </Label>

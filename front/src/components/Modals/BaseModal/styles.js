@@ -4,13 +4,13 @@ import theme from "../../../global/theme";
 
 const StyledModal = Modal.styled`
   width: 500px;
-  height: 500px;
+  height: ${props => props.size === 'big' ? '660px' : '500px'};
   display: flex;
   flex-direction: column; 
   align-items: center;
   background-color: ${theme.colors.alterdataSecondaryBlue};
   border-radius: 10px;
-`;
+`; 
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -31,4 +31,4 @@ const IconContainer = styled.div`
   padding: 15px;
 `;
 
-export { StyledModal, Title, HeaderContainer, IconContainer };
+export { StyledModal,Title, HeaderContainer, IconContainer };
