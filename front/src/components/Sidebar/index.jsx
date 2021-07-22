@@ -1,21 +1,30 @@
-import React from 'react'
+import React from "react";
 
-import { Container,  GroupList } from './styles'
+import { Container, GroupList } from "./styles";
 
-import Group from '../Group'
-import MyGroup from '../MyGroup'
-import Logo from '../Common/Logo'
+import Group from "../Group";
+import MyGroup from "../MyGroup";
+import Logo from "../Common/Logo";
 
-export default function Sidebar({toggleNewUserModal}) {
+export default function Sidebar({
+  toggleNewMemberModal,
+  toggleRolesModal,
+  toggleStatusModal,
+}) {
   return (
     <Container>
       <Logo />
       <GroupList>
-        <MyGroup toggleNewUserModal={toggleNewUserModal} name="Meu grupo" />
+        <MyGroup
+          toggleNewMemberModal={toggleNewMemberModal}
+          toggleRolesModal={toggleRolesModal}
+          toggleStatusModal={toggleStatusModal}
+          name="Meu grupo"
+        />
         <Group name="Pack 04" />
         <Group name="E-commerce" />
         <Group name="Pack 01" />
-      </GroupList> 
+      </GroupList>
     </Container>
-  )
+  );
 }

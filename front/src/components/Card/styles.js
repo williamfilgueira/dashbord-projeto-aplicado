@@ -14,6 +14,7 @@ const Container = styled.div`
 
   overflow: hidden;
   box-shadow: 0px 5px 10px ${theme.colors.gray};
+  cursor: pointer;
 `;
 
 const InfoContainer = styled.div`

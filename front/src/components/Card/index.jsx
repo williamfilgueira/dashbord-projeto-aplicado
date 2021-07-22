@@ -14,9 +14,9 @@ import {
 import StatusIndicator from "../Common/StatusIndicator";
 
 import avatar from "../../assets/images/Avatar.png";
-export default function Card() {
+export default function Card({ toggleCardModal }) {
   return (
-    <Container>
+    <Container onClick={toggleCardModal}>
       <Avatar src={avatar} />
       <InfoContainer>
         <Name>Mateus</Name>
@@ -26,7 +26,7 @@ export default function Card() {
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>
-      <Flag />
+        <Flag />
         <Position>cargo</Position>
       </PositionContainer>
     </Container>
