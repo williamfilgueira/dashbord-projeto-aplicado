@@ -4,7 +4,7 @@ import theme from "../../../global/theme";
 
 const StyledModal = Modal.styled`
   width: 500px;
-  height: ${props => props.size === 'big' ? '660px' : '500px'};
+  height: ${props => props.size === 'big' ? '670px' : '500px'};
   display: flex;
   flex-direction: column; 
   align-items: center;

@@ -1,8 +1,9 @@
 import React from 'react';
-import {  FormAddMember, Option, Select, Label, } from './styles';
+import {  FormAddMember } from './styles';
 import Input from '../../Common/Input';
 import ButtonCommon from '../../Common/Button';
 import BaseModal from '../BaseModal';
+import Select from '../../Common/Select';
 
 
 export default function ModalNewMember({isOpen, toggleModal, title}) {
@@ -16,19 +17,14 @@ export default function ModalNewMember({isOpen, toggleModal, title}) {
         title={title}>
         <FormAddMember>
           <div>
-            <Input placeholder='Nome' />
-            <Input placeholder='Username' />
-            <Input placeholder='Email' type='email' />
-            <Input placeholder='Senha'  type='password'/>
+            <Input placeholder='Nome' required />
+            <Input placeholder='Username' required/>
+            <Input placeholder='Email' type='email' required/>
+            <Input placeholder='Senha'  type='password' minlength='6' required/>
+            <Input placeholder='Data de nascimento' required />
           </div>
           <div>
-            <Label for="GET-name">Selecione a equipe: </Label>
-            <Select name="select">
-              <Option disabled selected></Option>
-              <Option value="Pack-Contabilidade">Pack-Contabilidade</Option>
-              <Option value="Shop">Shop</Option>
-              <Option value="Pack-Financeiro">Pack-Financeiro</Option>
-            </Select>
+          <Select title='Selecione o equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
           </div>
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
