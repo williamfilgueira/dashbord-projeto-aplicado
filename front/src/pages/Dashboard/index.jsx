@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ModalProvider } from 'styled-react-modal'
 
@@ -12,9 +12,16 @@ import ModalEditProfile from "../../components/ModalEditProfile";
 
 
 export default function Dashboard() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleNewUserModal(e) {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <Container>
-      <Sidebar />
+      <ModalProvider>
+      <Sidebar toggleNewUserModal={toggleNewUserModal}/>
       <CardSection>
         <Topbar />
     {/* <Scrollbars autoHeightMax="100vh" autoHeight>
@@ -27,12 +34,11 @@ export default function Dashboard() {
           <Card />
           </Scrollbars>   */}
      
-      <ModalProvider>
-        <ModalEditProfile />
-      </ModalProvider>
+        <ModalEditProfile toggleNewUserModal={toggleNewUserModal} isOpen={isOpen} />
     
       </CardSection>
       <Chatbar />
+      </ModalProvider>
     </Container>
   );
 }

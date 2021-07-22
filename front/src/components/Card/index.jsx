@@ -4,17 +4,16 @@ import {
   Container,
   StatusContainer,
   InfoContainer,
-  Icon,
   Name,
   Position,
-  Status,
   Username,
   PositionContainer,
   Flag,
 } from "./styles";
 
+import StatusIndicator from "../Common/StatusIndicator";
+
 import avatar from "../../assets/images/Avatar.png";
-import coffee from "../../assets/emoji/HotBeverage.png";
 export default function Card() {
   return (
     <Container>
@@ -23,8 +22,7 @@ export default function Card() {
         <Name>Mateus</Name>
         <Username>mateus.dsn.pack</Username>
         <StatusContainer>
-          <Icon src={coffee} />
-          <Status>hora do café</Status>
+          <StatusIndicator />
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>

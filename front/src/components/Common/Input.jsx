@@ -13,7 +13,7 @@ export default function Input({ icon, size, ...rest }) {
           <MagnifyingGlass
             weight="regular"
             size={28}
-            color={theme.colors.gray}
+            color='#707070'
           />
         </IconContainer>
       ) : icon === "PaperPlaneTilt" ? (
@@ -21,7 +21,7 @@ export default function Input({ icon, size, ...rest }) {
           <PaperPlaneTilt
             weight="regular"
             size={28}
-            color={theme.colors.gray}
+            color='#707070'
           />
         </IconContainer>
       ) : null}
@@ -50,7 +50,7 @@ const CustomInput = styled.input`
   border: none;
 
   ::placeholder {
-    color: #d7d3d3;
+    color: #707070;
   }
   :focus {
     box-shadow: 0 0 0 0;

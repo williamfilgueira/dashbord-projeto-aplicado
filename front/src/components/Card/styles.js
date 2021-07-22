@@ -37,14 +37,6 @@ const StatusContainer = styled.div`
   display: flex;
   margin-top: 19px;
 `;
-const Status = styled.p`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 1rem;
-`;
-
-const Icon = styled.img`
-  margin-right: 9px;
-`;
 
 const PositionContainer = styled.div`
   margin-left: auto;
@@ -72,8 +64,6 @@ export {
   Position,
   Username,
   StatusContainer,
-  Icon,
-  Status,
   PositionContainer,
   Flag,
 };

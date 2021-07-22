@@ -43,12 +43,6 @@ export default function Login() {
           </RememberPassword>
         </Actions>
         <ButtonCommon title="ENTRAR" />
-        <ContaineirCreateAccount>
-          <h3>Ainda não tem uma conta?</h3>
-          <StyledLink to="Signup">
-            <h4>Criar conta</h4>
-          </StyledLink>
-        </ContaineirCreateAccount>
       </ContainerLogin>
       <img src={Fundo} />
     </Container>
