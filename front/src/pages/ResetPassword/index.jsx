@@ -1,28 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
+
 import { Container } from "./styles";
-import Fundo from "../../assets/images/Fundo.png";
-import logo_azul from '../../assets/images/logo_azul.png';
 import { ContainerImage } from "./styles";
 import { ContainerResetPassword } from "./styles";
-import Input from '../../components/Common/Input';
-import ButtonCommon from "../../components/Common/Button";
+import { StyledLink } from "../Login/style";
+import {Button} from "./styles";
+import AlterdataLogoAzul from '../../components/Common/LogoAzul';
+import Fundo from "../../assets/images/Fundo.png";
 
+import Input from '../../components/Common/Input';
 export default function ResetPassword() {
+  // const [send, setSend] = useState=("");
+
   return (
     <Container>
       <ContainerImage>
         <img src={Fundo} />
       </ContainerImage>
       <ContainerResetPassword>
-        <logo_azul />
-        <h1>Esqueceu sua senha?</h1>
+        <AlterdataLogoAzul />
+        <h3>Esqueceu sua senha?</h3>
         <Input
             type="mail"
             placeholder="Email"
             onChange={(events) => events.target.value}
             size="small"
           />
-          <ButtonCommon title="ENVIAR"/>
+          <Button onClick={(events) =>events.target.value}>ENVIAR</Button>
+          <StyledLink to="login"><h3>voltar</h3></StyledLink>
       </ContainerResetPassword>
     </Container>
   );

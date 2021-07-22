@@ -12,7 +12,8 @@ import Input from "../../components/Common/Input";
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-
+  const [send, setSend] = useState("");
+  
   return (
     <Container>
       <ContainerLogin>
@@ -25,6 +26,7 @@ export default function Login() {
           />
           <Input
             placeholder="Senha"
+            type="password"
             onChange={(events) => events.target.value}
             size="small"
           />
