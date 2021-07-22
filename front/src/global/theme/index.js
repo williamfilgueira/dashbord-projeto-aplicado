@@ -8,6 +8,7 @@ const theme = {
     alterdataBlue: "#03569C",
     alterdataSecondaryBlue: "RGBA(16,39,59,0.9)",
     gray: "#DEDEDE",
+    grey: "#555555"
   },
 
   fonts: {

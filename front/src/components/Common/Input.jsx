@@ -6,7 +6,7 @@ import { MagnifyingGlass, PaperPlaneTilt } from "phosphor-react";
 
 export default function Input({ icon, size, ...rest }) {
   return (
-    <InputContainer size={size} >
+    <InputContainer size={size}  >
       <CustomInput {...rest} />
       {icon === "MagnifyingGlass" ? (
         <IconContainer>
@@ -52,6 +52,7 @@ const CustomInput = styled.input`
   ::placeholder {
     color: #707070;
   }
+
   :focus {
     box-shadow: 0 0 0 0;
     outline: 0;

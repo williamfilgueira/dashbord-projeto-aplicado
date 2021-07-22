@@ -16,9 +16,10 @@ export default function ModalAddUser({toggleNewUserModal, isOpen}) {
         title='Adicionar membro'>
         <FormAddMember>
           <div>
-            <Input placeholder='Nome' />
-            <Input placeholder='Username' />
-            <Input placeholder='Senha' />
+            <Input placeholder='Nome' required/>
+            <Input placeholder='Username' required/>
+            <Input placeholder='Email'  type='email' required/>
+            <Input placeholder='Senha' type='password' required/>
           </div>
           <div>
             <Label for="GET-name">Selecione a equipe: </Label>
