@@ -8,7 +8,7 @@ import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
 import Chatbar from "../../components/Chatbar";
 import Card from "../../components/Card";
-import ModalEditProfile from "../../components/ModalEditProfile"; 
+import ModalAddUser from "../../components/ModalAddUser"; 
 
 
 export default function Dashboard() {
@@ -34,7 +34,7 @@ export default function Dashboard() {
           <Card />
           </Scrollbars>   */}
      
-        <ModalEditProfile toggleNewUserModal={toggleNewUserModal} isOpen={isOpen} />
+        <ModalAddUser toggleNewUserModal={toggleNewUserModal} isOpen={isOpen} />
     
       </CardSection>
       <Chatbar />

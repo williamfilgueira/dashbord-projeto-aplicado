@@ -1,24 +1,20 @@
 import React from 'react';
-import { StyledModal, Title, FormAddMember, Option, Select, Label, HeaderContainer,IconContainer } from './styles';
+import {  FormAddMember, Option, Select, Label, } from './styles';
 import Input from '../Common/Input';
 import ButtonCommon from '../Common/Button';
-import { XCircle } from 'phosphor-react';
+import Modal from '../Modal';
 
 
-export default function ModalEditProfile({toggleNewUserModal, isOpen}) {
+export default function ModalAddUser({toggleNewUserModal, isOpen}) {
   return (
     <div>
-      <StyledModal
+      <Modal
         isOpen={isOpen}
         onBackgroundClick={toggleNewUserModal}
-        onEscapeKeydown={toggleNewUserModal}>
+        onEscapeKeydown={toggleNewUserModal}
+        close={toggleNewUserModal}
+        title='Adicionar membro'>
         <FormAddMember>
-          <HeaderContainer>
-            <Title>Adicionar membro</Title>
-            <IconContainer onClick={toggleNewUserModal}>
-              <XCircle size={30} color='#fff' weight='bold' />
-            </IconContainer>
-          </HeaderContainer>
           <div>
             <Input placeholder='Nome' />
             <Input placeholder='Username' />
@@ -35,7 +31,7 @@ export default function ModalEditProfile({toggleNewUserModal, isOpen}) {
           </div>
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
-      </StyledModal>
+      </Modal>
     </div>
   )
 

@@ -15,7 +15,7 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 440px;
+  height: 330px;
   justify-content: space-between;
 `;
 const HeaderContainer = styled.div`
