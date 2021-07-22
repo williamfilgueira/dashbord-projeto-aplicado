@@ -1,25 +1,30 @@
-import React from 'react'
+import React from "react";
 
-import { GroupName, GroupContainer , ActionContainer, Action } from './styles'
+import { GroupName, GroupContainer, ActionContainer, Action } from "./styles";
 
-import { Plus } from 'phosphor-react'
+import { Plus } from "phosphor-react";
 
-export default function MyGroup({name, toggleNewUserModal}) {
+export default function MyGroup({
+  name,
+  toggleNewMemberModal,
+  toggleRolesModal,
+  toggleStatusModal,
+}) {
   return (
     <GroupContainer>
-        <GroupName>{name}</GroupName>
-        <ActionContainer onClick={toggleNewUserModal} >
-          <Action>Novo membro</Action>
-          <Plus  color="#fff" weight="bold" size={16} />
-        </ActionContainer>
-        <ActionContainer>
-          <Action>Modificar papéis</Action>
-          <Plus  color="#fff" weight="bold" size={16} />
-        </ActionContainer>
-        <ActionContainer>
-          <Action>Modificar status</Action>
-          <Plus  color="#fff" weight="bold" size={16} />
-        </ActionContainer>
+      <GroupName>{name}</GroupName>
+      <ActionContainer onClick={toggleNewMemberModal}>
+        <Action>Novo membro</Action>
+        <Plus color="#fff" weight="bold" size={16} />
+      </ActionContainer>
+      <ActionContainer onClick={toggleRolesModal}>
+        <Action>Modificar papéis</Action>
+        <Plus color="#fff" weight="bold" size={16} />
+      </ActionContainer>
+      <ActionContainer onClick={toggleStatusModal}>
+        <Action>Modificar status</Action>
+        <Plus color="#fff" weight="bold" size={16} />
+      </ActionContainer>
     </GroupContainer>
-  )
+  );
 }

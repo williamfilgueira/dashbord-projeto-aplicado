@@ -5,18 +5,19 @@ import {
   StatusContainer,
   UserContainer,
   InfoContainer,
-  IconContainer,
+  IconsContainer,
+  Icon,
   Name,
 } from "./styles";
 
 import StatusIndicator from "../Common/StatusIndicator";
 import Avatar from "../Common/Avatar";
 
-import {SignOut, Gear} from 'phosphor-react'
+import { SignOut, Gear } from "phosphor-react";
 
 import AvatarImage from "../../assets/images/Avatar.png";
 
-export default function Chatbar() {
+export default function Chatbar({ toggleUserConfigModal }) {
   return (
     <Container>
       <UserContainer>
@@ -24,14 +25,22 @@ export default function Chatbar() {
         <InfoContainer>
           <Name>Mateus</Name>
           <StatusContainer>
-            <StatusIndicator color='white' />
+            <StatusIndicator color="white" />
           </StatusContainer>
         </InfoContainer>
-        <IconContainer>
-          <Gear color="#FFF"   weight='bold' size={30} />
-          <SignOut  color="#FFF"  weight='bold'  size={30} />
-        </IconContainer>
-
+        <IconsContainer>
+          <Icon>
+            <Gear
+              onClick={toggleUserConfigModal}
+              color="#FFF"
+              weight="bold"
+              size={30}
+            />
+          </Icon>
+          <Icon>
+            <SignOut color="#FFF" weight="bold" size={30} />
+          </Icon>
+        </IconsContainer>
       </UserContainer>
     </Container>
   );

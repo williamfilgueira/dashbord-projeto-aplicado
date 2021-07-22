@@ -3,7 +3,7 @@ import { StyledModal, Title, HeaderContainer,IconContainer } from './styles';
 import { XCircle } from 'phosphor-react';
 
 
-export default function Modal({onBackgroundClick, isOpen, close, title, children}) {
+export default function BaseModal({onBackgroundClick, isOpen, close, title, children}) {
   return (
     <div>
       <StyledModal

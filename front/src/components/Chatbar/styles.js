@@ -36,11 +36,17 @@ const InfoContainer = styled.div`
   flex-direction: column;
 `;
 
-const IconContainer = styled.div`
+const IconsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+`;
+
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 `;
 
 export {
@@ -49,5 +55,6 @@ export {
   Name,
   StatusContainer,
   InfoContainer,
-  IconContainer,
+  IconsContainer,
+  Icon,
 };

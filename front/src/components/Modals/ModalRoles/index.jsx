@@ -1,21 +1,19 @@
 import React from 'react';
 import {  FormAddMember, Option, Select, Label, } from './styles';
-import Input from '../Common/Input';
-import ButtonCommon from '../Common/Button';
-import Modal from '../Modal';
+import Input from '../../Common/Input';
+import ButtonCommon from '../../Common/Button';
+import BaseModal from '../BaseModal';
 
 
-export default function ModalAddUser({toggleNewUserModal, isOpen}) {
+export default function ModalRoles({isOpen, toggleModal, title}) {
   return (
     <div>
-      <Modal
+      <BaseModal
         isOpen={isOpen}
-
-        onBackgroundClick={toggleNewUserModal}
-        onEscapeKeydown={toggleNewUserModal}
-        
-        close={toggleNewUserModal}
-        title='Adicionar membro'>
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        close={toggleModal}
+        title={title}>
         <FormAddMember>
           <div>
             <Input placeholder='Nome' />
@@ -33,7 +31,7 @@ export default function ModalAddUser({toggleNewUserModal, isOpen}) {
           </div>
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
-      </Modal>
+      </BaseModal>
     </div>
   )
 
