@@ -14,7 +14,7 @@ const UserContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 350px;
-  height: 80px;
+  height: 65px;
 `;
 
 const Name = styled.h1`
@@ -36,4 +36,18 @@ const InfoContainer = styled.div`
   flex-direction: column;
 `;
 
-export { Container, UserContainer, Name, StatusContainer, InfoContainer };
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`;
+
+export {
+  Container,
+  UserContainer,
+  Name,
+  StatusContainer,
+  InfoContainer,
+  IconContainer,
+};

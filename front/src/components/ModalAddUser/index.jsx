@@ -10,8 +10,10 @@ export default function ModalAddUser({toggleNewUserModal, isOpen}) {
     <div>
       <Modal
         isOpen={isOpen}
+
         onBackgroundClick={toggleNewUserModal}
         onEscapeKeydown={toggleNewUserModal}
+        
         close={toggleNewUserModal}
         title='Adicionar membro'>
         <FormAddMember>
