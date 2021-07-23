@@ -6,9 +6,9 @@ const theme = {
     green: "#329466",
     black: "#1A2228",
     alterdataBlue: "#03569C",
-    alterdataSecondaryBlue: "RGBA(16,39,59,0.9)",
+    alterdataSecondaryBlue: "#161736",
     gray: "#DEDEDE",
-    grey: "#555555"
+    grey: "#555555",
   },
 
   fonts: {

@@ -1,30 +1,26 @@
-import React from 'react';
-import theme from '../../global/theme';
+import React from "react";
+import theme from "../../global/theme";
 import styled from "styled-components";
 
-export default function Select({ title ,options}) {
+export default function Select({ title, options }) {
   return (
-          <SelectContainer>
-            <Label for="GET-name">{title}</Label>
-            <SelectAb name="select">
-              <Option disabled selected></Option>
-             {options.map((item) => (
-                 <Option value={item.value}>
-                     {item.title} 
-                 </Option>
-             ))}
-             
-              
-            </SelectAb>
-            </SelectContainer>
-  )
-};
+    <SelectContainer>
+      <Label for="GET-name">{title}</Label>
+      <SelectAb name="select">
+        <Option disabled selected></Option>
+        {options.map((item) => (
+          <Option value={item.value}>{item.title}</Option>
+        ))}
+      </SelectAb>
+    </SelectContainer>
+  );
+}
 
-const SelectContainer =styled.label`
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+const SelectContainer = styled.label`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Label = styled.label`
@@ -43,4 +39,3 @@ const Option = styled.option`
   font-family: ${theme.fonts.paragraph};
   font-size: 0.9rem;
 `;
-

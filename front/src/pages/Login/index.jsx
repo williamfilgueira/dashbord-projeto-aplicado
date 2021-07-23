@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "./style";
 import { ContainerLogin } from "./style";
-import { ContaineirCreateAccount } from "./style";
 import { RememberPassword } from "./style";
 import { StyledLink } from "./style";
 import { Actions } from "./style";
@@ -13,7 +12,8 @@ import Input from "../../components/Common/Input";
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-
+  const [send, setSend] = useState("");
+  
   return (
     <Container>
       <ContainerLogin>
@@ -26,6 +26,7 @@ export default function Login() {
           />
           <Input
             placeholder="Senha"
+            type="password"
             onChange={(events) => events.target.value}
             size="small"
             type='password'
@@ -36,8 +37,7 @@ export default function Login() {
               <h3>Lembrar</h3>
             </div>
 
-            <StyledLink to="ForgotPassword">
-              {" "}
+            <StyledLink to="ResetPassword">
               {/* componente criado para estilizar o link*/}
               <h3>Recuperar senha</h3>
             </StyledLink>

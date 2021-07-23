@@ -76,7 +76,7 @@ export const StyledLink = styled(Link)`
     font-weight: 100;
   }
   :hover {
-    color: #03759c;
+    color: ${theme.colors.alterdataBlue};
   }
   &:focus,
   &:visited,

@@ -6,23 +6,15 @@ import { MagnifyingGlass, PaperPlaneTilt } from "phosphor-react";
 
 export default function Input({ icon, size, ...rest }) {
   return (
-    <InputContainer size={size}  >
+    <InputContainer size={size}>
       <CustomInput {...rest} />
       {icon === "MagnifyingGlass" ? (
         <IconContainer>
-          <MagnifyingGlass
-            weight="regular"
-            size={28}
-            color='#707070'
-          />
+          <MagnifyingGlass weight="regular" size={28} color="#707070" />
         </IconContainer>
       ) : icon === "PaperPlaneTilt" ? (
         <IconContainer>
-          <PaperPlaneTilt
-            weight="regular"
-            size={28}
-            color='#707070'
-          />
+          <PaperPlaneTilt weight="regular" size={28} color="#707070" />
         </IconContainer>
       ) : null}
     </InputContainer>
@@ -33,12 +25,13 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: ${props => props.size === 'big' ?'535px' : '335px'};
+  width: ${(props) => (props.size === "big" ? "535px" : "335px")};
   height: 40px;
   border-radius: 10px;
   background: #fff;
   overflow: hidden;
   margin: 5px;
+  box-shadow: 1px 1px 1px black;
 `;
 
 const CustomInput = styled.input`
