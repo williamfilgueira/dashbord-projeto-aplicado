@@ -12,7 +12,14 @@ import Input from "../../components/Common/Input";
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [send, setSend] = useState("");
+  
+  function handleSubmit(login, password){
+    console.log({
+      login:login,
+      password:password,
+    })
+  }
+
   
   return (
     <Container>
@@ -21,13 +28,13 @@ export default function Login() {
         <Actions>
           <Input
             placeholder="Login"
-            onChange={(events) => events.target.value}
+            onChange={(events) => setLogin(events.target.value)}
             size="small"
           />
           <Input
             placeholder="Senha"
             type="password"
-            onChange={(events) => events.target.value}
+            onChange={(events) => setPassword(events.target.value)}
             size="small"
             type='password'
           />
@@ -43,7 +50,7 @@ export default function Login() {
             </StyledLink>
           </RememberPassword>
         </Actions>
-        <ButtonCommon title="ENTRAR" />
+        <ButtonCommon title="ENTRAR" onClick={() => handleSubmit(login, password)} />
       </ContainerLogin>
       <img src={Fundo} />
     </Container>

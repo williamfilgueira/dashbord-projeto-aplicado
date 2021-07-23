@@ -10,7 +10,15 @@ import Fundo from "../../assets/images/Fundo.png";
 
 import Input from '../../components/Common/Input';
 export default function ResetPassword() {
-  // const [send, setSend] = useState=("");
+  
+  const [email,setEmail] = useState("");
+
+  function handleSubmit(email){
+    console.log({
+      email:email
+    })
+  }
+
 
   return (
     <Container>
@@ -23,10 +31,10 @@ export default function ResetPassword() {
         <Input
             type="mail"
             placeholder="Email"
-            onChange={(events) => events.target.value}
+            onChange={(event) => setEmail(event.target.value)}
             size="small"
           />
-          <Button onClick={(events) =>events.target.value}>ENVIAR</Button>
+          <Button onClick={() => handleSubmit(email)}>ENVIAR</Button>
           <StyledLink to="login"><h3>voltar</h3></StyledLink>
       </ContainerResetPassword>
     </Container>
