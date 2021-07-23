@@ -15,7 +15,7 @@ export default function BaseModal({onBackgroundClick, isOpen, close, title, chil
           <HeaderContainer>
             <Title>{title}</Title>
             <IconContainer onClick={close}>
-              <XCircle size={30} color='#fff' weight='bold' />
+              <XCircle size={30} color='#fff' weight='bold'/>
             </IconContainer>
           </HeaderContainer>
           {children}

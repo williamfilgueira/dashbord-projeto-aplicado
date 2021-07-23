@@ -13,7 +13,7 @@ import ModalNewMember from "../../components/Modals/ModalNewMember";
 import ModalRoles from "../../components/Modals/ModalRoles";
 import ModalStatus from "../../components/Modals/ModalStatus";
 import ModalUserConfig from "../../components/Modals/ModalUserConfig";
-import ModalCard from "../../components/Modals/ModalCard";
+import ModalEditMember from "../../components/Modals/ModalEditMember";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -76,10 +76,10 @@ export default function Dashboard() {
         isOpen={userConfigModal}
         title="Configurações do usuário"
       />
-      <ModalCard
+      <ModalEditMember
         toggleModal={toggleCardModal}
         isOpen={cardModal}
-        title="Mudanças do card"
+        title="Editar perfil"
       />
     </ModalProvider>
   );
