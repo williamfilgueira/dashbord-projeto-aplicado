@@ -29,6 +29,7 @@ export default function Login() {
             type="password"
             onChange={(events) => events.target.value}
             size="small"
+            type='password'
           />
           <RememberPassword>
             <div>

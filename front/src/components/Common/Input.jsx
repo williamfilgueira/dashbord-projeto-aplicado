@@ -31,7 +31,7 @@ const InputContainer = styled.div`
   background: #fff;
   overflow: hidden;
   margin: 5px;
-  box-shadow: 1px 1px 1px  black;
+  box-shadow: 1px 1px 1px black;
 `;
 
 const CustomInput = styled.input`
@@ -45,6 +45,7 @@ const CustomInput = styled.input`
   ::placeholder {
     color: #707070;
   }
+
   :focus {
     box-shadow: 0 0 0 0;
     outline: 0;

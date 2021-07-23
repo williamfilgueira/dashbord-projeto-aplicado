@@ -5,29 +5,10 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 540px;
+  height: 350px;
   justify-content: space-between;
 `;
 
-const ContainerUpload = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-const Upload = styled.input`
-  display: none;
-`;
-
-const IconContainer = styled.div`
-  background-color: #fff;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -30px;
-  border-radius: 20px;
-`;
 const SelectContainer = styled.label`
   width: 100%;
   display: flex;
@@ -52,13 +33,32 @@ const Option = styled.option`
   font-size: 0.9rem;
 `;
 
+const ButtonDelete = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 335px;
+    height: 37px;
+    border:none;
+    border-radius: 10px;
+    color: #FFF;
+    background-color: ${theme.colors.red};
+    transition: 0.3s;
+    font-family:${theme.fonts.title};
+    cursor: pointer;
+    font-size: 18px;
+    &:hover{
+        color: ${theme.colors.red};
+        background-color: #FFF;
+    }
+`;
+
 export {
   FormAddMember,
   Label,
   Option,
   Select,
   SelectContainer,
-  ContainerUpload,
-  Upload,
-  IconContainer
+  ButtonDelete
+ 
 };
