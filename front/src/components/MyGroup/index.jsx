@@ -18,7 +18,7 @@ export default function MyGroup({
         <Plus color="#fff" weight="bold" size={16} />
       </ActionContainer>
       <ActionContainer onClick={toggleRolesModal}>
-        <Action>Modificar papéis</Action>
+        <Action>Novo papel</Action>
         <Plus color="#fff" weight="bold" size={16} />
       </ActionContainer>
       <ActionContainer onClick={toggleStatusModal}>

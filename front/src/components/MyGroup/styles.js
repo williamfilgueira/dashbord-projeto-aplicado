@@ -20,6 +20,11 @@ const ActionContainer = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  padding: 10px 10px 10px 5px;
+  border-radius: 3px;
+  &:hover{
+    background-color: ${theme.colors.alterdataSecondaryBlue};
+  }
 `;
 
 const Action = styled.span`
