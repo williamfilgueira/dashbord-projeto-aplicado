@@ -9,7 +9,7 @@ export default function NoMatch() {
            <Imagem src={notFound} alt="" />
            <Title>A página que você procura não foi encontrada :&#40; </Title>
            <Subtitle>Sugerimos que você volte para a página inicial.</Subtitle>
-           <StyledLink to="/login"><ButtonCommon title='VOLTAR PARA A PÁGINA INICIAL'/></StyledLink>
+           <StyledLink to="/login"><ButtonCommon maincolor='blue' title='VOLTAR PARA A PÁGINA INICIAL'/></StyledLink>
         </Container>
     )
 }

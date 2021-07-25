@@ -1,11 +1,11 @@
 import React from 'react';
-import {  FormAddMember, Option, Select, Label, } from './styles';
+import {  FormAddMember } from './styles';
 import Input from '../../Common/Input';
 import ButtonCommon from '../../Common/Button';
 import BaseModal from '../BaseModal';
 
 
-export default function ModalStatus({isOpen, toggleModal, title}) {
+export default function ModalNewTeam({isOpen, toggleModal, title}) {
   return (
       <BaseModal
         isOpen={isOpen}
@@ -14,9 +14,10 @@ export default function ModalStatus({isOpen, toggleModal, title}) {
         close={toggleModal}
         title={title}>
         <FormAddMember>
-          <div>
+      
             <Input placeholder='Nome' />
-          </div>
+            <Input placeholder='Descrição' />
+ 
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
       </BaseModal>

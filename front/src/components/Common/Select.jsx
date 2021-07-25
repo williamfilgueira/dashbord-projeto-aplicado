@@ -6,7 +6,7 @@ export default function Select({ title ,options}) {
   return (
           <SelectContainer>
             <Label for="GET-name">{title}</Label>
-            <SelectAb name="select">
+            <SelectOptions name="select">
               <Option disabled selected></Option>
              {options.map((item) => (
                  <Option value={item.value}>
@@ -15,7 +15,7 @@ export default function Select({ title ,options}) {
              ))}
              
               
-            </SelectAb>
+            </SelectOptions>
             </SelectContainer>
   )
 };
@@ -32,10 +32,10 @@ const Label = styled.label`
   color: white;
 `;
 
-const SelectAb = styled.select`
+const SelectOptions = styled.select`
   border-radius: 8px;
   height: 25px;
-  width: 50%;
+  width: 47%;
   margin-left: 5px;
 `;
 

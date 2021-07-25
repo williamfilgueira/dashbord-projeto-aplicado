@@ -8,7 +8,6 @@ import Select from '../../Common/Select';
 
 export default function ModalNewMember({isOpen, toggleModal, title}) {
   return (
-    <div>
       <BaseModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
@@ -24,12 +23,11 @@ export default function ModalNewMember({isOpen, toggleModal, title}) {
             <Input placeholder='Data de nascimento' required />
           </div>
           <div>
-          <Select title='Selecione o equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
+          <Select title='Selecione a equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
           </div>
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
       </BaseModal>
-    </div>
   )
 
 

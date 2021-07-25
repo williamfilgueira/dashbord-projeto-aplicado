@@ -10,6 +10,7 @@ export default function Sidebar({
   toggleNewMemberModal,
   toggleRolesModal,
   toggleStatusModal,
+  toggleTeamModal
 }) {
   return (
     <Container>
@@ -19,6 +20,7 @@ export default function Sidebar({
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
           toggleStatusModal={toggleStatusModal}
+          toggleTeamModal={toggleTeamModal}
           name="Meu grupo"
         />
         <Group name="Pack 04" />

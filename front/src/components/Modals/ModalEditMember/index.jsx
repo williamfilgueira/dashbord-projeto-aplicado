@@ -7,7 +7,6 @@ import Select from '../../Common/Select';
 
 export default function ModalEditMember({ isOpen, toggleModal, title }) {
   return (
-    <div>
       <BaseModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
@@ -25,6 +24,5 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
           <ButtonDelete>DELETAR MEMBRO</ButtonDelete>
         </FormAddMember>
       </BaseModal>
-    </div>
   )
 };

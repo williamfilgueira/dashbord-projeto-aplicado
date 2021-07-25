@@ -16,7 +16,7 @@ export default function StatusIndicator({color}) {
     return (
         <> 
           <Icon src={Workout} />
-          <Status color={color} >hora do café</Status>
+          <Status color={color} >hora do café</Status> 
         </>
     )
 };

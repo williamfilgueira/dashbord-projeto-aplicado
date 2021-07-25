@@ -4,7 +4,7 @@ import theme from "../../global/theme";
 
 export default function ButtonCommon(props){
     return(
-        <Button>{props.title}</Button>
+        <Button maincolor={props.maincolor}>{props.title}</Button>
     )
 }
 
@@ -16,8 +16,11 @@ const Button = styled.div`
     height: 37px;
     border:none;
     border-radius: 10px;
-    color: ${theme.colors.alterdataBlue};
-    background-color: #FFF;
+    ${props => props.size === 'big' ?'535px' : '335px'};
+    /* color: ${theme.colors.alterdataBlue}; */
+    color: ${props => props.maincolor === 'blue' ? "#fff" : "#03569C"};
+    /* background-color: #FFF; */
+    background-color: ${props => props.maincolor === 'blue' ? "#03569C" : "#fff" }; ;
     transition: 0.3s;
     font-family:${theme.fonts.title};
     cursor: pointer;

@@ -15,7 +15,6 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
   };
 
   return (
-    <div>
       <BaseModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
@@ -34,7 +33,6 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           <ButtonCommon title='CADASTRAR' />
         </FormAddMember>
       </BaseModal>
-    </div>
   )
 
 };

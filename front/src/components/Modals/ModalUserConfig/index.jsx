@@ -10,7 +10,6 @@ import { Camera } from 'phosphor-react';
 
 export default function ModalUserConfig({ isOpen, toggleModal, title }) {
   return (
-    <div>
       <BaseModal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}
@@ -43,6 +42,5 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
           <ButtonCommon title='SALVAR' />
         </FormAddMember>
       </BaseModal>
-    </div>
   )
 };
