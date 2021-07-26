@@ -72,6 +72,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
           />
         </div>
         <ButtonCommon
+          maincolor='blue'
           title="CADASTRAR"
           onClick={() =>
             handleSubmit(name, username, email, password, birthDate)

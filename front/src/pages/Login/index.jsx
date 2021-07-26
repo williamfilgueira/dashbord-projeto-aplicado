@@ -38,7 +38,6 @@ export default function Login() {
           <Input
             id="login"
             placeholder="Login"
-            size="small"
             name="login"
             innerColor="white"
           />
@@ -46,7 +45,6 @@ export default function Login() {
             id="password"
             placeholder="Senha"
             type="password"
-            size="small"
             name="password"
             innerColor="white"
           />
