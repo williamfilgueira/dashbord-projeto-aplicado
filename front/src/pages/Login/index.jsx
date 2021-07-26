@@ -6,7 +6,7 @@ import { StyledLink } from "./style";
 import { Actions } from "./style";
 import Logo from "../../components/Common/Logo";
 import Fundo from "../../assets/images/Fundo.png";
-import Button from "../../components/Common/Button";
+import ButtonCommon from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
 
 export default function Login() {
@@ -54,7 +54,7 @@ export default function Login() {
               <h3>Recuperar senha</h3>
             </StyledLink>
           </RememberPassword>
-          <Button type="subimit">Entrar</Button>
+          <ButtonCommon type="submit" title='ENTRAR'/>
         </Actions>
       </ContainerLogin>
       <img src={Fundo} />

@@ -15,6 +15,7 @@ import ModalStatus from "../../components/Modals/ModalStatus";
 import ModalUserConfig from "../../components/Modals/ModalUserConfig";
 import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
+import styled from "styled-components";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -103,3 +104,4 @@ export default function Dashboard() {
     </ModalProvider>
   );
 }
+

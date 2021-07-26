@@ -10,6 +10,7 @@ const StyledModal = Modal.styled`
   align-items: center;
   background-color: ${theme.colors.alterdataSecondaryBlue};
   border-radius: 10px;
+   box-shadow:  inset 0 0 2px white,  8px 10px 20px 8px black;
 `; 
 
 const Title = styled.h1`

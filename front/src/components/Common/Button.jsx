@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../../global/theme";
 
-export default function ButtonCommon(props) {
-  return <Button maincolor={props.maincolor}>{props.title}</Button>;
+export default function ButtonCommon({maincolor, title, ...rest}) {
+  return <Button {...rest} maincolor={maincolor}>{title}</Button>;
 }
 
 const Button = styled.div`

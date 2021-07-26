@@ -13,4 +13,4 @@ const CardSection = styled.div`
   overflow-y: auto;
 `;
 
-export { Container, CardSection };
+export { Container, CardSection};
