@@ -2,15 +2,6 @@ import Modal from "styled-react-modal";
 import styled from "styled-components";
 import theme from "../../../global/theme";
 
-const StyledModal = Modal.styled`
-  width: 500px;
-  height: 500px;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  background-color: ${theme.colors.alterdataSecondaryBlue};
-  border-radius: 10px;
-`;
 const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
@@ -28,7 +19,7 @@ const HeaderContainer = styled.div`
 const Title = styled.h1`
   font-family: ${theme.fonts.title};
   font-size: 1.37rem;
-  color: white;
+  color: #000;
   text-align: center;
   margin: 20px auto 20px auto;
 `;
@@ -38,7 +29,7 @@ const IconContainer = styled.div`
 `;
 const Label = styled.label`
   font-family: ${theme.fonts.paragraph};
-  color: white;
+  color: #000;
 `;
 
 const Select = styled.select`
@@ -52,7 +43,6 @@ const Option = styled.option`
 `;
 
 export {
-  StyledModal,
   Title,
   FormAddMember,
   Label,

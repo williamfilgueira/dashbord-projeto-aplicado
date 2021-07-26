@@ -25,7 +25,7 @@ const SelectContainer = styled.label`
 
 const Label = styled.label`
   font-family: ${theme.fonts.paragraph};
-  color: white;
+  color: ${theme.colors.alterdataBlue};
 `;
 
 const SelectOptions = styled.select`

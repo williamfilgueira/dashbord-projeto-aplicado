@@ -59,13 +59,6 @@ export default function Dashboard() {
           <Topbar />
           <Scrollbars autoHeightMax="100vh" autoHeight>
             <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
           </Scrollbars>
         </CardSection>
         <Chatbar toggleUserConfigModal={toggleUserConfigModal} />
@@ -104,4 +97,3 @@ export default function Dashboard() {
     </ModalProvider>
   );
 }
-
