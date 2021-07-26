@@ -19,7 +19,7 @@ export const ContainerLogin = styled.div`
   justify-content: space-evenly;
 `;
 
-export const Actions = styled.div`
+export const Actions = styled.form`
   display: flex;
   flex-direction: column;
   margin: 10px;

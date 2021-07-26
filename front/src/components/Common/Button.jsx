@@ -6,7 +6,7 @@ export default function ButtonCommon({ title, ...rest }) {
   return <Button {...rest}>{title}</Button>;
 }
 
-const Button = styled.div`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +18,7 @@ const Button = styled.div`
   background-color: #fff;
   transition: 0.3s;
   font-family: ${theme.fonts.title};
+  text-transform: uppercase;
   cursor: pointer;
   font-size: 18px;
 
