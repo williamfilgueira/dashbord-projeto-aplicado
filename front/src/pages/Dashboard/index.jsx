@@ -61,13 +61,6 @@ export default function Dashboard() {
             <Card toggleCardModal={toggleCardModal} />
             <Card toggleCardModal={toggleCardModal} />
             <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
           </Scrollbars>
         </CardSection>
         <Chatbar toggleUserConfigModal={toggleUserConfigModal} />

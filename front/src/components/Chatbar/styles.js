@@ -13,8 +13,9 @@ const Container = styled.div`
 
 const UserContainer = styled.div`
   display: flex;
-  justify-content: center;
-  width: 350px;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
   height: 65px;
 `;
 
@@ -35,19 +36,21 @@ const InfoContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin-right: 10px;
 `;
 
 const IconsContainer = styled.div`
+  height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
 `;
 
 const Icon = styled.div`
   width: 40px;
   height: 40px;
   cursor: pointer;
+  margin-left: 10px;
 `;
 
 const ChatContainer = styled.div`
@@ -59,6 +62,10 @@ const ChatContainer = styled.div`
   border-radius: 12px;
 `;
 
+const MyAccountContainer = styled.div`
+  display: flex;
+`;
+
 export {
   Container,
   UserContainer,
@@ -68,4 +75,5 @@ export {
   IconsContainer,
   Icon,
   ChatContainer,
+  MyAccountContainer,
 };

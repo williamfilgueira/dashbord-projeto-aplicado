@@ -4,19 +4,27 @@ import theme from "../../../global/theme";
 
 const StyledModal = Modal.styled`
   width: 500px;
-  height: ${props => props.size === 'big' ? '670px' : '500px'};
+  height: ${(props) => {
+    if (props.size === "big") {
+      return "670px";
+    } else if (props.size === "medium") {
+      return "500px";
+    } else {
+      return "400px";
+    }
+  }};
   display: flex;
   flex-direction: column; 
   align-items: center;
-  background-color: ${theme.colors.alterdataSecondaryBlue};
+  background-color: #fff;
   border-radius: 10px;
-   box-shadow:  inset 0 0 2px white,  8px 10px 20px 8px black;
-`; 
+  box-shadow: 5px 8px 30px 3px black;
+`;
 
 const Title = styled.h1`
   font-family: ${theme.fonts.title};
   font-size: 1.37rem;
-  color: white;
+  color: ${theme.colors.alterdataBlue};
   text-align: center;
   margin: 5px 0 10px 0;
 `;
@@ -26,6 +34,7 @@ const IconContainer = styled.div`
   display: flex;
   width: 95%;
   justify-content: flex-end;
+  margin: 10px 20px 0 0;
 `;
 
-export { StyledModal,Title, IconContainer };
+export { StyledModal, Title, IconContainer };

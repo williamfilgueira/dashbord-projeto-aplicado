@@ -35,13 +35,20 @@ export default function Login() {
       <ContainerLogin>
         <Logo />
         <Actions onSubmit={handleSubmit}>
-          <Input id="login" placeholder="Login" size="small" name="login" />
+          <Input
+            id="login"
+            placeholder="Login"
+            size="small"
+            name="login"
+            innerColor="white"
+          />
           <Input
             id="password"
             placeholder="Senha"
             type="password"
             size="small"
             name="password"
+            innerColor="white"
           />
           <RememberPassword>
             <div>
@@ -54,7 +61,7 @@ export default function Login() {
               <h3>Recuperar senha</h3>
             </StyledLink>
           </RememberPassword>
-          <ButtonCommon type="submit" title='ENTRAR'/>
+          <ButtonCommon type="submit" title="ENTRAR" />
         </Actions>
       </ContainerLogin>
       <img src={Fundo} />

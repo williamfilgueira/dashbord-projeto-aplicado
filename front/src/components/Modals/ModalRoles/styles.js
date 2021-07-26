@@ -17,7 +17,7 @@ const ColorPickerContainer = styled.div`
 
 const Label = styled.label`
   font-family: ${theme.fonts.paragraph};
-  color: #fff;
+  color: ${theme.colors.alterdataBlue};
   padding-right: 10px;
 `;
 

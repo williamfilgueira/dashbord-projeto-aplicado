@@ -9,6 +9,7 @@ import {
   Icon,
   Name,
   ChatContainer,
+  MyAccountContainer,
 } from "./styles";
 
 import StatusIndicator from "../Common/StatusIndicator";
@@ -22,13 +23,15 @@ export default function Chatbar({ toggleUserConfigModal }) {
   return (
     <Container>
       <UserContainer>
-        <Avatar src={AvatarImage} small={true} />
-        <InfoContainer>
-          <Name>Mateus</Name>
-          <StatusContainer>
-            <StatusIndicator color="white" />
-          </StatusContainer>
-        </InfoContainer>
+        <MyAccountContainer>
+          <Avatar src={AvatarImage} small={true} />
+          <InfoContainer>
+            <Name>Mateus</Name>
+            <StatusContainer>
+              <StatusIndicator color="white" />
+            </StatusContainer>
+          </InfoContainer>
+        </MyAccountContainer>
         <IconsContainer>
           <Icon>
             <Gear

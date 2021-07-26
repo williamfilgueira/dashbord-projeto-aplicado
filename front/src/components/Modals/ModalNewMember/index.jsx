@@ -29,6 +29,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       onEscapeKeydown={toggleModal}
       close={toggleModal}
       title={title}
+      size="medium"
     >
       <FormAddMember>
         <div>
