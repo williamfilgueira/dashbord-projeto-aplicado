@@ -12,23 +12,19 @@ const StyledModal = Modal.styled`
   border-radius: 10px;
 `; 
 
-const HeaderContainer = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-`;
 const Title = styled.h1`
   font-family: ${theme.fonts.title};
   font-size: 1.37rem;
   color: white;
   text-align: center;
-  margin: 20px auto 20px auto;
+  margin: 5px 0 10px 0;
 `;
 const IconContainer = styled.div`
   cursor: pointer;
-  padding: 15px;
+  padding: 10px 0 0 0;
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
 `;
 
-export { StyledModal,Title, HeaderContainer, IconContainer };
+export { StyledModal,Title, IconContainer };

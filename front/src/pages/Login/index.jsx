@@ -6,7 +6,7 @@ import { StyledLink } from "./style";
 import { Actions } from "./style";
 import Logo from "../../components/Common/Logo";
 import Fundo from "../../assets/images/Fundo.png";
-import { Button } from "../../components/Common/Button";
+import Button from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
 
 export default function Login() {
@@ -41,7 +41,6 @@ export default function Login() {
             placeholder="Senha"
             type="password"
             size="small"
-            type="password"
             name="password"
           />
           <RememberPassword>

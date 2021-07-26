@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { ModalProvider } from "styled-react-modal";
 
-import { Container, CardSection, CardContainer } from "./styles";
+import { Container, CardSection } from "./styles";
 
 import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
@@ -14,6 +14,7 @@ import ModalRoles from "../../components/Modals/ModalRoles";
 import ModalStatus from "../../components/Modals/ModalStatus";
 import ModalUserConfig from "../../components/Modals/ModalUserConfig";
 import ModalEditMember from "../../components/Modals/ModalEditMember";
+import ModalNewTeam from "../../components/Modals/ModalNewTeam";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const [statusModal, setStatusModal] = useState(false);
   const [userConfigModal, setUserConfigModal] = useState(false);
   const [cardModal, setCardModal] = useState(false);
+  const [teamModal, setTeamModal] = useState(false);
 
   function toggleNewMemberModal(e) {
     setNewMemberModal(!newMemberModal);
@@ -39,6 +41,10 @@ export default function Dashboard() {
     setCardModal(!cardModal);
   }
 
+  function toggleTeamModal(e) {
+    setTeamModal(!teamModal);
+  }
+
   return (
     <ModalProvider>
       <Container>
@@ -46,10 +52,18 @@ export default function Dashboard() {
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
           toggleStatusModal={toggleStatusModal}
+          toggleTeamModal={toggleTeamModal}
         />
         <CardSection>
           <Topbar />
           <Scrollbars autoHeightMax="100vh" autoHeight>
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
             <Card toggleCardModal={toggleCardModal} />
           </Scrollbars>
         </CardSection>
@@ -64,7 +78,7 @@ export default function Dashboard() {
       <ModalRoles
         toggleModal={toggleRolesModal}
         isOpen={rolesModal}
-        title="Novo cargo"
+        title="Novo papel"
       />
       <ModalStatus
         toggleModal={toggleStatusModal}
@@ -80,6 +94,11 @@ export default function Dashboard() {
         toggleModal={toggleCardModal}
         isOpen={cardModal}
         title="Editar perfil"
+      />
+      <ModalNewTeam
+        toggleModal={toggleTeamModal}
+        isOpen={teamModal}
+        title="Nova equipe"
       />
     </ModalProvider>
   );

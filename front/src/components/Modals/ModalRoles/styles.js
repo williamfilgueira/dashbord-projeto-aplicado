@@ -1,63 +1,69 @@
-import Modal from "styled-react-modal";
 import styled from "styled-components";
 import theme from "../../../global/theme";
 
-const StyledModal = Modal.styled`
-  width: 500px;
-  height: 500px;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  background-color: ${theme.colors.alterdataSecondaryBlue};
-  border-radius: 10px;
-`;
 const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 330px;
+  height: 200px;
   justify-content: space-between;
+  margin-top: 50px;
 `;
-const HeaderContainer = styled.div`
+
+const ColorPickerContainer = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
 `;
-const Title = styled.h1`
-  font-family: ${theme.fonts.title};
-  font-size: 1.37rem;
-  color: white;
-  text-align: center;
-  margin: 20px auto 20px auto;
-`;
-const IconContainer = styled.div`
-  cursor: pointer;
-  padding: 15px;
-`;
+
 const Label = styled.label`
   font-family: ${theme.fonts.paragraph};
-  color: white;
+  color: #fff;
+  padding-right: 10px;
 `;
 
-const Select = styled.select`
-  border-radius: 3px;
-  height: 25px;
+const ColorPicker = styled.div`
+  display: inline-flex;
+  align-items: center;
+  width: 150px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: #fff;
 `;
 
-const Option = styled.option`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 0.9rem;
+const InputColor = styled.input`
+  border: none;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: none;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  background: none;
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+    width: 22px;
+    height: 22px;
+  }
+  &::-webkit-color-swatch {
+    border: 1px solid #bfc9d9;
+    border-radius: 4px;
+    padding: 0;
+  }
+`;
+
+const InputText = styled.input`
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
 `;
 
 export {
-  StyledModal,
-  Title,
   FormAddMember,
+  ColorPicker,
+  InputColor,
+  InputText,
   Label,
-  Option,
-  Select,
-  HeaderContainer,
-  IconContainer,
+  ColorPickerContainer,
 };

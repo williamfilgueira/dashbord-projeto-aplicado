@@ -15,6 +15,6 @@ const GroupList = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 40px;
 `;
 export { Container, GroupList };

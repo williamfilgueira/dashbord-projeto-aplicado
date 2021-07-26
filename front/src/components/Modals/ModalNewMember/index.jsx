@@ -23,63 +23,60 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   }
 
   return (
-    <div>
-      <BaseModal
-        isOpen={isOpen}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-        close={toggleModal}
-        title={title}
-      >
-        <FormAddMember>
-          <div>
-            <Input
-              placeholder="Nome"
-              required
-              onChange={(event) => setName(event.target.value)}
-            />
-            <Input
-              placeholder="Username"
-              required
-              onChange={(event) => setUsername(event.target.value)}
-            />
-            <Input
-              placeholder="Email"
-              type="email"
-              required
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <Input
-              placeholder="Senha"
-              type="password"
-              minlength="6"
-              required
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <Input
-              placeholder="Data de nascimento"
-              required
-              onChange={(event) => setBirthDate(event.target.value)}
-            />
-          </div>
-          <div>
-            <Select
-              required
-              title="Selecione o equipe:"
-              options={[
-                { title: "Pack-Contabilidade", value: "A" },
-                { title: "Pack-Financeiro", value: "B" },
-              ]}
-            />
-          </div>
-          <ButtonCommon
-            title="CADASTRAR"
-            onClick={() =>
-              handleSubmit(name, username, email, password, birthDate)
-            }
+    <BaseModal
+      isOpen={isOpen}
+      onBackgroundClick={toggleModal}
+      onEscapeKeydown={toggleModal}
+      close={toggleModal}
+      title={title}
+    >
+      <FormAddMember>
+        <div>
+          <Input
+            placeholder="Nome"
+            required
+            onChange={(event) => setName(event.target.value)}
           />
-        </FormAddMember>
-      </BaseModal>
-    </div>
+          <Input
+            placeholder="Username"
+            required
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <Input
+            placeholder="Email"
+            type="email"
+            required
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <Input
+            placeholder="Senha"
+            type="password"
+            minlength="6"
+            required
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <Input
+            placeholder="Data de nascimento"
+            required
+            onChange={(event) => setBirthDate(event.target.value)}
+          />
+        </div>
+        <div>
+          <Select
+            title="Selecione a equipe:"
+            options={[
+              { title: "Pack-Contabilidade", value: "A" },
+              { title: "Pack-Financeiro", value: "B" },
+            ]}
+          />
+        </div>
+        <ButtonCommon
+          title="CADASTRAR"
+          onClick={() =>
+            handleSubmit(name, username, email, password, birthDate)
+          }
+        />
+      </FormAddMember>
+    </BaseModal>
   );
 }

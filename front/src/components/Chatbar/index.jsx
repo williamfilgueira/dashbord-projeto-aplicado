@@ -8,6 +8,7 @@ import {
   IconsContainer,
   Icon,
   Name,
+  ChatContainer,
 } from "./styles";
 
 import StatusIndicator from "../Common/StatusIndicator";
@@ -42,6 +43,8 @@ export default function Chatbar({ toggleUserConfigModal }) {
           </Icon>
         </IconsContainer>
       </UserContainer>
+
+      <ChatContainer></ChatContainer>
     </Container>
   );
 }

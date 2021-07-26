@@ -4,17 +4,13 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   max-height: 100vh;
-`
+`;
 
 const CardSection = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-`
+`;
 
-const CardContainer = styled.div`
-  height: auto;
-`
-
-export {Container ,CardSection, CardContainer}
+export { Container, CardSection };

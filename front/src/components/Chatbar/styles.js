@@ -3,7 +3,8 @@ import theme from "../../global/theme";
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: ${theme.colors.alterdataBlue};
   padding-top: 20px;
   width: 30%;
@@ -49,6 +50,15 @@ const Icon = styled.div`
   cursor: pointer;
 `;
 
+const ChatContainer = styled.div`
+  height: 80%;
+  width: 80%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+`;
+
 export {
   Container,
   UserContainer,
@@ -57,4 +67,5 @@ export {
   InfoContainer,
   IconsContainer,
   Icon,
+  ChatContainer,
 };

@@ -10,23 +10,9 @@ const GroupContainer = styled.div`
 const GroupName = styled.span`
   font-family: ${theme.fonts.paragraph};
   font-size: 20px;
-  margin-bottom: 25px;
   color: #fff;
   display: flex;
+  margin-bottom: 20px;
 `;
 
-const ActionContainer = styled.div`
-  margin: 10px 0 10px 0;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-`;
-
-const Action = styled.span`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 15px;
-  color: #fff;
-  display: flex;
-`;
-
-export { GroupContainer, GroupName, Action, ActionContainer };
+export { GroupContainer, GroupName };

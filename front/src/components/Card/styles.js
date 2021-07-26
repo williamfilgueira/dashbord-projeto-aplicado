@@ -11,10 +11,14 @@ const Container = styled.div`
   margin-top: 35px;
   margin-right: 10%;
   margin-left: 10%;
-
   overflow: hidden;
   box-shadow: 0px 5px 10px ${theme.colors.gray};
   cursor: pointer;
+  transition: all ease 0.2s;
+  &:hover{
+    margin-left: 12%;
+    margin-right: 8%;
+  }
 `;
 
 const InfoContainer = styled.div`
