@@ -109,6 +109,8 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
           ]}
         />
         <ButtonCommon
+          maincolor='blue'
+          title="SALVAR"
           onClick={() => {
             handleSubmit(
               name,
@@ -119,7 +121,6 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
               newBirthDate
             );
           }}
-          title="SALVAR"
         />
       </FormAddMember>
     </BaseModal>

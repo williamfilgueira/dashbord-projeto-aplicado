@@ -6,7 +6,7 @@ const StyledModal = Modal.styled`
   width: 500px;
   height: ${(props) => {
     if (props.size === "big") {
-      return "670px";
+      return "700px";
     } else if (props.size === "medium") {
       return "500px";
     } else {
@@ -37,4 +37,24 @@ const IconContainer = styled.div`
   margin: 10px 20px 0 0;
 `;
 
-export { StyledModal, Title, IconContainer };
+const ButtonIcon= styled.button`
+cursor: pointer;
+width: 30px;
+height: 30px;
+border-radius: 18px;
+border: 2px solid ${theme.colors.alterdataBlue};
+color: ${theme.colors.alterdataBlue};
+font-size: 1.05rem;
+font-weight: 750;
+font-family:${theme.fonts.paragraph};
+display: flex;
+justify-content: center;
+align-items: center;
+&:hover{
+  background-color:${theme.colors.alterdataBlue};
+  color: #fff;
+}
+`;
+
+
+export { StyledModal, Title, IconContainer,ButtonIcon };

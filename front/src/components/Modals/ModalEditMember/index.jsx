@@ -13,6 +13,7 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
         onEscapeKeydown={toggleModal}
         close={toggleModal}
         title={title}
+        size='medium'
        >
         <FormAddMember>
           <div>
@@ -20,7 +21,7 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
           </div>
           <Select title='Selecione a papel:' options={[{ title: 'Bombeiro', value: 'A' }, { title: 'Merge', value: 'B' }]} />
           <Select title='Selecione o equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
-          <ButtonCommon title='SALVAR' />
+          <ButtonCommon maincolor='blue' title='SALVAR' />
           <ButtonDelete>DELETAR MEMBRO</ButtonDelete>
         </FormAddMember>
       </BaseModal>
