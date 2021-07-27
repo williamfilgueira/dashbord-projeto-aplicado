@@ -18,7 +18,7 @@ const Button = styled.div`
   height: 37px;
   border: none;
   border-radius: 10px;
-  ${(props) => (props.size === "big" ? "535px" : "335px")};
+  width: ${(props) => (props.size === "big" ? "535px" : "335px")};
   /* color: ${theme.colors.alterdataBlue}; */
   color: ${(props) => (props.maincolor === "blue" ? "#fff" : "#03569C")};
   /* background-color: #FFF; */

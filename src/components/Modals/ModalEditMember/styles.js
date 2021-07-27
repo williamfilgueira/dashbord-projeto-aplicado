@@ -48,8 +48,8 @@ const ButtonDelete = styled.button`
     cursor: pointer;
     font-size: 18px;
     &:hover{
-        color: ${theme.colors.red};
-        background-color: #FFF;
+        color: #FFF;
+        background-color: #C70010;
     }
 `;
 

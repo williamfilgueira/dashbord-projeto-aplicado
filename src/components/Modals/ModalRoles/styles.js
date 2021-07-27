@@ -28,7 +28,7 @@ const ColorPicker = styled.div`
   padding: 4px 12px;
   border-radius: 4px;
   background-color: #fff;
-  border: 1px solid ${theme.colors.gray};
+  border: 1px solid ${theme.colors.lightGray};
 `;
 
 const InputColor = styled.input`
