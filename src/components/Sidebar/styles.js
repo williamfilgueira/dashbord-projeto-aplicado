@@ -7,7 +7,7 @@ const Container = styled.div`
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};
   padding: 30px 30px 0 30px;
-  width: 20%;
+  width: 340px;
   height: 100vh;
 `;
 

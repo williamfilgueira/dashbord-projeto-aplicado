@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { ModalProvider } from "styled-react-modal";
 
-import { Container, CardSection, CardSelecao } from "./styles";
+import { Container, CardSection, CardContainer } from "./styles";
 
 import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
@@ -49,6 +49,7 @@ export default function Dashboard() {
   return (
     <ModalProvider>
       <Container>
+        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
         <Sidebar
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
@@ -56,19 +57,18 @@ export default function Dashboard() {
           toggleTeamModal={toggleTeamModal}
         />
         <CardSection>
-
-          <Topbar toggleUserConfigModal={toggleUserConfigModal}/>
-          <Scrollbars autoHeightMax="90vh" autoHeight>
-            <CardSelecao>
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            <Card toggleCardModal={toggleCardModal} />
-            
-            </CardSelecao>
-         </Scrollbars>
+          <Scrollbars autoHeightMax="100%">
+            <CardContainer>
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+            </CardContainer>
+          </Scrollbars>
         </CardSection>
         {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
       </Container>
@@ -106,5 +106,3 @@ export default function Dashboard() {
     </ModalProvider>
   );
 }
-
-

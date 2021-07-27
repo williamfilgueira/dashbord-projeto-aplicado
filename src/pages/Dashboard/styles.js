@@ -9,13 +9,13 @@ const Container = styled.div`
 
 const CardSection = styled.div`
   width: 100%;
-  overflow-y: auto;
+  margin-top: 100px;
 `;
 
-const CardSelecao = styled.div`
-flex-direction: row;
-display: flex;
-flex-wrap: wrap;
+const CardContainer = styled.div`
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-export { Container, CardSection, CardSelecao};
+export { Container, CardSection, CardContainer };

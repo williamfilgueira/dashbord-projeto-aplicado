@@ -28,15 +28,15 @@ const InputContainer = styled.div`
   /* width: ${(props) => (props.size === "big" ? "535px" : "335px")}; */
   width: ${(props) => {
     if (props.size === "big") {
-      return "535px";
+      return "40%";
     } else if (props.size === "small") {
       return "50px";
     } else {
       return "335px";
     }
-    }};
+  }};
   height: 40px;
-  border: 1px solid ${theme.colors.gray}; 
+  border: 1px solid ${theme.colors.gray};
   border-radius: 10px;
   background: ${(props) =>
     props.innerColor === "white" ? "#fff" : theme.colors.gray};

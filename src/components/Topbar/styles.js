@@ -2,10 +2,14 @@ import styled from "styled-components";
 import theme from "../../global/theme";
 
 const Container = styled.div`
+  position: fixed;
+  padding-left: 35px;
+  top: 0;
+  width: 100vw;
   display: flex;
-  width: auto;
-  padding-left: 70x;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   background-color: ${theme.colors.alterdataBlue};
   height: 100px;
 `;
@@ -14,8 +18,8 @@ const UserContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
   height: 65px;
+  width: 400px;
 `;
 
 const Name = styled.h1`
@@ -31,7 +35,7 @@ const StatusContainer = styled.div`
 `;
 
 const InfoContainer = styled.div`
-  margin-left: 700px;
+  margin-left: 20px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -52,21 +56,21 @@ const Icon = styled.div`
   margin-left: 10px;
 `;
 
- const ChatContainer = styled.div`
-   height: 80%;
-   width: 80%;
-   margin-top: 40px;
-   margin-bottom: 40px;
-   background-color: #fff;
-   border-radius: 12px;
- `;
+const ChatContainer = styled.div`
+  height: 80%;
+  width: 80%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+`;
 
 const MyAccountContainer = styled.div`
   display: flex;
 `;
 
-export { Container, 
-
+export {
+  Container,
   UserContainer,
   Name,
   StatusContainer,

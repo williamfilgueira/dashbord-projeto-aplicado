@@ -4,7 +4,6 @@ import { Container, GroupList } from "./styles";
 
 import Group from "../Group";
 import MyGroup from "../MyGroup";
-import Logo from "../Common/Logo";
 
 export default function Sidebar({
   toggleNewMemberModal,
@@ -14,7 +13,6 @@ export default function Sidebar({
 }) {
   return (
     <Container>
-      <Logo />
       <GroupList>
         <MyGroup
           toggleNewMemberModal={toggleNewMemberModal}
