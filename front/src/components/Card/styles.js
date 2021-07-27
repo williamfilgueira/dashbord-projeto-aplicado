@@ -6,10 +6,9 @@ const Container = styled.div`
   flex-direction: row;
   background-color: ${theme.colors.gray};
   height: 120px;
-  width: auto;
+  width: 30%;
   border-radius: 20px;
   margin-top: 35px;
-  margin-right: 10%;
   margin-left: 10%;
   overflow: hidden;
   box-shadow: 0px 5px 10px ${theme.colors.gray};
@@ -17,7 +16,6 @@ const Container = styled.div`
   transition: all ease 0.2s;
   &:hover{
     margin-left: 12%;
-    margin-right: 8%;
   }
 `;
 

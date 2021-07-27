@@ -4,13 +4,18 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   max-height: 100vh;
+  position: absolute;
 `;
 
 const CardSection = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   overflow-y: auto;
 `;
 
-export { Container, CardSection};
+const CardSelecao = styled.div`
+flex-direction: row;
+display: flex;
+flex-wrap: wrap;
+`;
+
+export { Container, CardSection, CardSelecao};

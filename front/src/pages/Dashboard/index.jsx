@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { ModalProvider } from "styled-react-modal";
 
-import { Container, CardSection } from "./styles";
+import { Container, CardSection, CardSelecao } from "./styles";
 
 import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
@@ -56,12 +56,21 @@ export default function Dashboard() {
           toggleTeamModal={toggleTeamModal}
         />
         <CardSection>
-          <Topbar />
+          <Topbar toggleUserConfigModal={toggleUserConfigModal}/>
           <Scrollbars autoHeightMax="100vh" autoHeight>
+            <CardSelecao>
+              
             <Card toggleCardModal={toggleCardModal} />
-          </Scrollbars>
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            <Card toggleCardModal={toggleCardModal} />
+            
+            </CardSelecao>
+         </Scrollbars>
         </CardSection>
-        <Chatbar toggleUserConfigModal={toggleUserConfigModal} />
+        {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
       </Container>
 
       <ModalNewMember
