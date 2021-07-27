@@ -3,7 +3,7 @@ import {
   Container,
   ContainerLogin,
   RememberPassword,
-  ContainerImage
+  ContainerImage,
 } from "./style";
 import { StyledLink } from "./style";
 import { Actions } from "./style";
@@ -12,25 +12,26 @@ import Fundo from "../../assets/images/Fundo.png";
 import ButtonCommon from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
 
+import { newSession } from "../../api/api.auth";
+
 export default function Login() {
-  function handleSubmit(event) {
-    event.preventDefault();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [remindMe, setRemindMe] = useState(false);
 
-    const { login, password, remindme } = event.target;
+  function handleSubmit(username, password, remindMe) {
+    // const userData = {
+    //   login: username,
+    //   password: password,
+    //   remindme: remindMe,
+    // };
+    // const remindmeIsChecked = userData.remindme;
+    // const remindmeAlreadyExist = !!localStorage.getItem("userData");
+    // remindmeIsChecked &&
+    //   !remindmeAlreadyExist &&
+    //   localStorage.setItem("userData", JSON.stringify(userData));
 
-    const userData = {
-      login: login.value,
-      password: password.value,
-      remindme: remindme.checked,
-    };
-
-    const remindmeIsChecked = userData.remindme;
-    const remindmeAlreadyExist = !!localStorage.getItem("userData");
-    console.log(remindmeAlreadyExist);
-
-    remindmeIsChecked &&
-      !remindmeAlreadyExist &&
-      localStorage.setItem("userData", JSON.stringify(userData));
+    newSession(username, password).then((res) => console.log(res));
   }
 
   return (
@@ -43,6 +44,7 @@ export default function Login() {
             placeholder="Login"
             name="login"
             innerColor="white"
+            onChange={(event) => setUsername(event.target.value)}
           />
           <Input
             id="password"
@@ -50,10 +52,10 @@ export default function Login() {
             type="password"
             name="password"
             innerColor="white"
+            onChange={(event) => setPassword(event.target.value)}
           />
           <RememberPassword>
             <div>
-              <input type="checkbox" name="remindme" />
               <h3>Lembrar</h3>
             </div>
 
@@ -62,7 +64,11 @@ export default function Login() {
               <h3>Recuperar senha</h3>
             </StyledLink>
           </RememberPassword>
-          <ButtonCommon type="submit" title="ENTRAR" />
+          <ButtonCommon
+            onClick={() => handleSubmit(username, password, remindMe)}
+            type="submit"
+            title="ENTRAR"
+          />
         </Actions>
       </ContainerLogin>
       <ContainerImage>

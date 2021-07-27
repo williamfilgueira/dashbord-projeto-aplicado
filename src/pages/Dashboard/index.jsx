@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { ModalProvider } from "styled-react-modal";
 
@@ -17,6 +17,8 @@ import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
 import styled from "styled-components";
 
+import { getAllUsers } from "../../api/api.user";
+
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
   const [rolesModal, setRolesModal] = useState(false);
@@ -24,6 +26,18 @@ export default function Dashboard() {
   const [userConfigModal, setUserConfigModal] = useState(false);
   const [cardModal, setCardModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getAllUsers()
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err))
+      .finally(() => {
+        console.log("Terminei a promise(finally)");
+      });
+    // setUsers();
+  }, []);
 
   function toggleNewMemberModal(e) {
     setNewMemberModal(!newMemberModal);
@@ -59,14 +73,9 @@ export default function Dashboard() {
         <CardSection>
           <Scrollbars autoHeightMax="100%">
             <CardContainer>
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
-              <Card toggleCardModal={toggleCardModal} />
+              {users.map((item) => (
+                <Card toggleCardModal={toggleCardModal} />
+              ))}
             </CardContainer>
           </Scrollbars>
         </CardSection>

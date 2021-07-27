@@ -5,6 +5,9 @@ import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import Select from "../../Common/Select";
 
+import { createUser } from "../../../api/api.user";
+import User from "../../../models/user";
+
 export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -13,13 +16,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [birthDate, setBirthDate] = useState("");
 
   function handleSubmit(name, username, email, password, birthDate) {
-    console.log({
-      name: name,
-      username: username,
-      email: email,
-      password: password,
-      birthDate: birthDate,
-    });
+    createUser(new User(name, username, email, password, birthDate));
   }
 
   return (
@@ -72,7 +69,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
           />
         </div>
         <ButtonCommon
-          maincolor='blue'
+          maincolor="blue"
           title="CADASTRAR"
           onClick={() =>
             handleSubmit(name, username, email, password, birthDate)
