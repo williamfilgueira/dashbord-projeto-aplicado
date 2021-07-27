@@ -36,6 +36,7 @@ const InputContainer = styled.div`
     }
     }};
   height: 40px;
+  border: 1px solid ${theme.colors.gray}; 
   border-radius: 10px;
   background: ${(props) =>
     props.innerColor === "white" ? "#fff" : theme.colors.gray};

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Container } from "./style";
-import { ContainerLogin } from "./style";
-import { RememberPassword } from "./style";
+import {
+  Container,
+  ContainerLogin,
+  RememberPassword,
+  ContainerImage
+} from "./style";
 import { StyledLink } from "./style";
 import { Actions } from "./style";
 import Logo from "../../components/Common/Logo";
@@ -62,7 +65,9 @@ export default function Login() {
           <ButtonCommon type="submit" title="ENTRAR" />
         </Actions>
       </ContainerLogin>
-      <img src={Fundo} />
+      <ContainerImage>
+        <img src={Fundo} />
+      </ContainerImage>
     </Container>
   );
 }

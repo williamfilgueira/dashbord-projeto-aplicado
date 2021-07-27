@@ -6,16 +6,19 @@ export const Container = styled.section`
   display: flex;
   height: 100vh;
   background-color: black;
+  
 `;
 
 export const ContainerLogin = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  width: 490px;
   height: 100%;
   background-color: #03569c;
-  justify-content: space-evenly;
+  @media screen and (max-width:600px){
+    flex:1;
+}
 `;
 
 export const Actions = styled.form`
@@ -84,3 +87,16 @@ export const StyledLink = styled(Link)`
     text-decoration: none;
   }
 `;
+
+export const ContainerImage = styled.div`
+  display:flex;
+  justify-content: center;
+  overflow:hidden;
+  @media screen and (max-width:600px){
+      display:none;
+  }
+  img{
+    height: 100%;
+  }
+
+`

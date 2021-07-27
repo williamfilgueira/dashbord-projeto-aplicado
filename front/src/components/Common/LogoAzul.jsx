@@ -5,7 +5,8 @@ import React from 'react';
 import logo_azul from '../../assets/images/logo_azul.png';
 
 const AlterdataLogoAzul = styled.img`
-    width: 70%;
+        width: 230px;
+
 
 `
 
