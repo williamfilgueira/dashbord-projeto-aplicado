@@ -6,7 +6,6 @@ const Container = styled.div`
   flex-direction: row;
   background-color: ${theme.colors.lightGray};
   height: 120px;
-  width: 450px;
   border-radius: 20px;
   margin-top: 35px;
 
@@ -19,6 +18,14 @@ const Container = styled.div`
   transition: all 0.3s ease-in-out;
   &:hover {
     transform: translate(0, -5px);
+  }
+
+  width: 450px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: 250px;
+  }
+  @media screen and (min-width: ${theme.breakpoints.lg}) {
+    width: 650px;
   }
 `;
 

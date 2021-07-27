@@ -10,10 +10,15 @@ const theme = {
     lightGray: "#DEDEDE",
     darkerGray: "#555555",
   },
-
   fonts: {
     title: "Rajdhani",
     paragraph: "Inter",
+  },
+  breakpoints: {
+    sm: "600px",
+    md: "960px",
+    lg: "1440px",
+    xl: "1920px",
   },
 };
 export default theme;

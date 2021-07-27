@@ -16,6 +16,7 @@ const CardContainer = styled.div`
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export { Container, CardSection, CardContainer };
