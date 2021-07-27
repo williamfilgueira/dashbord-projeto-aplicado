@@ -24,7 +24,7 @@ export const Actions = styled.form`
   display: flex;
   flex-direction: column;
   margin: 10px;
-  h3 {
+  div {
     display: flex;
     padding: 5px;
     font-size: 10px;
@@ -35,7 +35,6 @@ export const RememberPassword = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
   div {
     align-items: center;
     input {

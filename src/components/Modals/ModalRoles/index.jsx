@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function ModalRoles({ isOpen, toggleModal, title }) {
   
-  const [color, updateColor] = useState("#03569C");
+  const [color, updateColor] = useState("#FFFFFF");
 
   const handleInput = e => {
     updateColor(e.target.value);
