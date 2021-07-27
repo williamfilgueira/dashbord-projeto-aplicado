@@ -5,27 +5,29 @@ import theme from "../../global/theme";
 export const Container = styled.div`
   display: flex;
   height: 100vh;
-`;
-
-export const ContainerImage = styled.div`
-  display: flex;
-  background-color: black;
-  width: 600px;
-  img {
-    width: 600px;
+  justify-content: center;
+  > img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
     height: 100vh;
   }
-  `;
+`;
+
 export const ContainerResetPassword = styled.div`
-display: flex;
+  z-index: 1000;
+  display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
   align-items: center;
   width: 550px;
-  height: 50vh;
-  margin-top: 100px;
-  margin-left: 100px;
+  height: 100%;
+
+  background-color: #fff;
+  @media screen and (max-width: 600px) {
+    flex:1;
+  }
   h3 {
     /* margin-top: 80px;
     margin-bottom: 80px; */
@@ -35,8 +37,7 @@ display: flex;
     color: ${theme.colors.alterdataBlue};
     font-family: ${theme.fonts.paragraph};
   }
-  
-  `;
+`;
 export const Button = styled.button`
   background-color: red;
   height: 40px;
@@ -45,11 +46,13 @@ export const Button = styled.button`
   font-size: large;
   font-family: ${theme.fonts.title};
   border-radius: 10px;
+  border: none;
   background-color: ${theme.colors.alterdataBlue};
   transition: 0.3s;
-  :hover{
-    color:${theme.colors.alterdataBlue};
+  :hover {
+    color: ${theme.colors.alterdataBlue};
+    border: 1px solid silver;
     background-color: white;
     cursor: pointer;
   }
-`
+`;

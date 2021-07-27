@@ -27,6 +27,7 @@ const InputContainer = styled.div`
   align-items: center;
   width: ${(props) => (props.size === "big" ? "535px" : "335px")};
   height: 40px;
+  border: 1px solid ${theme.colors.gray}; 
   border-radius: 10px;
   background: ${(props) =>
     props.innerColor === "white" ? "#fff" : theme.colors.gray};
