@@ -6,7 +6,6 @@ export const Container = styled.section`
   display: flex;
   height: 100vh;
   background-color: black;
-  
 `;
 
 export const ContainerLogin = styled.div`
@@ -16,9 +15,9 @@ export const ContainerLogin = styled.div`
   align-items: center;
   height: 100%;
   background-color: #03569c;
-  @media screen and (max-width:600px){
-    flex:1;
-}
+  @media screen and (max-width: 600px) {
+    flex: 1;
+  }
 `;
 
 export const Actions = styled.form`
@@ -78,7 +77,7 @@ export const StyledLink = styled(Link)`
     font-weight: 100;
   }
   :hover {
-    color: ${theme.colors.gray};
+    color: ${theme.colors.lightGray};
   }
   &:focus,
   &:visited,
@@ -89,14 +88,13 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ContainerImage = styled.div`
-  display:flex;
+  display: flex;
   justify-content: center;
-  overflow:hidden;
-  @media screen and (max-width:600px){
-      display:none;
+  overflow: hidden;
+  @media screen and (max-width: 600px) {
+    display: none;
   }
-  img{
+  img {
     height: 100%;
   }
-
-`
+`;

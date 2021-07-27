@@ -7,8 +7,8 @@ const theme = {
     black: "#1A2228",
     alterdataBlue: "#03569C",
     alterdataSecondaryBlue: "#161736",
-    gray: "#DEDEDE",
-    grey: "#555555",
+    lightGray: "#DEDEDE",
+    darkerGray: "#555555",
   },
 
   fonts: {

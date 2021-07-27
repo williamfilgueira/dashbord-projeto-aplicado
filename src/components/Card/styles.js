@@ -4,22 +4,21 @@ import theme from "../../global/theme";
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: ${theme.colors.gray};
+  background-color: ${theme.colors.lightGray};
   height: 120px;
-  width: 30%;
+  width: 450px;
   border-radius: 20px;
   margin-top: 35px;
 
-
   //margin-bottom: 35px;
-  //margin-right: 10%;
-  margin-left: 10%;
+  margin-right: auto;
+  margin-left: auto;
   overflow: hidden;
-  box-shadow: 0px 5px 10px ${theme.colors.gray};
+  /* box-shadow: 0px 5px 15px ${theme.colors.lightGray}; */
   cursor: pointer;
-  transition: all ease 0.2s;
-  &:hover{
-    margin-left: 12%;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translate(0, -5px);
   }
 `;
 

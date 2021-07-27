@@ -36,17 +36,17 @@ const InputContainer = styled.div`
     }
   }};
   height: 40px;
-  border: 1px solid ${theme.colors.gray};
+  border: 1px solid ${theme.colors.lightGray};
   border-radius: 10px;
   background: ${(props) =>
-    props.innerColor === "white" ? "#fff" : theme.colors.gray};
+    props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
   overflow: hidden;
   margin: 5px;
 `;
 
 const CustomInput = styled.input`
   background: ${(props) =>
-    props.innerColor === "white" ? "#fff" : theme.colors.gray};
+    props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
   font-family: ${theme.fonts.paragraph};
   padding-left: 14px;
   padding-right: 14px;
@@ -70,5 +70,5 @@ const IconContainer = styled.div`
   justify-content: center;
   margin-right: 12px;
   padding-left: 12px;
-  border-left: 1px solid ${theme.colors.gray};
+  border-left: 1px solid ${theme.colors.lightGray};
 `;
