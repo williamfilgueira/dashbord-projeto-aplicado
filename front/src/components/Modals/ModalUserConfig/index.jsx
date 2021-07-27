@@ -46,7 +46,7 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
           <ContainerUpload>
             <Avatar src={avatar} />
             <IconContainer>
-              <label for="file-input">
+              <label htmlFor="file-input">
                 <Camera size={24} color="#03569C" weight="bold" />
               </label>
               <Upload id="file-input" type="file" />
