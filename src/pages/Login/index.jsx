@@ -14,6 +14,7 @@ import Input from "../../components/Common/Input";
 
 import { newSession } from "../../api/api.auth";
 
+// import { makeStyles } from '@material-ui/core/styles';
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,8 +32,11 @@ export default function Login() {
     //   !remindmeAlreadyExist &&
     //   localStorage.setItem("userData", JSON.stringify(userData));
 
-    newSession(username, password).then((res) => console.log(res));
+    if (!username || !password) {
+      alert("Favor informar e-mail e senha");
+    }else newSession(username, password).then((res) => console.log(res));
   }
+  
 
   return (
     <Container>
