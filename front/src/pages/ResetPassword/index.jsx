@@ -6,7 +6,7 @@ import { ContainerResetPassword } from "./styles";
 import { StyledLink } from "../Login/style";
 import { Button } from "./styles";
 import AlterdataLogoAzul from "../../components/Common/LogoAzul";
-import Fundo from "../../assets/images/Fundo.png";
+import fundo2 from "../../assets/images/fundo2.jpg";
 
 import Input from "../../components/Common/Input";
 export default function ResetPassword() {
@@ -20,9 +20,8 @@ export default function ResetPassword() {
 
   return (
     <Container>
-      <ContainerImage>
-        <img src={Fundo} />
-      </ContainerImage>
+        <img src={fundo2} />
+
       <ContainerResetPassword>
         <AlterdataLogoAzul />
         <h3>Esqueceu sua senha?</h3>
@@ -30,8 +29,8 @@ export default function ResetPassword() {
           type="mail"
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
-          size="small"
           innerColor="white"
+          
         />
         <Button onClick={() => handleSubmit(email)}>ENVIAR</Button>
         <StyledLink to="login">

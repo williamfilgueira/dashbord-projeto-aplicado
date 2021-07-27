@@ -56,10 +56,10 @@ export default function Dashboard() {
           toggleTeamModal={toggleTeamModal}
         />
         <CardSection>
+
           <Topbar toggleUserConfigModal={toggleUserConfigModal}/>
-          <Scrollbars autoHeightMax="100vh" autoHeight>
+          <Scrollbars autoHeightMax="90vh" autoHeight>
             <CardSelecao>
-              
             <Card toggleCardModal={toggleCardModal} />
             <Card toggleCardModal={toggleCardModal} />
             <Card toggleCardModal={toggleCardModal} />
@@ -106,3 +106,5 @@ export default function Dashboard() {
     </ModalProvider>
   );
 }
+
+

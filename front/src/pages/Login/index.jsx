@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Container } from "./style";
-import { ContainerLogin } from "./style";
-import { RememberPassword } from "./style";
+import {
+  Container,
+  ContainerLogin,
+  RememberPassword,
+  ContainerImage
+} from "./style";
 import { StyledLink } from "./style";
 import { Actions } from "./style";
 import Logo from "../../components/Common/Logo";
@@ -38,7 +41,6 @@ export default function Login() {
           <Input
             id="login"
             placeholder="Login"
-            size="small"
             name="login"
             innerColor="white"
           />
@@ -46,7 +48,6 @@ export default function Login() {
             id="password"
             placeholder="Senha"
             type="password"
-            size="small"
             name="password"
             innerColor="white"
           />
@@ -64,7 +65,9 @@ export default function Login() {
           <ButtonCommon type="submit" title="ENTRAR" />
         </Actions>
       </ContainerLogin>
-      <img src={Fundo} />
+      <ContainerImage>
+        <img src={Fundo} />
+      </ContainerImage>
     </Container>
   );
 }

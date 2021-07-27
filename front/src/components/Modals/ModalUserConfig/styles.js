@@ -5,7 +5,7 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 540px;
+  height: 560px;
   justify-content: space-between;
 `;
 

@@ -30,7 +30,7 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           <InputText type="text" value={color}/>
           </ColorPicker>
           </ColorPickerContainer>
-          <ButtonCommon title='CADASTRAR' />
+          <ButtonCommon maincolor='blue' title='CADASTRAR' />
         </FormAddMember>
       </BaseModal>
   )
