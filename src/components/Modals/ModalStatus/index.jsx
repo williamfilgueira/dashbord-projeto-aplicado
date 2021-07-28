@@ -30,6 +30,7 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
       size='big'
+      mediaSize='big'
     >
       <FormAddMember>
         <ContainerEmojiPicker>

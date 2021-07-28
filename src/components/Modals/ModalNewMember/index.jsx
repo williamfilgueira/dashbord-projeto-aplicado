@@ -30,6 +30,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
       size="medium"
+      mediaSize="medium"
     >
       <FormAddMember>
       <ContainerInput>

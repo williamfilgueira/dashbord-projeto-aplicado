@@ -42,19 +42,18 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
       size="big"
+      mediaSize="big"
     >
       <FormAddMember>
-        <div>
           <ContainerUpload>
-            <Avatar src={avatar} />
+            <Avatar src={avatar} mediaSize/>
             <IconContainer>
               <label htmlFor="file-input">
-                <Camera size={24} color="#03569C" weight="bold" />
+                <Camera size={20} color="#03569C" weight="bold"/>
               </label>
               <Upload id="file-input" type="file" />
             </IconContainer>
           </ContainerUpload>
-        </div>
         <ContainerInput>
         <Input
             placeholder="Nome"

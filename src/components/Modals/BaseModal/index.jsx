@@ -8,6 +8,7 @@ export default function BaseModal({
   title,
   children,
   size,
+  mediaSize
 }){
 
   return (
@@ -16,6 +17,7 @@ export default function BaseModal({
         isOpen={isOpen}
         onBackgroundClick={onBackgroundClick}
         size={size}
+        mediaSize={mediaSize}
         /*onEscapeKeydown={toggleNewUserModal}*/
       >
         <IconContainer onClick={close}>

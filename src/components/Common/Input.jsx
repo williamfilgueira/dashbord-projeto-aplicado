@@ -51,6 +51,8 @@ const InputContainer = styled.div`
     } else {
       return "88%";
     }}};
+
+    height: ${(props) => props.mediaSize === "regular" ? "40px" : "30px"};
   }
 `;
 const CustomInput = styled.input`

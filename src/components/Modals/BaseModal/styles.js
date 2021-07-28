@@ -22,6 +22,15 @@ const StyledModal = Modal.styled`
   
   @media screen and (max-width: 600px) {
     width: 90%;
+    height: ${(props) => {
+      if(props.mediaSize === 'big'){
+        return '95%';
+      }else if (props.mediaSize === "medium"){
+        return '75%';
+      }else {
+        return'60%';
+      }
+       }}
   }
 `;
 

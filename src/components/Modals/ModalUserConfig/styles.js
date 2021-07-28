@@ -5,8 +5,12 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 565px;
+  height: 570px;
   justify-content: space-between;
+
+  @media screen and (max-width: 600px){
+    height: 490px;
+  }
 `;
 
 const ContainerUpload = styled.div`
@@ -33,6 +37,13 @@ const IconContainer = styled.div`
   align-items: center;
   margin-top: -30px;
   border-radius: 20px;
+  @media screen and (max-width: 600px) {
+    width: 25px;
+    height: 25px;
+    margin-top: -20px;
+    margin-right: -8px;
+    border-radius: -20px;
+  }
 `;
 
 const ContainerSelect = styled.section`
@@ -40,6 +51,7 @@ height: 12%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+margin-bottom: 15px;
 @media screen and (max-width: 600px) {
   width: 90%;
   height: 20%;
