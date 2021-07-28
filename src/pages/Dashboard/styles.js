@@ -4,7 +4,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   max-height: 100vh;
-  position: absolute;
 `;
 
 const CardSection = styled.div`
@@ -13,8 +12,8 @@ const CardSection = styled.div`
 `;
 
 const CardContainer = styled.div`
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 `;

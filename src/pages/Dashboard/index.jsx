@@ -31,11 +31,7 @@ export default function Dashboard() {
   useEffect(() => {
     getAllUsers()
       .then((res) => console.log(res))
-      .catch((err) => console.error(err))
-      .finally(() => {
-        console.log("Terminei a promise(finally)");
-      });
-    // setUsers();
+      .catch((err) => console.error(err));
   }, []);
 
   function toggleNewMemberModal(e) {
@@ -62,19 +58,25 @@ export default function Dashboard() {
   return (
     <ModalProvider>
       <Container>
-        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
-        <Sidebar
+        {/* <Sidebar
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
           toggleStatusModal={toggleStatusModal}
           toggleTeamModal={toggleTeamModal}
-        />
+        /> */}
+        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
         <CardSection>
-          <Scrollbars autoHeightMax="100%">
+          <Scrollbars autoHeightMax="100%" autoHeight>
             <CardContainer>
-              {users.map((item) => (
-                <Card toggleCardModal={toggleCardModal} />
-              ))}
+              {users.map((item) => {
+                // const {} = item;
+                return <Card toggleCardModal={toggleCardModal} />;
+              })}
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
             </CardContainer>
           </Scrollbars>
         </CardSection>

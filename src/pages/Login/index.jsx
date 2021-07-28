@@ -14,29 +14,27 @@ import Input from "../../components/Common/Input";
 
 import { newSession } from "../../api/api.auth";
 
+import { useHistory } from "react-router-dom";
+
 // import { makeStyles } from '@material-ui/core/styles';
 export default function Login() {
+  const history = useHistory();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [remindMe, setRemindMe] = useState(false);
 
   function handleSubmit(username, password, remindMe) {
-    // const userData = {
-    //   login: username,
-    //   password: password,
-    //   remindme: remindMe,
-    // };
-    // const remindmeIsChecked = userData.remindme;
-    // const remindmeAlreadyExist = !!localStorage.getItem("userData");
-    // remindmeIsChecked &&
-    //   !remindmeAlreadyExist &&
-    //   localStorage.setItem("userData", JSON.stringify(userData));
-
-    if (!username || !password) {
-      alert("Favor informar e-mail e senha");
-    }else newSession(username, password).then((res) => console.log(res));
+    // if (!username || !password) {
+    //   alert("Favor informar e-mail e senha");
+    // } else
+    newSession(username, password)
+      .then((res) => {
+        localStorage.setItem("token", res.headers.authorization);
+        history.push("/");
+      })
+      .catch((err) => console.error(err));
   }
-  
 
   return (
     <Container>

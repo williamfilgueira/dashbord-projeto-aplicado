@@ -8,6 +8,7 @@ export default function Input({ icon, size, innerColor, mediaSize, ...rest }) {
   return (
     <InputContainer innerColor={innerColor} size={size} mediaSize={mediaSize}>
       <CustomInput innerColor={innerColor} {...rest} />
+
       {icon === "MagnifyingGlass" ? (
         <IconContainer>
           <MagnifyingGlass weight="regular" size={28} color="#707070" />
@@ -25,7 +26,6 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: ${(props) => (props.size === "big" ? "535px" : "335px")}; */
   width: ${(props) => {
     if (props.size === "big") {
       return "40%";
@@ -33,7 +33,13 @@ const InputContainer = styled.div`
       return "50px";
     } else {
       return "335px";
-    }}};
+    }
+  }};
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   height: 40px;
   border: 1px solid ${theme.colors.lightGray};
   border-radius: 10px;
@@ -82,4 +88,7 @@ const IconContainer = styled.div`
   margin-right: 12px;
   padding-left: 12px;
   border-left: 1px solid ${theme.colors.lightGray};
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
