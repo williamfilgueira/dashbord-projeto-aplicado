@@ -4,6 +4,8 @@ import {
   ContainerUpload,
   Upload,
   IconContainer,
+  ContainerInput,
+  ContainerSelect
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
@@ -53,8 +55,8 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
             </IconContainer>
           </ContainerUpload>
         </div>
-        <div>
-          <Input
+        <ContainerInput>
+        <Input
             placeholder="Nome"
             onChange={(event) => {
               setName(event.target.value);
@@ -93,7 +95,8 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
               setNewBirthDate(event.target.value);
             }}
           />
-        </div>
+        </ContainerInput> 
+        <ContainerSelect>
         <Select
           title="Selecione a papel:"
           options={[
@@ -108,6 +111,7 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
             { title: "Pack-Financeiro", value: "B" },
           ]}
         />
+          </ContainerSelect>  
         <ButtonCommon
           maincolor='blue'
           title="SALVAR"

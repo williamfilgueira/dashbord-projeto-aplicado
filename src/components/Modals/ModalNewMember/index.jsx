@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { FormAddMember } from "./styles";
+import { FormAddMember, ContainerInput, ContainerSelect } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
@@ -15,8 +15,11 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("");
 
+  // var birthDateFormat = birthDate.split('-').reverse().join('/');
+
   function handleSubmit(name, username, email, password, birthDate) {
     createUser(new User(name, username, email, password, birthDate));
+    console.log(name, username, email, password, /*birthDateFormat*/);
   }
 
   return (
@@ -29,8 +32,8 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       size="medium"
     >
       <FormAddMember>
-        <div>
-          <Input
+      <ContainerInput>
+      <Input
             placeholder="Nome"
             required
             onChange={(event) => setName(event.target.value)}
@@ -58,16 +61,18 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
             required
             onChange={(event) => setBirthDate(event.target.value)}
           />
-        </div>
-        <div>
-          <Select
+       
+      </ContainerInput>
+         
+        <ContainerSelect>
+        <Select
             title="Selecione a equipe:"
             options={[
               { title: "Pack-Contabilidade", value: "A" },
               { title: "Pack-Financeiro", value: "B" },
             ]}
           />
-        </div>
+        </ContainerSelect>
         <ButtonCommon
           maincolor="blue"
           title="CADASTRAR"

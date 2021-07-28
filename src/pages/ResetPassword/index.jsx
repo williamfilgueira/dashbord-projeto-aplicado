@@ -30,6 +30,7 @@ export default function ResetPassword() {
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
           innerColor="white"
+          mediaSize='regular'
           
         />
         <Button onClick={() => handleSubmit(email)}>ENVIAR</Button>

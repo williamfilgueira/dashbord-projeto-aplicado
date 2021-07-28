@@ -3,6 +3,7 @@ import { FormAddMember } from './styles';
 import Input from '../../Common/Input';
 import ButtonCommon from '../../Common/Button';
 import BaseModal from '../BaseModal';
+import {createTeam} from '../../../api/api.team'
 
 
 export default function ModalNewTeam({ isOpen, toggleModal, title }) {
@@ -15,6 +16,8 @@ export default function ModalNewTeam({ isOpen, toggleModal, title }) {
       description: description
     }
     );
+
+    createTeam(name, description).then((res) => console.log(res)); 
   }
 
   return (

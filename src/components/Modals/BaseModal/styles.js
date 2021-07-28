@@ -19,6 +19,10 @@ const StyledModal = Modal.styled`
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 5px 8px 30px 3px black;
+  
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.h1`

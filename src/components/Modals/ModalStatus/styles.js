@@ -18,6 +18,9 @@ const Label = styled.label`
 
 const ContainerInput = styled.div`
   display: flex;
+  @media screen and (max-width: 600px) {
+    width: 85%;
+}
 `;
 
 const  ContainerEmojiPicker= styled.div`
