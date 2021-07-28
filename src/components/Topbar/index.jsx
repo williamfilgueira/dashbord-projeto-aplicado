@@ -21,7 +21,6 @@ import Logo from "../Common/Logo";
 
 export default function Topbar({ toggleUserConfigModal }) {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
-
   const [hamburguer, setHamburguer] = useState(false);
 
   function handleHamburguer() {

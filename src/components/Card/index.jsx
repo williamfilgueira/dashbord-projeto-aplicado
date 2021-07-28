@@ -14,20 +14,32 @@ import {
 import StatusIndicator from "../Common/StatusIndicator";
 
 import avatar from "../../assets/images/Avatar.png";
-export default function Card({ toggleCardModal }) {
+export default function Card({ toggleCardModal, data }) {
+  const {
+    dtNascimento,
+    email,
+    equipe,
+    id,
+    imagem,
+    nickName,
+    nome,
+    papel,
+    status,
+    userName,
+  } = data;
   return (
     <Container onClick={toggleCardModal}>
       <Avatar src={avatar} />
       <InfoContainer>
-        <Name>Mateus</Name>
-        <Username>mateus.dsn.pack</Username>
+        <Name>{nome}</Name>
+        <Username>{userName}</Username>
         <StatusContainer>
-          <StatusIndicator />
+          <StatusIndicator title={status} />
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>
         <Flag />
-        <Position>cargo</Position>
+        <Position>{papel}</Position>
       </PositionContainer>
     </Container>
   );
