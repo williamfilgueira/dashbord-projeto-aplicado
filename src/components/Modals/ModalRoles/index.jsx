@@ -8,10 +8,10 @@ import { useState } from 'react';
 
 export default function ModalRoles({ isOpen, toggleModal, title }) {
   
-  const [color, updateColor] = useState("#03569C");
+  const [color, setColor] = useState("#03569C");
 
   const handleInput = e => {
-    updateColor(e.target.value);
+    setColor(e.target.value);
   };
 
   return (
@@ -26,8 +26,8 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           <ColorPickerContainer>
           <Label>Escolha uma cor: </Label>
           <ColorPicker onChange={handleInput}>
-          <InputColor type="color" value={color}/>
-          <InputText type="text" value={color}/>
+          <InputColor type="color" value={color} onChange={(event) => setColor(event.target.value)}/>
+          <InputText type="text" value={color} onChange={(event) => setColor(event.target.value)}/>
           </ColorPicker>
           </ColorPickerContainer>
           <ButtonCommon maincolor='blue' title='CADASTRAR' />

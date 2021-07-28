@@ -15,7 +15,6 @@ import ModalStatus from "../../components/Modals/ModalStatus";
 import ModalUserConfig from "../../components/Modals/ModalUserConfig";
 import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
-import styled from "styled-components";
 
 import { getAllUsers } from "../../api/api.user";
 

@@ -5,11 +5,11 @@ import styled from "styled-components";
 export default function Select({ title, options }) {
   return (
     <SelectContainer>
-      <Label for="GET-name">{title}</Label>
+      <Label htmlFor="GET-name">{title}</Label>
       <SelectOptions name="select">
         <Option disabled selected></Option>
-        {options.map((item) => (
-          <Option value={item.value}>{item.title}</Option>
+        {options.map((item, index) => (
+          <Option key={index} value={item.value}>{item.title}</Option>
         ))}
       </SelectOptions>
     </SelectContainer>
