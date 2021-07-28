@@ -32,11 +32,7 @@ export default function Dashboard() {
   useEffect(() => {
     getAllUsers()
       .then((res) => console.log(res))
-      .catch((err) => console.error(err))
-      .finally(() => {
-        console.log("Terminei a promise(finally)");
-      });
-    // setUsers();
+      .catch((err) => console.error(err));
   }, []);
 
   function toggleNewMemberModal(e) {
@@ -73,9 +69,10 @@ export default function Dashboard() {
         <CardSection>
           <Scrollbars autoHeightMax="100%">
             <CardContainer>
-              {users.map((item) => (
-                <Card toggleCardModal={toggleCardModal} />
-              ))}
+              {users.map((item) => {
+                // const {} = item;
+                return <Card toggleCardModal={toggleCardModal} />;
+              })}
             </CardContainer>
           </Scrollbars>
         </CardSection>
