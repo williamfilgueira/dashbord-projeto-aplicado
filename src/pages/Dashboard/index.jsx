@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { ModalProvider } from "styled-react-modal";
+import { useHistory } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
-import { Container, CardSection, CardContainer } from "./styles";
+import {
+  Container,
+  CardSection,
+  CardContainer,
+  LoaderContainer,
+} from "./styles";
 
 import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
@@ -15,9 +22,9 @@ import ModalStatus from "../../components/Modals/ModalStatus";
 import ModalUserConfig from "../../components/Modals/ModalUserConfig";
 import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
-import styled from "styled-components";
 
 import { getAllUsers } from "../../api/api.user";
+import theme from "../../global/theme";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -27,12 +34,19 @@ export default function Dashboard() {
   const [cardModal, setCardModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
 
+  const history = useHistory();
+
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getAllUsers()
-      .then((res) => setUsers(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => history.push("/login"))
+      .finally(() => setLoading(false));
   }, []);
 
   function toggleNewMemberModal(e) {
@@ -59,23 +73,38 @@ export default function Dashboard() {
   return (
     <ModalProvider>
       <Container>
-        <Sidebar
-          toggleNewMemberModal={toggleNewMemberModal}
-          toggleRolesModal={toggleRolesModal}
-          toggleStatusModal={toggleStatusModal}
-          toggleTeamModal={toggleTeamModal}
-        />
-        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
-        <CardSection>
-          <Scrollbars autoHeightMax="100%" autoHeight>
-            <CardContainer>
-              {users.map((item) => {
-                return <Card data={item} toggleCardModal={toggleCardModal} />;
-              })}
-            </CardContainer>
-          </Scrollbars>
-        </CardSection>
-        {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
+        {loading ? (
+          <LoaderContainer>
+            <Loader
+              type="ThreeDots"
+              color={theme.colors.alterdataBlue}
+              height={230}
+              width={230}
+            />
+          </LoaderContainer>
+        ) : (
+          <>
+            <Sidebar
+              toggleNewMemberModal={toggleNewMemberModal}
+              toggleRolesModal={toggleRolesModal}
+              toggleStatusModal={toggleStatusModal}
+              toggleTeamModal={toggleTeamModal}
+            />
+            <Topbar toggleUserConfigModal={toggleUserConfigModal} />
+            <CardSection>
+              <Scrollbars autoHeightMax="100%" autoHeight>
+                <CardContainer>
+                  {users.map((item) => {
+                    return (
+                      <Card data={item} toggleCardModal={toggleCardModal} />
+                    );
+                  })}
+                </CardContainer>
+              </Scrollbars>
+            </CardSection>
+            {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
+          </>
+        )}
       </Container>
 
       <ModalNewMember
