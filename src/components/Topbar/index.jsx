@@ -9,11 +9,10 @@ import {
   Name,
   MyAccountContainer,
 } from "./styles";
-
+import HamburgerMenu from "react-hamburger-menu";
 import Input from "../Common/Input";
 import StatusIndicator from "../Common/StatusIndicator";
 import Avatar from "../Common/Avatar";
-
 import { SignOut, Gear } from "phosphor-react";
 
 import AvatarImage from "../../assets/images/Avatar.png";
@@ -22,6 +21,12 @@ import Logo from "../Common/Logo";
 
 export default function Topbar({ toggleUserConfigModal }) {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
+
+  const [hamburguer, setHamburguer] = useState(false);
+
+  function handleHamburguer() {
+    setHamburguer(!hamburguer);
+  }
 
   const updateMedia = () => {
     setDesktop(window.innerWidth > 1000);
@@ -33,7 +38,22 @@ export default function Topbar({ toggleUserConfigModal }) {
   });
   return (
     <Container>
-      {isDesktop && <Logo />}
+      {isDesktop ? (
+        <Logo />
+      ) : (
+        <HamburgerMenu
+          isOpen={hamburguer}
+          menuClicked={handleHamburguer}
+          width={32}
+          height={24}
+          strokeWidth={3}
+          rotate={0}
+          color="#fff"
+          borderRadius={0}
+          animationDuration={0.5}
+        />
+      )}
+
       <Input
         placeholder="Pesquise pelo login"
         icon="MagnifyingGlass"

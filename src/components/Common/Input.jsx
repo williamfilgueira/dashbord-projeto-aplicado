@@ -36,7 +36,7 @@ const InputContainer = styled.div`
     }
   }};
   @media screen and (max-width: 1000px) {
-    width: 80%;
+    width: 240px;
     margin-left: auto;
     margin-right: auto;
   }
