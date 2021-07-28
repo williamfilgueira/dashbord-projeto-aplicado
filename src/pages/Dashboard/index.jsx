@@ -59,15 +59,15 @@ export default function Dashboard() {
   return (
     <ModalProvider>
       <Container>
-        <Sidebar
+        {/* <Sidebar
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
           toggleStatusModal={toggleStatusModal}
           toggleTeamModal={toggleTeamModal}
-        />
+        /> */}
         <Topbar toggleUserConfigModal={toggleUserConfigModal} />
         <CardSection>
-          <Scrollbars autoHeightMax="100%">
+          <Scrollbars autoHeightMax="100%" autoHeight>
             <CardContainer>
               {users.map((item) => {
                 // const {} = item;

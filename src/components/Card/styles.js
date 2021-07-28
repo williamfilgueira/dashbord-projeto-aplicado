@@ -8,7 +8,6 @@ const Container = styled.div`
   height: 120px;
   border-radius: 20px;
   margin-top: 35px;
-
   //margin-bottom: 35px;
   margin-right: auto;
   margin-left: 50px;

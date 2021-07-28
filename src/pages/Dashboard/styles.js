@@ -12,8 +12,8 @@ const CardSection = styled.div`
 `;
 
 const CardContainer = styled.div`
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 `;
