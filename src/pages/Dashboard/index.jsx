@@ -59,13 +59,13 @@ export default function Dashboard() {
   return (
     <ModalProvider>
       <Container>
-        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
         <Sidebar
           toggleNewMemberModal={toggleNewMemberModal}
           toggleRolesModal={toggleRolesModal}
           toggleStatusModal={toggleStatusModal}
           toggleTeamModal={toggleTeamModal}
         />
+        <Topbar toggleUserConfigModal={toggleUserConfigModal} />
         <CardSection>
           <Scrollbars autoHeightMax="100%">
             <CardContainer>
@@ -73,6 +73,11 @@ export default function Dashboard() {
                 // const {} = item;
                 return <Card toggleCardModal={toggleCardModal} />;
               })}
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
+              <Card toggleCardModal={toggleCardModal} />
             </CardContainer>
           </Scrollbars>
         </CardSection>

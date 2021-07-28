@@ -4,7 +4,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   max-height: 100vh;
-  position: absolute;
 `;
 
 const CardSection = styled.div`
