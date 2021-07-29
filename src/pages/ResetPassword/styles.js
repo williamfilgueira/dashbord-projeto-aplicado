@@ -24,6 +24,7 @@ export const ContainerResetPassword = styled.div`
   height: 100%;
 
   background-color: #fff;
+
   @media screen and (max-width: 600px) {
     flex: 1;
   }
@@ -35,7 +36,7 @@ export const ContainerResetPassword = styled.div`
     margin-bottom: 20px;
   }
   h3 {
-    margin-top: 60px;
+    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 15px;
     font-weight: 100;
@@ -44,12 +45,17 @@ export const ContainerResetPassword = styled.div`
   }
 `;
 
-export const ContainerIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ContainerImage = styled.div`
+    /* display: flex; */
 
-`;
+    img{
+      margin-top: 50px;
+      width: 130px;
+
+    }
+`
+
+
 
 export const Button = styled.button`
   background-color: red;

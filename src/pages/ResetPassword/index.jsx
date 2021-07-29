@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 
-import { Container, ContainerResetPassword, Button } from "./styles";
+import {
+  Container,
+  ContainerResetPassword,
+  ContainerImage,
+  Button,
+} from "./styles";
 import { StyledLink } from "../Login/style";
 import { sendEmail } from "../../api/api.email";
+
 import AlterdataLogoAzul from "../../components/Common/LogoAzul";
+import cadeado from "../../assets/images/cadeado.jpg";
 import fundo2 from "../../assets/images/fundo2.jpg";
 
 import Input from "../../components/Common/Input";
@@ -22,6 +29,9 @@ export default function ResetPassword() {
 
       <ContainerResetPassword>
         <AlterdataLogoAzul />
+        <ContainerImage>
+          <img src={cadeado} />
+        </ContainerImage>
         <h3>Esqueceu sua senha?</h3>
         <h2>Entre com o seu nome de usuário</h2>
         <Input
@@ -30,6 +40,7 @@ export default function ResetPassword() {
           onChange={(event) => setUserName(event.target.value)}
           innerColor="white"
           mediaSize="regular"
+          icon="User"
         />
         <Button onClick={() => handleSubmit(userName)}>ENVIAR</Button>
         <StyledLink to="login">
