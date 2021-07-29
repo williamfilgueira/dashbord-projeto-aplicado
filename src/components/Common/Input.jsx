@@ -64,7 +64,15 @@ const InputContainer = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    width: ${(props) => (props.mediaSize === "small" ? "60px" : "235px")};
+    width: ${(props) => {;
+    if (props.mediaSize === "regular") {
+        return "328px";
+      } else if (props.mediaSize === "small") {
+        return "60px";
+      } else {
+        return "235px";
+      }
+    }};
     margin-right: ${(props) => (props.mediaSize === "small" ? "10px" : "0")}; ;
 
   }

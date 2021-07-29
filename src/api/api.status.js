@@ -1,11 +1,12 @@
 import { app } from "./index";
 
-export function createStatus(name, description) {
+export function createStatus(name, description, emoji) {
   return new Promise(async (resolve, reject) => {
     return app
       .post("/status", {
         nome: name,
         descricao: description,
+        emoji: emoji
       })
       .then((response) => resolve(response))
       .catch((error) => reject(error));
