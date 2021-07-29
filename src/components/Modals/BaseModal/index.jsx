@@ -1,8 +1,5 @@
 import React from "react";
 import { StyledModal, Title, IconContainer,ButtonIcon} from "./styles";
-import { XCircle } from "phosphor-react";
-import theme from "../../../global/theme";
-import { useState } from "react";
 
 export default function BaseModal({
   onBackgroundClick,
@@ -11,6 +8,7 @@ export default function BaseModal({
   title,
   children,
   size,
+  mediaSize
 }){
 
   return (
@@ -19,14 +17,10 @@ export default function BaseModal({
         isOpen={isOpen}
         onBackgroundClick={onBackgroundClick}
         size={size}
+        mediaSize={mediaSize}
         /*onEscapeKeydown={toggleNewUserModal}*/
       >
         <IconContainer onClick={close}>
-        {/* <XCircle
-            size={35}
-            color={theme.colors.alterdataBlue}
-            weight="regular"
-          />  */}
           <ButtonIcon>
            X
             </ButtonIcon>

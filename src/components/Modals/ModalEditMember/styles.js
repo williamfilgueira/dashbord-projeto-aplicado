@@ -9,29 +9,12 @@ const FormAddMember = styled.form`
   justify-content: space-between;
 `;
 
-const SelectContainer = styled.label`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Label = styled.label`
-  font-family: ${theme.fonts.paragraph};
-  color: white;
-`;
-
-const Select = styled.select`
-  border-radius: 8px;
-  height: 25px;
-  width: 50%;
-  margin-left: 5px;
-`;
-
-const Option = styled.option`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 0.9rem;
-`;
+const ContainerSelect = styled.section`
+@media screen and (max-width: 600px) {
+  width: 90%;
+  margin-bottom: 10px;
+}
+`
 
 const ButtonDelete = styled.button`
     display: flex;
@@ -48,17 +31,14 @@ const ButtonDelete = styled.button`
     cursor: pointer;
     font-size: 18px;
     &:hover{
-        color: ${theme.colors.red};
-        background-color: #FFF;
+        color: #FFF;
+        background-color: #C70010;
     }
 `;
 
 export {
   FormAddMember,
-  Label,
-  Option,
-  Select,
-  SelectContainer,
+  ContainerSelect,
   ButtonDelete
  
 };

@@ -4,9 +4,9 @@ import React from "react";
 
 import { MagnifyingGlass, PaperPlaneTilt } from "phosphor-react";
 
-export default function Input({ icon, size, innerColor, ...rest }) {
+export default function Input({ icon, size, innerColor, mediaSize, ...rest }) {
   return (
-    <InputContainer innerColor={innerColor} size={size}>
+    <InputContainer innerColor={innerColor} size={size} mediaSize={mediaSize}>
       <CustomInput innerColor={innerColor} {...rest} />
 
       {icon === "MagnifyingGlass" ? (
@@ -35,11 +35,6 @@ const InputContainer = styled.div`
       return "335px";
     }
   }};
-  @media screen and (max-width: 1000px) {
-    width: 240px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   height: 40px;
   border: 1px solid ${theme.colors.lightGray};
   border-radius: 10px;
@@ -47,8 +42,21 @@ const InputContainer = styled.div`
     props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
   overflow: hidden;
   margin: 5px;
-`;
 
+  @media screen and (max-width: 600px) {
+    width: ${(props) => {
+      if (props.mediaSize === "regular") {
+        return "335px";
+      } else if (props.mediaSize === "small") {
+        return "40px";
+      } else {
+        return "88%";
+      }
+    }};
+
+    height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
+  }
+`;
 const CustomInput = styled.input`
   background: ${(props) =>
     props.innerColor === "white" ? "#fff" : theme.colors.lightGray};

@@ -5,8 +5,12 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 560px;
+  height: 570px;
   justify-content: space-between;
+
+  @media screen and (max-width: 600px){
+    height: 490px;
+  }
 `;
 
 const ContainerUpload = styled.div`
@@ -18,6 +22,12 @@ const Upload = styled.input`
   display: none;
 `;
 
+const ContainerInput = styled.section`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
+
 const IconContainer = styled.div`
   background-color: #fff;
   width: 30px;
@@ -27,38 +37,33 @@ const IconContainer = styled.div`
   align-items: center;
   margin-top: -30px;
   border-radius: 20px;
-`;
-const SelectContainer = styled.label`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Label = styled.label`
-  font-family: ${theme.fonts.paragraph};
-  color: white;
+  @media screen and (max-width: 600px) {
+    width: 25px;
+    height: 25px;
+    margin-top: -20px;
+    margin-right: -8px;
+    border-radius: -20px;
+  }
 `;
 
-const Select = styled.select`
-  border-radius: 8px;
-  height: 25px;
-  width: 50%;
-  margin-left: 5px;
-`;
-
-const Option = styled.option`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 0.9rem;
-`;
+const ContainerSelect = styled.section`
+height: 12%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin-bottom: 15px;
+@media screen and (max-width: 600px) {
+  width: 90%;
+  height: 20%;
+  margin-bottom: 10px;
+}
+`
 
 export {
   FormAddMember,
-  Label,
-  Option,
-  Select,
-  SelectContainer,
   ContainerUpload,
   Upload,
-  IconContainer
+  IconContainer,
+  ContainerInput,
+  ContainerSelect
 };

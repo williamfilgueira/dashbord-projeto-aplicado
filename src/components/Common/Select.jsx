@@ -5,11 +5,11 @@ import styled from "styled-components";
 export default function Select({ title, options }) {
   return (
     <SelectContainer>
-      <Label for="GET-name">{title}</Label>
+      <Label htmlFor="GET-name">{title}</Label>
       <SelectOptions name="select">
         <Option disabled selected></Option>
-        {options.map((item) => (
-          <Option value={item.value}>{item.title}</Option>
+        {options.map((item, index) => (
+          <Option key={index} value={item.value}>{item.title}</Option>
         ))}
       </SelectOptions>
     </SelectContainer>
@@ -21,6 +21,11 @@ const SelectContainer = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media screen and (max-width: 600px){
+    flex-direction: column;
+  }
+
 `;
 
 const Label = styled.label`
@@ -33,6 +38,11 @@ const SelectOptions = styled.select`
   height: 25px;
   width: 47%;
   margin-left: 5px;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin-top: 5px;
+  }
 `;
 
 const Option = styled.option`

@@ -5,20 +5,27 @@ const FormAddMember = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 200px;
+  height: 220px;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 const ColorPickerContainer = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const Label = styled.label`
   font-family: ${theme.fonts.paragraph};
   color: ${theme.colors.alterdataBlue};
   padding-right: 10px;
+  @media screen and (max-width: 600px) {
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 const ColorPicker = styled.div`
@@ -28,7 +35,10 @@ const ColorPicker = styled.div`
   padding: 4px 12px;
   border-radius: 4px;
   background-color: #fff;
-  border: 1px solid ${theme.colors.gray};
+  border: 1px solid ${theme.colors.lightGray};
+  @media screen and (max-width: 600px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const InputColor = styled.input`

@@ -1,11 +1,12 @@
 import { app } from "./index";
 
-export function createRole(name, description) {
+export function createRole(name, description, color) {
   return new Promise(async (resolve, reject) => {
     return app
       .post("/papel", {
         nome: name,
         descricao: description,
+        color: color
       })
       .then((response) => resolve(response))
       .catch((error) => reject(error));

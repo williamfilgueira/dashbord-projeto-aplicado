@@ -46,6 +46,7 @@ export default function Login() {
             name="login"
             innerColor="white"
             onChange={(event) => setUsername(event.target.value)}
+            mediaSize='regular'
           />
           <Input
             id="password"
@@ -54,6 +55,7 @@ export default function Login() {
             name="password"
             innerColor="white"
             onChange={(event) => setPassword(event.target.value)}
+            mediaSize='regular'
           />
           <RememberPassword>
             <div>
@@ -68,6 +70,7 @@ export default function Login() {
           <ButtonCommon
             onClick={() => handleSubmit(username, password, remindMe)}
             type="submit"
+            mediaSize="regular"
             title="ENTRAR"
           />
         </Actions>
