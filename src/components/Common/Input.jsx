@@ -50,8 +50,7 @@ const InputContainer = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    margin-right: none;
-    margin-left: none;
+   
     width: ${(props) => {
       if (props.mediaSize === "regular") {
         return "235px";
@@ -61,8 +60,13 @@ const InputContainer = styled.div`
         return "88%";
       }
     }};
-    margin-right: 30px;
     height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: ${(props) => (props.mediaSize === "small" ? "60px" : "235px")};
+    margin-right: ${(props) => (props.mediaSize === "small" ? "10px" : "0")}; ;
+
   }
 
 
@@ -85,6 +89,17 @@ const CustomInput = styled.input`
     box-shadow: 0 0 0 0;
     outline: 0;
   }
+
+  @media screen and (max-width: 600px) {
+    margin-left: ${(props) => (props.sizeInput === "small" ? "0px" : "14px")};
+
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-left: ${(props) => (props.sizeInput === "small" ? "10px" : "0px")};
+
+  }
+
 `;
 
 const IconContainer = styled.div`

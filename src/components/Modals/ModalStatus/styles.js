@@ -1,4 +1,3 @@
-import Modal from "styled-react-modal";
 import styled from "styled-components";
 import theme from "../../../global/theme";
 
@@ -20,8 +19,9 @@ const ContainerInput = styled.div`
   display: flex;
   width: 70%;
   @media screen and (max-width: 600px) {
-    width: 85%;
+    width: 92%;
     justify-content: space-between;
+    
 }
 `;
 

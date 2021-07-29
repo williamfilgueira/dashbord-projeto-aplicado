@@ -11,6 +11,10 @@ const FormAddMember = styled.form`
   @media screen and (max-width: 600px){
     height: 490px;
   }
+
+  @media screen and (max-width: 1440px){
+    height: 505px;
+  }
 `;
 
 const ContainerUpload = styled.div`

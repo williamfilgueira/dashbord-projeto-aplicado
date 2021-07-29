@@ -38,19 +38,19 @@ export default function Dashboard() {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    window.addEventListener("resize", updateMedia);
-    getAllUsers()
-      .then((res) => {
-        setUsers(res.data);
-      })
-      .catch((err) => history.push("/login"))
-      .finally(() => setLoading(false));
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   window.addEventListener("resize", updateMedia);
+  //   getAllUsers()
+  //     .then((res) => {
+  //       setUsers(res.data);
+  //     })
+  //     .catch((err) => history.push("/login"))
+  //     .finally(() => setLoading(false));
+  //   return () => window.removeEventListener("resize", updateMedia);
+  // }, []);
 
   function toggleNewMemberModal(e) {
     setNewMemberModal(!newMemberModal);
