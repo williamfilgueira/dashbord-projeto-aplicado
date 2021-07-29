@@ -18,26 +18,39 @@ export const ContainerResetPassword = styled.div`
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 550px;
   height: 100%;
 
   background-color: #fff;
   @media screen and (max-width: 600px) {
-    flex:1;
+    flex: 1;
+  }
+  h2 {
+    font-size: 15px;
+    font-weight: 100;
+    color: ${theme.colors.alterdataBlue};
+    font-family: ${theme.fonts.paragraph};
+    margin-bottom: 20px;
   }
   h3 {
-    /* margin-top: 80px;
-    margin-bottom: 80px; */
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: 10px;
     font-size: 15px;
     font-weight: 100;
     color: ${theme.colors.alterdataBlue};
     font-family: ${theme.fonts.paragraph};
   }
 `;
+
+export const ContainerIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+`;
+
 export const Button = styled.button`
   background-color: red;
   height: 40px;
