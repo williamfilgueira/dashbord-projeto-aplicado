@@ -21,7 +21,7 @@ const Container = styled.div`
     }
   }};
   transition: all ease-in-out 0.5s;
-
+  z-index: 1000;
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};

@@ -10,11 +10,13 @@ const Container = styled.div`
   margin-top: 35px;
   //margin-bottom: 35px;
   margin-right: auto;
-  margin-left: 50px;
+  margin-left: 30px;
+
   overflow: hidden;
   /* box-shadow: 0px 5px 15px ${theme.colors.lightGray}; */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     transform: translate(0, -5px);
   }
@@ -22,8 +24,8 @@ const Container = styled.div`
   width: 450px;
   @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: 100%;
-    margin-right: 30px;
-    margin-left: 30px;
+    margin-right: 35px;
+    margin-left: 15px;
   }
   @media screen and (min-width: ${theme.breakpoints.lg}) {
     width: 650px;
