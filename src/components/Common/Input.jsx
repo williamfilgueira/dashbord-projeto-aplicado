@@ -43,17 +43,25 @@ const InputContainer = styled.div`
   overflow: hidden;
   margin: 5px;
 
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   @media screen and (max-width: 600px) {
+    margin-right: none;
+    margin-left: none;
     width: ${(props) => {
       if (props.mediaSize === "regular") {
-        return "335px";
+        return "235px";
       } else if (props.mediaSize === "small") {
         return "40px";
       } else {
         return "88%";
       }
     }};
-
+    margin-right: 30px;
     height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
   }
 `;

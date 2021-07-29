@@ -21,7 +21,9 @@ const Container = styled.div`
 
   width: 450px;
   @media screen and (max-width: ${theme.breakpoints.sm}) {
-    width: 250px;
+    width: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
   }
   @media screen and (min-width: ${theme.breakpoints.lg}) {
     width: 650px;

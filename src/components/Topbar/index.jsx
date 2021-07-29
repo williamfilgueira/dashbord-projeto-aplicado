@@ -52,12 +52,15 @@ export default function Topbar({
           animationDuration={0.5}
         />
       )}
-      <Input
-        placeholder="Pesquise pelo login"
-        icon="MagnifyingGlass"
-        size="big"
-        innerColor="white"
-      />
+      {!hamburguerMenu && (
+        <Input
+          placeholder="Pesquise pelo login"
+          icon="MagnifyingGlass"
+          size="big"
+          mediaSize="regular"
+          innerColor="white"
+        />
+      )}
       {isDesktop && (
         <UserContainer>
           <MyAccountContainer>

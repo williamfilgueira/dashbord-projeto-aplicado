@@ -42,12 +42,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     setLoading(true);
+    window.addEventListener("resize", updateMedia);
     getAllUsers()
       .then((res) => {
         setUsers(res.data);
       })
       .catch((err) => history.push("/login"))
       .finally(() => setLoading(false));
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   function toggleNewMemberModal(e) {
@@ -75,6 +77,12 @@ export default function Dashboard() {
     setHamburguerMenu(!hamburguerMenu);
   }
 
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 1000);
+  };
+
   return (
     <ModalProvider>
       <Container>
@@ -95,13 +103,14 @@ export default function Dashboard() {
               toggleStatusModal={toggleStatusModal}
               toggleTeamModal={toggleTeamModal}
               isOpen={hamburguerMenu}
+              isDesktop={isDesktop}
             />
             <Topbar
               toggleUserConfigModal={toggleUserConfigModal}
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}
             />
-            <CardSection>
+            <CardSection isOpen={hamburguerMenu} isDesktop={isDesktop}>
               <Scrollbars autoHeightMax="100%" autoHeight>
                 <CardContainer>
                   {users.map((item) => {
