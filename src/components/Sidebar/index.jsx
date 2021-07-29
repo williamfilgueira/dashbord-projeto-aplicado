@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Container, GroupList } from "./styles";
 
@@ -10,9 +10,11 @@ export default function Sidebar({
   toggleRolesModal,
   toggleStatusModal,
   toggleTeamModal,
+  isOpen,
+  isDesktop,
 }) {
   return (
-    <Container>
+    <Container isOpen={isOpen} isDesktop={isDesktop}>
       <GroupList>
         <MyGroup
           toggleNewMemberModal={toggleNewMemberModal}

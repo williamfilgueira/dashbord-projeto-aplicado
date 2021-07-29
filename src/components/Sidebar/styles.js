@@ -3,11 +3,30 @@ import theme from "../../global/theme";
 
 const Container = styled.div`
   display: flex;
+  transform: ${(props) => {
+    if (!props.isOpen && !props.isDesktop) {
+      return "translate(-100%, 0)";
+    }
+  }};
+  position: ${(props) => {
+    if (!props.isOpen && !props.isDesktop) {
+      return "absolute";
+    }
+  }};
+  width: ${(props) => {
+    if (!props.isDesktop) {
+      return "100vw";
+    } else {
+      return "340px";
+    }
+  }};
+  transition: all ease-in-out 0.5s;
+
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};
   padding: 30px 30px 0 30px;
-  width: 340px;
+
   height: 100vh;
 `;
 

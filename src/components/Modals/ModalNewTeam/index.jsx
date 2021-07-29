@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import { FormAddMember } from './styles';
-import Input from '../../Common/Input';
-import ButtonCommon from '../../Common/Button';
-import BaseModal from '../BaseModal';
-import {createTeam} from '../../../api/api.team'
-
+import React, { useState } from "react";
+import { FormAddMember } from "./styles";
+import Input from "../../Common/Input";
+import ButtonCommon from "../../Common/Button";
+import BaseModal from "../BaseModal";
+import { createTeam } from "../../../api/api.team";
 
 export default function ModalNewTeam({ isOpen, toggleModal, title }) {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
   function handleSubmit(name, description) {
-    createTeam(name, description).then((res) => console.log(res)); 
+    console.log({
+      name: name,
+      description: description,
+    });
+
+    createTeam(name, description).then((res) => console.log(res));
   }
 
   return (
@@ -20,21 +24,26 @@ export default function ModalNewTeam({ isOpen, toggleModal, title }) {
       onBackgroundClick={toggleModal}
       onEscapeKeydown={toggleModal}
       close={toggleModal}
-      title={title}>
+      title={title}
+    >
       <FormAddMember>
-
-        <Input required placeholder='Nome' onChange={(event) => setName(event.target.value)} />
-        <Input required placeholder='Descrição' onChange={(event) => setDescription(event.target.value)} />
+        <Input
+          required
+          placeholder="Nome"
+          onChange={(event) => setName(event.target.value)}
+        />
+        <Input
+          required
+          placeholder="Descrição"
+          onChange={(event) => setDescription(event.target.value)}
+        />
 
         <ButtonCommon
-          maincolor='blue'
-          title='CADASTRAR'
-          onClick={() =>
-            handleSubmit(name, description)
-          } />
+          maincolor="blue"
+          title="CADASTRAR"
+          onClick={() => handleSubmit(name, description)}
+        />
       </FormAddMember>
     </BaseModal>
-  )
-
-
-};
+  );
+}

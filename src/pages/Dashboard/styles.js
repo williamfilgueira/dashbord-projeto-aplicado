@@ -9,6 +9,19 @@ const Container = styled.div`
 const CardSection = styled.div`
   width: 100%;
   margin-top: 100px;
+
+  transform: ${(props) => {
+    if (props.isOpen) {
+      return "translate(0, -110%)";
+    }
+  }};
+  position: ${(props) => {
+    if (props.isOpen) {
+      return "absolute";
+    }
+  }};
+  transition: all ease-in-out 0.6s;
+  z-index: -1000;
 `;
 
 const CardContainer = styled.div`

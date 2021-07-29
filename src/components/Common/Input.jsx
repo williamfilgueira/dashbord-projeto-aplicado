@@ -35,11 +35,6 @@ const InputContainer = styled.div`
       return "335px";
     }
   }};
-  @media screen and (max-width: 1000px) {
-    width: 240px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   height: 40px;
   border: 1px solid ${theme.colors.lightGray};
   border-radius: 10px;
@@ -48,18 +43,26 @@ const InputContainer = styled.div`
   overflow: hidden;
   margin: 5px;
 
-  @media screen and (max-width: 600px) {
-    width: ${(props) => {
-     if (props.mediaSize === "regular") {
-      return "335px";
-    } else if (props.mediaSize === "small") {
-      return "40px";
-    } else {
-      return "88%";
-    }}};
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-    height: ${(props) => props.mediaSize === "regular" ? "40px" : "30px"};
-    margin-right: ${(props) => props.mediaSize === "small" ? "5px" : 'auto'};
+  @media screen and (max-width: 600px) {
+    margin-right: none;
+    margin-left: none;
+    width: ${(props) => {
+      if (props.mediaSize === "regular") {
+        return "235px";
+      } else if (props.mediaSize === "small") {
+        return "40px";
+      } else {
+        return "88%";
+      }
+    }};
+    margin-right: 30px;
+    height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
   }
 
 
