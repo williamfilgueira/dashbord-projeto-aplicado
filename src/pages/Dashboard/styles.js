@@ -8,20 +8,7 @@ const Container = styled.div`
 
 const CardSection = styled.div`
   width: 100%;
-  margin-top: 100px;
-
-  transform: ${(props) => {
-    if (props.isOpen) {
-      return "translate(0, -110%)";
-    }
-  }};
-  position: ${(props) => {
-    if (props.isOpen) {
-      return "absolute";
-    }
-  }};
-  transition: all ease-in-out 0.6s;
-  z-index: -1000;
+  height: calc(100vh - 100px);
 `;
 
 const CardContainer = styled.div`
@@ -39,4 +26,32 @@ const LoaderContainer = styled.div`
   width: 100%;
 `;
 
-export { Container, CardSection, CardContainer, LoaderContainer };
+const ScrollbarContainer = styled.div`
+  margin-top: 100px;
+  height: calc(100vh - 100px);
+  width: calc(100vw - 340px);
+  @media screen and (max-width: 1000px) {
+    width: 100vw;
+  }
+
+  transform: ${(props) => {
+    if (props.isOpen) {
+      return "translate(0, -200%)";
+    }
+  }};
+  position: ${(props) => {
+    if (props.isOpen) {
+      return "absolute";
+    }
+  }};
+
+  transition: all ease-in-out 0.6s;
+`;
+
+export {
+  Container,
+  CardSection,
+  CardContainer,
+  LoaderContainer,
+  ScrollbarContainer,
+};

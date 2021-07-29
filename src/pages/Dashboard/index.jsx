@@ -9,6 +9,7 @@ import {
   CardSection,
   CardContainer,
   LoaderContainer,
+  ScrollbarContainer,
 } from "./styles";
 
 import Topbar from "../../components/Topbar";
@@ -110,18 +111,19 @@ export default function Dashboard() {
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}
             />
-            <CardSection isOpen={hamburguerMenu} isDesktop={isDesktop}>
-              <Scrollbars autoHeightMax="100%" autoHeight>
-                <CardContainer>
-                  {users.map((item) => {
-                    return (
-                      <Card data={item} toggleCardModal={toggleCardModal} />
-                      
-                    );
-                  })}
-                </CardContainer>
+            <ScrollbarContainer isOpen={hamburguerMenu} isDesktop={isDesktop}>
+              <Scrollbars autoHeight autoHeightMax="100%">
+                <CardSection>
+                  <CardContainer>
+                    {users.map((item) => {
+                      return (
+                        <Card data={item} toggleCardModal={toggleCardModal} />
+                      );
+                    })}
+                  </CardContainer>
+                </CardSection>
               </Scrollbars>
-            </CardSection>
+            </ScrollbarContainer>
             {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
           </>
         )}
