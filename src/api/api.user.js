@@ -16,7 +16,7 @@ export function createUser(
         nome: name,
         nickName: nickname,
         papel: role,
-        useName: username,
+        userName: username,
         password: password,
         equipe: team,
         status: "INDISPONIVEL",

@@ -5,8 +5,7 @@ import {
   RememberPassword,
   ContainerImage,
 } from "./style";
-import { StyledLink } from "./style";
-import { Actions } from "./style";
+import { StyledLink, Actions } from "./style";
 import Logo from "../../components/Common/Logo";
 import Fundo from "../../assets/images/Fundo.png";
 import ButtonCommon from "../../components/Common/Button";
@@ -77,7 +76,7 @@ export default function Login() {
         </Actions>
       </ContainerLogin>
       <ContainerImage>
-        <img src={Fundo} />
+        <img src={Fundo} alt="Pessoas programando" />
       </ContainerImage>
     </Container>
   );

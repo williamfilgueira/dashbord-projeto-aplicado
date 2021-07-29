@@ -6,7 +6,7 @@ const theme = {
     green: "#329466",
     black: "#1A2228",
     alterdataBlue: "#03569C",
-    alterdataSecondaryBlue: "#161736",
+    alterdataSecondaryBlue: "#0582E8",
     lightGray: "#DEDEDE",
     darkerGray: "#555555",
   },

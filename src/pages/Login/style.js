@@ -89,13 +89,13 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ContainerImage = styled.div`
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+  width: 100vw;
   @media screen and (max-width: 600px) {
     display: none;
   }
   img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 `;

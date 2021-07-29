@@ -3,7 +3,7 @@ import theme from "../../global/theme";
 
 const Container = styled.div`
   position: fixed;
-  padding-left: 35px;
+  padding-left: 30px;
   top: 0;
   width: 100vw;
   display: flex;

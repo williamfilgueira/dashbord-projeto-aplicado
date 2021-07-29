@@ -18,4 +18,12 @@ const CardContainer = styled.div`
   justify-content: center;
 `;
 
-export { Container, CardSection, CardContainer };
+const LoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+`;
+
+export { Container, CardSection, CardContainer, LoaderContainer };
