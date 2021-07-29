@@ -32,6 +32,18 @@ const StyledModal = Modal.styled`
       }
        }}
   }
+
+  @media screen and (max-width: 1440px) {
+    height: ${(props) => {
+      if(props.mediaSize === 'big'){
+        return '95%';
+      }else if (props.mediaSize === "medium"){
+        return '75%';
+      }else {
+        return'60%';
+      }
+       }}
+  }
 `;
 
 const Title = styled.h1`

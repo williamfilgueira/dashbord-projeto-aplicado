@@ -23,6 +23,7 @@ export default function Topbar({ toggleUserConfigModal }) {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
   const [hamburguer, setHamburguer] = useState(false);
 
+
   function handleHamburguer() {
     setHamburguer(!hamburguer);
   }
@@ -75,7 +76,7 @@ export default function Topbar({ toggleUserConfigModal }) {
               <Gear
                 onClick={toggleUserConfigModal}
                 color="#FFF"
-                weight="bold"
+                weight='bold'
                 size={30}
               />
             </Icon>

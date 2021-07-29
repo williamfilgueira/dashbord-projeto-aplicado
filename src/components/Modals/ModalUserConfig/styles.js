@@ -47,6 +47,7 @@ const IconContainer = styled.div`
 `;
 
 const ContainerSelect = styled.section`
+width:100%;
 height: 12%;
 display: flex;
 flex-direction: column;

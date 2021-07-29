@@ -18,8 +18,10 @@ const Label = styled.label`
 
 const ContainerInput = styled.div`
   display: flex;
+  width: 70%;
   @media screen and (max-width: 600px) {
     width: 85%;
+    justify-content: space-between;
 }
 `;
 

@@ -10,20 +10,17 @@ import { createRole } from '../../../api/api.role';
 export default function ModalRoles({ isOpen, toggleModal, title }) {
 
   const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [color, setColor] = useState("#03569C");
 
   const handleInput = e => {
     setColor(e.target.value);
   };
 
-  function handleSubmit(name, color) {
-    console.log({
-      name,
-      color
-    }
-    );
-    createRole(name, color).then((res) => console.log(res))
+  function handleSubmit(name, color, description) {
+    createRole(name, description, color).then((res) => console.log(res));
   }
+  
   return (
     <BaseModal
       isOpen={isOpen}
@@ -36,6 +33,11 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           required
           placeholder='Papel'
           onChange={(event) => setName(event.target.value)}
+        />
+        <Input
+          required
+          placeholder='Descrição'
+          onChange={(event) => setDescription(event.target.value)}
         />
         <ColorPickerContainer>
           <Label>Escolha uma cor: </Label>
@@ -55,7 +57,7 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
         <ButtonCommon
           maincolor='blue'
           title='CADASTRAR'
-          onClick={() => handleSubmit(name, color)}
+          onClick={() => handleSubmit(name, description,color)}
         />
       </FormAddMember>
     </BaseModal>

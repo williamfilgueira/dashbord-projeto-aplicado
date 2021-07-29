@@ -15,6 +15,7 @@ align-items: center;
 `;
 
 const ContainerSelect = styled.section`
+width: 100%;
 @media screen and (max-width: 600px) {
   width: 90%;
   margin-bottom: 10px;

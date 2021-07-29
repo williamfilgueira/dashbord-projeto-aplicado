@@ -4,7 +4,6 @@ import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import Picker from 'emoji-picker-react';
-import { FileX } from "phosphor-react";
 
 export default function ModalStatus({ isOpen, toggleModal, title }) {
 
@@ -42,11 +41,12 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
         <ContainerInput>
           <Input
             required
-            placeholder=":)"
+            placeholder="😀"
             size='small'
             mediaSize='small'
             value={chosenEmoji.emoji}
             onChange={(event) => setChosenEmoji(event.target.value)}
+            sizeInput='small'
           />
           <Input
             required
