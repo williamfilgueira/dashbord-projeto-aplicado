@@ -33,6 +33,7 @@ export default function Dashboard() {
   const [userConfigModal, setUserConfigModal] = useState(false);
   const [cardModal, setCardModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
+  const [hamburguerMenu, setHamburguerMenu] = useState(false);
 
   const history = useHistory();
 
@@ -70,6 +71,10 @@ export default function Dashboard() {
     setTeamModal(!teamModal);
   }
 
+  function handleHamburguer() {
+    setHamburguerMenu(!hamburguerMenu);
+  }
+
   return (
     <ModalProvider>
       <Container>
@@ -89,8 +94,13 @@ export default function Dashboard() {
               toggleRolesModal={toggleRolesModal}
               toggleStatusModal={toggleStatusModal}
               toggleTeamModal={toggleTeamModal}
+              isOpen={hamburguerMenu}
             />
-            <Topbar toggleUserConfigModal={toggleUserConfigModal} />
+            <Topbar
+              toggleUserConfigModal={toggleUserConfigModal}
+              hamburguerMenu={hamburguerMenu}
+              handleHamburguer={handleHamburguer}
+            />
             <CardSection>
               <Scrollbars autoHeightMax="100%" autoHeight>
                 <CardContainer>
