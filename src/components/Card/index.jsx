@@ -34,12 +34,12 @@ export default function Card({ toggleCardModal, data }) {
         <Name>{nome}</Name>
         <Username>{userName}</Username>
         <StatusContainer>
-          <StatusIndicator title={status} />
+          <StatusIndicator title={status}/>
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>
         <Flag />
-        <Position>{papel}</Position>
+       <Position>{papel}</Position> 
       </PositionContainer>
     </Container>
   );

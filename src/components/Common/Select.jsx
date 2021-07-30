@@ -8,8 +8,8 @@ export default function Select({ title, options }) {
       <Label htmlFor="GET-name">{title}</Label>
       <SelectOptions name="select">
         <Option disabled selected></Option>
-        {options.map((item, index) => (
-          <Option key={index} value={item.value}>{item.title}</Option>
+        {options.map((item) => (
+          <Option key={item.id} value={item.id}>{item.nome}</Option>
         ))}
       </SelectOptions>
     </SelectContainer>

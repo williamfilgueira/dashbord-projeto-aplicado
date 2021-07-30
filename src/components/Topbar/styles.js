@@ -32,6 +32,8 @@ const Name = styled.h1`
 
 const StatusContainer = styled.div`
   display: flex;
+  height: 48%;
+  align-items: flex-end;
   width: 100%;
 `;
 
