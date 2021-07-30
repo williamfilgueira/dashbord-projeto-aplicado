@@ -14,7 +14,6 @@ const Container = styled.div`
 
   overflow: hidden;
   /* box-shadow: 0px 5px 15px ${theme.colors.lightGray}; */
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -71,7 +70,21 @@ const Flag = styled.div`
   background-color: ${theme.colors.red};
   transform: rotate(45deg);
   height: 200px;
-  width: 50px;
+  width: 40px;
+`;
+
+const EditIconContainer = styled.div`
+  position: relative;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: ${theme.colors.alterdataBlue};
+  svg {
+    &:hover {
+      color: ${theme.colors.alterdataSecondaryBlue};
+    }
+    transition: all ease-in-out 0.3s;
+  }
 `;
 
 export {
@@ -83,4 +96,5 @@ export {
   StatusContainer,
   PositionContainer,
   Flag,
+  EditIconContainer,
 };

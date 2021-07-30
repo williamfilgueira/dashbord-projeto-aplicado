@@ -9,11 +9,13 @@ import {
   Username,
   PositionContainer,
   Flag,
+  EditIconContainer,
 } from "./styles";
 
 import StatusIndicator from "../Common/StatusIndicator";
 
 import avatar from "../../assets/images/Avatar.png";
+import { Pencil } from "phosphor-react";
 export default function Card({ toggleCardModal, data }) {
   const {
     dtNascimento,
@@ -28,10 +30,10 @@ export default function Card({ toggleCardModal, data }) {
     userName,
   } = data;
   return (
-    <Container onClick={toggleCardModal}>
+    <Container onDoubleClick={toggleCardModal}>
       <Avatar src={avatar} />
       <InfoContainer>
-        <Name>{nome}</Name>
+        <Name>{nome || "Sem nome"}</Name>
         <Username>{userName}</Username>
         <StatusContainer>
           <StatusIndicator title={status} />
@@ -41,6 +43,9 @@ export default function Card({ toggleCardModal, data }) {
         <Position>{papel}</Position>
       </PositionContainer>
       <Flag />
+      <EditIconContainer onClick={toggleCardModal}>
+        <Pencil size={28} />
+      </EditIconContainer>
     </Container>
   );
 }

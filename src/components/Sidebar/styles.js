@@ -25,7 +25,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.alterdataBlue};
-  padding: 30px 30px 0 30px;
 
   height: 100vh;
 `;
@@ -34,6 +33,6 @@ const GroupList = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding: 60px 30px 0 30px;
 `;
 export { Container, GroupList };

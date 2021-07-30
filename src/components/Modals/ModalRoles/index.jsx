@@ -1,42 +1,48 @@
-import React from 'react';
-import { FormAddMember, ColorPicker, InputColor, InputText, Label, ColorPickerContainer } from './styles';
-import Input from '../../Common/Input';
-import ButtonCommon from '../../Common/Button';
-import BaseModal from '../BaseModal';
-import { useState } from 'react';
-import { createRole } from '../../../api/api.role';
-
+import React from "react";
+import {
+  FormAddMember,
+  ColorPicker,
+  InputColor,
+  InputText,
+  Label,
+  ColorPickerContainer,
+} from "./styles";
+import Input from "../../Common/Input";
+import ButtonCommon from "../../Common/Button";
+import BaseModal from "../BaseModal";
+import { useState } from "react";
+import { createRole } from "../../../api/api.role";
 
 export default function ModalRoles({ isOpen, toggleModal, title }) {
-
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [color, setColor] = useState("#03569C");
 
-  const handleInput = e => {
+  const handleInput = (e) => {
     setColor(e.target.value);
   };
 
   function handleSubmit(name, color, description) {
     createRole(name, description, color).then((res) => console.log(res));
   }
-  
+
   return (
     <BaseModal
       isOpen={isOpen}
       onBackgroundClick={toggleModal}
       onEscapeKeydown={toggleModal}
       close={toggleModal}
-      title={title}>
+      title={title}
+    >
       <FormAddMember>
         <Input
           required
-          placeholder='Papel'
+          placeholder="Papel"
           onChange={(event) => setName(event.target.value)}
         />
         <Input
           required
-          placeholder='Descrição'
+          placeholder="Descrição"
           onChange={(event) => setDescription(event.target.value)}
         />
         <ColorPickerContainer>
@@ -55,12 +61,14 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           </ColorPicker>
         </ColorPickerContainer>
         <ButtonCommon
-          maincolor='blue'
-          title='CADASTRAR'
-          onClick={() => handleSubmit(name, description,color)}
+          maincolor="blue"
+          title="CADASTRAR"
+          onClick={() => {
+            handleSubmit(name, description, color);
+            toggleModal();
+          }}
         />
       </FormAddMember>
     </BaseModal>
-  )
-
-};
+  );
+}

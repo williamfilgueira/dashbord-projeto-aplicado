@@ -25,6 +25,7 @@ import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
 
 import { getAllUsers } from "../../api/api.user";
+import { getAllTeams } from "../../api/api.team";
 import theme from "../../global/theme";
 
 export default function Dashboard() {
@@ -39,6 +40,7 @@ export default function Dashboard() {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -47,6 +49,12 @@ export default function Dashboard() {
     getAllUsers()
       .then((res) => {
         setUsers(res.data);
+      })
+      .catch((err) => history.push("/login"))
+      .finally(() => setLoading(false));
+    getAllTeams()
+      .then((res) => {
+        setTeams(res.data);
       })
       .catch((err) => history.push("/login"))
       .finally(() => setLoading(false));
@@ -105,6 +113,7 @@ export default function Dashboard() {
               toggleTeamModal={toggleTeamModal}
               isOpen={hamburguerMenu}
               isDesktop={isDesktop}
+              teams={teams}
             />
             <Topbar
               toggleUserConfigModal={toggleUserConfigModal}

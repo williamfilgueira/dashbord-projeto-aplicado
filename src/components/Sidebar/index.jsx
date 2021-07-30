@@ -4,6 +4,7 @@ import { Container, GroupList } from "./styles";
 
 import Group from "../Group";
 import MyGroup from "../MyGroup";
+import Scrollbars from "react-custom-scrollbars";
 
 export default function Sidebar({
   toggleNewMemberModal,
@@ -12,21 +13,24 @@ export default function Sidebar({
   toggleTeamModal,
   isOpen,
   isDesktop,
+  teams,
 }) {
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>
-      <GroupList>
-        <MyGroup
-          toggleNewMemberModal={toggleNewMemberModal}
-          toggleRolesModal={toggleRolesModal}
-          toggleStatusModal={toggleStatusModal}
-          toggleTeamModal={toggleTeamModal}
-          name="Meu grupo"
-        />
-        <Group name="Pack 04" />
-        <Group name="E-commerce" />
-        <Group name="Pack 01" />
-      </GroupList>
+      <Scrollbars autoHeight autoHeightMax="100%">
+        <GroupList>
+          <MyGroup
+            toggleNewMemberModal={toggleNewMemberModal}
+            toggleRolesModal={toggleRolesModal}
+            toggleStatusModal={toggleStatusModal}
+            toggleTeamModal={toggleTeamModal}
+            name="Meu grupo"
+          />
+          {teams.map((item) => (
+            <Group key={item.id} name={item.nome} />
+          ))}
+        </GroupList>
+      </Scrollbars>
     </Container>
   );
 }
