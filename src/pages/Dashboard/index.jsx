@@ -50,8 +50,9 @@ export default function Dashboard() {
       .then((res) => {
         setUsers(res.data);
       })
-      .catch((err) => history.push("/login"))
+      // .catch((err) => history.push("/login"))
       .finally(() => setLoading(false));
+
     getAllTeams()
       .then((res) => {
         setTeams(res.data);

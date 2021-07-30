@@ -33,6 +33,83 @@ const GroupList = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 60px 30px 0 30px;
+  padding: 30px 30px 0 30px;
 `;
-export { Container, GroupList };
+
+const MenuToggleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 100px;
+  padding: 0 30px 0 30px;
+`;
+
+const MenuToggle = styled.div`
+  padding: 10px;
+  border-radius: 6px;
+  background-color: ${(props) =>
+    props.isActive && theme.colors.alterdataSecondaryBlue};
+  cursor: pointer;
+`;
+const UserToggle = styled.div`
+  padding: 10px;
+  border-radius: 6px;
+  background-color: ${(props) =>
+    props.activeMenu === "user" && theme.colors.alterdataSecondaryBlue};
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const RoleToggle = styled.div`
+  padding: 10px;
+  border-radius: 6px;
+  background-color: ${(props) =>
+    props.activeMenu === "role" && theme.colors.alterdataSecondaryBlue};
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const StatusToggle = styled.div`
+  padding: 10px;
+  border-radius: 6px;
+  background-color: ${(props) =>
+    props.activeMenu === "status" && theme.colors.alterdataSecondaryBlue};
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const TeamToggle = styled.div`
+  padding: 10px;
+  border-radius: 6px;
+  background-color: ${(props) =>
+    props.activeMenu === "team" && theme.colors.alterdataSecondaryBlue};
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ToggleDescription = styled.span`
+  font-family: ${theme.fonts.paragraph};
+  color: #fff;
+  margin-top: 5px;
+  font-size: 13px;
+`;
+
+export {
+  Container,
+  GroupList,
+  MenuToggleContainer,
+  UserToggle,
+  RoleToggle,
+  StatusToggle,
+  TeamToggle,
+  ToggleDescription,
+};
