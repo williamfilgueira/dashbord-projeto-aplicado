@@ -28,7 +28,6 @@ export default function Topbar({
 }) {
   // console.log(loggedUser);
   const { nome, status, papel, url } = loggedUser;
-  console.log(url);
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   const updateMedia = () => {

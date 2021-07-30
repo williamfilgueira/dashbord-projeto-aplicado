@@ -45,24 +45,29 @@ export default function Dashboard() {
 
   const history = useHistory();
 
-  const [users, setUsers] = useState([]);
+  const [teamUsers, setTeamUsers] = useState([]);
   const [loggedUser, setLoggedUser] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     window.addEventListener("resize", updateMedia);
-    getAllUsers()
-      .then((res) => {
-        setUsers(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => history.push("/login"));
 
     getUserByUsername()
       .then((res) => {
         setLoggedUser(res.data);
+      })
+      .catch((err) => history.push("/login"));
+    getAllUsers()
+      .then((res) => {
+        const allUsers = res.data;
+        const teamUsersResponse = allUsers.filter(
+          (item) => item.equipe === loggedUser.equipe
+        );
+        setTeamUsers(teamUsersResponse);
+        setAllUsers(allUsers);
       })
       .catch((err) => history.push("/login"));
 
@@ -158,7 +163,7 @@ export default function Dashboard() {
               <Scrollbars autoHeight autoHeightMax="100%">
                 <CardSection>
                   <CardContainer>
-                    {users.map((item) => {
+                    {teamUsers.map((item) => {
                       return (
                         <Card data={item} toggleCardModal={toggleCardModal} />
                       );
