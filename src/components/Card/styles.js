@@ -59,7 +59,6 @@ const PositionContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 20px;
-  padding-right: 35px;
 `;
 
 const Position = styled.p`
@@ -68,11 +67,11 @@ const Position = styled.p`
 const Flag = styled.div`
   position: relative;
   bottom: 0;
+  right: 0px;
   background-color: ${theme.colors.red};
   transform: rotate(45deg);
-  margin-right: -25px;
   height: 200px;
-  width: 20px;
+  width: 50px;
 `;
 
 export {

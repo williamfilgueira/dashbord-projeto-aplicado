@@ -38,9 +38,9 @@ export default function Card({ toggleCardModal, data }) {
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>
-        <Flag />
         <Position>{papel}</Position>
       </PositionContainer>
+      <Flag />
     </Container>
   );
 }
