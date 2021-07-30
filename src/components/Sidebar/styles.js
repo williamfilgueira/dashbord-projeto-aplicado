@@ -66,7 +66,7 @@ const RoleToggle = styled.div`
   padding: 10px;
   border-radius: 6px;
   background-color: ${(props) =>
-    props.activeMenu === "role" && theme.colors.alterdataSecondaryBlue};
+    props.activeMenu === "roles" && theme.colors.alterdataSecondaryBlue};
   cursor: pointer;
   display: flex;
   flex-direction: column;
