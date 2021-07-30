@@ -27,13 +27,15 @@ export default function Card({ toggleCardModal, data }) {
     nome,
     papel,
     status,
+    url,
     userName,
   } = data;
+
   return (
     <Container onDoubleClick={toggleCardModal}>
-      <Avatar src={avatar} />
+      <Avatar src={url} />
       <InfoContainer>
-        <Name>{nome || "Sem nome"}</Name>
+        <Name>{nickName || "Sem nick :("}</Name>
         <Username>{userName}</Username>
         <StatusContainer>
           <StatusIndicator title={status} />

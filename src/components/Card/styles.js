@@ -46,6 +46,7 @@ const Name = styled.h1`
 
 const Username = styled.p`
   font-family: ${theme.fonts.paragraph};
+  font-size: 13px;
 `;
 
 const StatusContainer = styled.div`

@@ -28,6 +28,7 @@ export default function Topbar({
 }) {
   // console.log(loggedUser);
   const { nome, status, papel, url } = loggedUser;
+  console.log(url);
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   const updateMedia = () => {
@@ -67,7 +68,7 @@ export default function Topbar({
       {isDesktop && (
         <UserContainer>
           <MyAccountContainer>
-            <Avatar src={url} small={true} />
+            <Avatar src={url} small={true} circle />
             <InfoContainer>
               <Name>{nome}</Name>
               <StatusContainer>

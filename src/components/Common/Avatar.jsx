@@ -1,21 +1,28 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
-export default function Avatar({ src, small, mediaSize }) {
+export default function Avatar({ src, small, mediaSize, circle }) {
   return (
-    <Image src={src} small={small} mediaSize={mediaSize} />
-  )
-};
+    <ImageContainer circle={circle} small={small} mediaSize={mediaSize}>
+      <Image src={src} />
+    </ImageContainer>
+  );
+}
+
+const ImageContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    width: ${(props) => (props.small ? "65px" : "120px")};
+    height: ${(props) => (props.small ? "65px" : "120px")};
+    border-radius: ${(props) => (props.circle ? "65px" : "20px")};
+  }
+  width: ${(props) => (props.small ? "80px" : "120px")};
+  height: ${(props) => (props.small ? "80px" : "120px")};
+  border-radius: ${(props) => (props.circle ? "80px" : "20px")};
+  overflow: hidden;
+`;
 
 const Image = styled.img`
-  width: ${props => props.small ? "65px" : "115px"};
-  height: ${props => props.small ? "65px" : "115px"};
-  @media screen and (max-width: 600px){
-  width:${props => props.small ? "80px" : "115px"}; 
-  height: ${props => props.small ? "80px" : "115px"}; 
-  }
-  @media screen and (max-width: 1440px) {
-  width:${props => props.small? "80px" : "115px"}; 
-  height: ${props => props.small ? "80px" : "115px"}; 
-  }
-  `
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;

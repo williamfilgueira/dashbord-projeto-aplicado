@@ -40,7 +40,6 @@ const StatusContainer = styled.div`
 const InfoContainer = styled.div`
   margin-left: 20px;
   display: flex;
-  width: 100%;
   flex-direction: column;
   margin-right: 10px;
 `;
@@ -70,6 +69,8 @@ const ChatContainer = styled.div`
 
 const MyAccountContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export {
