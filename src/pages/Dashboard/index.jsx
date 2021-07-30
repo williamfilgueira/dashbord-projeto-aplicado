@@ -27,6 +27,9 @@ import ModalNewTeam from "../../components/Modals/ModalNewTeam";
 import { getAllUsers } from "../../api/api.user";
 import { getAllTeams } from "../../api/api.team";
 import theme from "../../global/theme";
+import ModalEditRole from "../../components/Modals/ModalEditRole";
+import ModalEditStatus from "../../components/Modals/ModalEditStatus";
+import ModalEditTeam from "../../components/Modals/ModalEditTeam";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -35,6 +38,9 @@ export default function Dashboard() {
   const [userConfigModal, setUserConfigModal] = useState(false);
   const [cardModal, setCardModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
+  const [editRoleModal, setEditRoleModal] = useState(false);
+  const [editStatusModal, setEditStatusModal] = useState(false);
+  const [editTeamModal, setEditTeamModal] = useState(false);
   const [hamburguerMenu, setHamburguerMenu] = useState(false);
 
   const history = useHistory();
@@ -83,9 +89,31 @@ export default function Dashboard() {
     setTeamModal(!teamModal);
   }
 
+  function toggleEditRoleModal(e) {
+    setEditRoleModal(!editRoleModal);
+  }
+
+  function toggleEditStatusModal(e) {
+    setEditStatusModal(!editStatusModal);
+  }
+
+  function toggleEditTeamModal(e) {
+    setEditTeamModal(!editTeamModal);
+  }
+
   function handleHamburguer() {
     setHamburguerMenu(!hamburguerMenu);
   }
+
+  const modalFunctions = {
+    toggleNewMemberModal,
+    toggleRolesModal,
+    toggleStatusModal,
+    toggleTeamModal,
+    toggleEditRoleModal,
+    toggleEditStatusModal,
+    toggleEditTeamModal,
+  };
 
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
@@ -108,10 +136,7 @@ export default function Dashboard() {
         ) : (
           <>
             <Sidebar
-              toggleNewMemberModal={toggleNewMemberModal}
-              toggleRolesModal={toggleRolesModal}
-              toggleStatusModal={toggleStatusModal}
-              toggleTeamModal={toggleTeamModal}
+              data={modalFunctions}
               isOpen={hamburguerMenu}
               isDesktop={isDesktop}
               teams={teams}
@@ -168,6 +193,23 @@ export default function Dashboard() {
         toggleModal={toggleTeamModal}
         isOpen={teamModal}
         title="Nova equipe"
+      />
+      <ModalEditRole
+        toggleModal={toggleEditRoleModal}
+        isOpen={editRoleModal}
+        title="Editar papel"
+      />
+
+      <ModalEditStatus
+        toggleModal={toggleEditStatusModal}
+        isOpen={editStatusModal}
+        title="Editar status"
+      />
+
+      <ModalEditTeam
+        toggleModal={toggleEditTeamModal}
+        isOpen={editTeamModal}
+        title="Editar equipe"
       />
     </ModalProvider>
   );

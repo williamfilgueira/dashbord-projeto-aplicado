@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import theme from '../../global/theme';
 import Workout from "../../assets/emoji/Workout.png";
 
 export default function StatusIndicator({color}) {
-    return (
+   
+  return (
         <> 
           {/* <Icon src={Workout} />
           <Status color={color} >hora do café</Status>  */}

@@ -4,20 +4,17 @@ import { GroupContainer, GroupName } from "./styles";
 
 import GroupAddAction from "../GroupAddAction";
 
-export default function MyGroup({
-  name,
-  toggleNewMemberModal,
-  toggleRolesModal,
-  toggleStatusModal,
-  toggleTeamModal,
-}) {
+export default function MyGroup({ name, data }) {
   return (
     <GroupContainer>
       <GroupName>{name}</GroupName>
-      <GroupAddAction title="Novo membro" onClick={toggleNewMemberModal} />
-      <GroupAddAction title="Novo papel" onClick={toggleRolesModal} />
-      <GroupAddAction title="Novo status" onClick={toggleStatusModal} />
-      <GroupAddAction title="Nova equipe" onClick={toggleTeamModal} />
+      {data.map((item) => (
+        <GroupAddAction
+          key={item.id}
+          title={item.title}
+          onClick={item.toggle}
+        />
+      ))}
     </GroupContainer>
   );
 }

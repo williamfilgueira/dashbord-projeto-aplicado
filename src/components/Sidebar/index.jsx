@@ -16,16 +16,19 @@ import MyGroup from "../MyGroup";
 import Scrollbars from "react-custom-scrollbars";
 import { IdentificationBadge, Smiley, User, UsersFour } from "phosphor-react";
 
-export default function Sidebar({
-  toggleNewMemberModal,
-  toggleRolesModal,
-  toggleStatusModal,
-  toggleTeamModal,
-  isOpen,
-  isDesktop,
-  teams,
-}) {
+export default function Sidebar({ data, isOpen, isDesktop, teams }) {
+  const {
+    toggleNewMemberModal,
+    toggleRolesModal,
+    toggleStatusModal,
+    toggleTeamModal,
+    toggleEditRoleModal,
+    toggleEditStatusModal,
+    toggleEditTeamModal,
+  } = data;
+
   const [activeMenu, setActiveMenu] = useState("user");
+
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>
       <MenuToggleContainer>
@@ -73,10 +76,13 @@ export default function Sidebar({
         <GroupList>
           {activeMenu === "user" ? (
             <MyGroup
-              toggleNewMemberModal={toggleNewMemberModal}
-              toggleRolesModal={toggleRolesModal}
-              toggleStatusModal={toggleStatusModal}
-              toggleTeamModal={toggleTeamModal}
+              data={[
+                {
+                  id: 1,
+                  title: "Novo membro",
+                  toggle: toggleNewMemberModal,
+                },
+              ]}
               name="Meu grupo"
             />
           ) : (
@@ -84,10 +90,18 @@ export default function Sidebar({
           )}
           {activeMenu === "roles" ? (
             <MyGroup
-              toggleNewMemberModal={toggleNewMemberModal}
-              toggleRolesModal={toggleRolesModal}
-              toggleStatusModal={toggleStatusModal}
-              toggleTeamModal={toggleTeamModal}
+              data={[
+                {
+                  id: 1,
+                  title: "Novo papel",
+                  toggle: toggleRolesModal,
+                },
+                {
+                  id: 2,
+                  title: "Editar papel",
+                  toggle: toggleEditRoleModal,
+                },
+              ]}
               name="Meu grupo"
             />
           ) : (
@@ -95,10 +109,18 @@ export default function Sidebar({
           )}
           {activeMenu === "status" ? (
             <MyGroup
-              toggleNewMemberModal={toggleNewMemberModal}
-              toggleRolesModal={toggleRolesModal}
-              toggleStatusModal={toggleStatusModal}
-              toggleTeamModal={toggleTeamModal}
+              data={[
+                {
+                  id: 1,
+                  title: "Novo status",
+                  toggle: toggleStatusModal,
+                },
+                {
+                  id: 2,
+                  title: "Editar status",
+                  toggle: toggleEditStatusModal,
+                },
+              ]}
               name="Meu grupo"
             />
           ) : (
@@ -106,10 +128,18 @@ export default function Sidebar({
           )}
           {activeMenu === "team" ? (
             <MyGroup
-              toggleNewMemberModal={toggleNewMemberModal}
-              toggleRolesModal={toggleRolesModal}
-              toggleStatusModal={toggleStatusModal}
-              toggleTeamModal={toggleTeamModal}
+              data={[
+                {
+                  id: 1,
+                  title: "Nova equipe",
+                  toggle: toggleTeamModal,
+                },
+                {
+                  id: 2,
+                  title: "Nova equipe",
+                  toggle: toggleEditTeamModal,
+                },
+              ]}
               name="Meu grupo"
             />
           ) : (
