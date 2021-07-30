@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { FormAddMember, ContainerInput, ContainerSelect } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
@@ -7,6 +7,8 @@ import Select from "../../Common/Select";
 
 import { createUser } from "../../../api/api.user";
 import User from "../../../models/user";
+import { getAllRoles} from "../../../api/api.role";
+import { useEffect } from "react";
 
 export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
@@ -14,8 +16,14 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("");
+  const [roles, setRoles] = useState([]);
+  const [roleId, setRoleId] = useState(0);
 
   // var birthDateFormat = birthDate.split('-').reverse().join('/');
+
+  useEffect(() => {
+    getAllRoles().then((res) => setRoles(res.data))
+  }, [])
 
   function handleSubmit(name, username, email, password, birthDate) {
     createUser(new User(name, username, email, password, birthDate));
@@ -33,8 +41,8 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       mediaSize="medium"
     >
       <FormAddMember>
-      <ContainerInput>
-      <Input
+        <ContainerInput>
+          <Input
             placeholder="Nome"
             required
             onChange={(event) => setName(event.target.value)}
@@ -62,26 +70,24 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
             required
             onChange={(event) => setBirthDate(event.target.value)}
           />
-       
-      </ContainerInput>
-         
+        </ContainerInput>
         <ContainerSelect>
         <Select
-            title="Selecione a equipe:"
-            options={[
-              { title: "Pack-Contabilidade", value: "A" },
-              { title: "Pack-Financeiro", value: "B" },
-            ]}
-          />
+            title="Selecione o papel:"
+            value={roleId}
+            onChange={(event) => setRoleId(event.target.value)}
+            options={roles}
+          >    
+        </Select>
         </ContainerSelect>
-        <ButtonCommon
-          maincolor="blue"
-          title="CADASTRAR"
-          onClick={() =>
-            handleSubmit(name, username, email, password, birthDate)
-          }
-        />
+      <ButtonCommon
+        maincolor="blue"
+        title="CADASTRAR"
+        onClick={() =>
+          handleSubmit(name, username, email, password, birthDate)
+        }
+      />
       </FormAddMember>
-    </BaseModal>
+    </BaseModal >
   );
 }
