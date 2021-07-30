@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormAddMember,ButtonDelete, ContainerSelect} from './styles';
+import { FormAddMember,ButtonDelete, ContainerSelect, ContainerInput} from './styles';
 import Input from '../../Common/Input';
 import ButtonCommon from '../../Common/Button';
 import BaseModal from '../BaseModal';
@@ -14,14 +14,16 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
         close={toggleModal}
         title={title}
         size='medium'
+        mediaSize='medium'
+        
        >
         <FormAddMember>
-          <div>
+          <ContainerInput>
             <Input placeholder='Username' />
-          </div>
+          </ContainerInput>
           <ContainerSelect>
-          <Select title='Selecione a papel:' options={[{ title: 'Bombeiro', value: 'A' }, { title: 'Merge', value: 'B' }]} />
-          <Select title='Selecione o equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
+          <Select title='Selecione o papel:' options={[{ title: 'Bombeiro', value: 'A' }, { title: 'Merge', value: 'B' }]} />
+          <Select title='Selecione a equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
           </ContainerSelect>
           <ButtonCommon maincolor='blue' title='SALVAR' />
           <ButtonDelete>DELETAR MEMBRO</ButtonDelete>

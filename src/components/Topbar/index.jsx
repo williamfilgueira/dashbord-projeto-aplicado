@@ -77,7 +77,7 @@ export default function Topbar({
               <Gear
                 onClick={toggleUserConfigModal}
                 color="#FFF"
-                weight="bold"
+                weight='bold'
                 size={30}
               />
             </Icon>

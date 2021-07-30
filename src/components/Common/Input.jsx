@@ -4,10 +4,10 @@ import React from "react";
 
 import { MagnifyingGlass, PaperPlaneTilt } from "phosphor-react";
 
-export default function Input({ icon, size, innerColor, mediaSize, ...rest }) {
+export default function Input({ icon, size, innerColor, mediaSize,sizeInput, ...rest }) {
   return (
     <InputContainer innerColor={innerColor} size={size} mediaSize={mediaSize}>
-      <CustomInput innerColor={innerColor} {...rest} />
+      <CustomInput innerColor={innerColor} {...rest} sizeInput={sizeInput} />
 
       {icon === "MagnifyingGlass" ? (
         <IconContainer>
@@ -50,8 +50,7 @@ const InputContainer = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    margin-right: none;
-    margin-left: none;
+   
     width: ${(props) => {
       if (props.mediaSize === "regular") {
         return "235px";
@@ -61,20 +60,35 @@ const InputContainer = styled.div`
         return "88%";
       }
     }};
-    margin-right: 30px;
     height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
   }
+
+  @media screen and (max-width: 1000px) {
+    width: ${(props) => {;
+    if (props.mediaSize === "regular") {
+        return "328px";
+      } else if (props.mediaSize === "small") {
+        return "60px";
+      } else {
+        return "235px";
+      }
+    }};
+    margin-right: ${(props) => (props.mediaSize === "small" ? "10px" : "0")}; ;
+
+  }
+
+
 `;
 const CustomInput = styled.input`
   background: ${(props) =>
-    props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
+  props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
   font-family: ${theme.fonts.paragraph};
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: ${(props) => props.sizeInput === "small" ? "6px" : "14px"};
+  padding-right: ${(props) => props.sizeInput === "small" ? "6px" : "14px"};
   font-size: 16px;
   outline: none;
   border: none;
-
+  
   ::placeholder {
     color: #707070;
   }
@@ -83,6 +97,17 @@ const CustomInput = styled.input`
     box-shadow: 0 0 0 0;
     outline: 0;
   }
+
+  @media screen and (max-width: 600px) {
+    margin-left: ${(props) => (props.sizeInput === "small" ? "0px" : "14px")};
+
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-left: ${(props) => (props.sizeInput === "small" ? "10px" : "0px")};
+
+  }
+
 `;
 
 const IconContainer = styled.div`
