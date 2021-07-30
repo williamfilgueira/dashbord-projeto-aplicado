@@ -10,6 +10,10 @@ export default function MyGroup({
   toggleRolesModal,
   toggleStatusModal,
   toggleTeamModal,
+  toggleEditRoleModal,
+  toggleEditStatusModal,
+  toggleEditTeamModal,
+
 }) {
   return (
     <GroupContainer>
@@ -18,6 +22,9 @@ export default function MyGroup({
       <GroupAddAction title="Novo papel" onClick={toggleRolesModal} />
       <GroupAddAction title="Novo status" onClick={toggleStatusModal} />
       <GroupAddAction title="Nova equipe" onClick={toggleTeamModal} />
+      <GroupAddAction title="Editar papel" onClick={toggleEditRoleModal} />
+      <GroupAddAction title="Editar status" onClick={toggleEditStatusModal} />
+      <GroupAddAction title="Editar equipe" onClick={toggleEditTeamModal} />
     </GroupContainer>
   );
 }

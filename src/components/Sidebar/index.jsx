@@ -11,6 +11,9 @@ export default function Sidebar({
   toggleRolesModal,
   toggleStatusModal,
   toggleTeamModal,
+  toggleEditRoleModal,
+  toggleEditStatusModal,
+  toggleEditTeamModal,
   isOpen,
   isDesktop,
   teams,
@@ -24,6 +27,9 @@ export default function Sidebar({
             toggleRolesModal={toggleRolesModal}
             toggleStatusModal={toggleStatusModal}
             toggleTeamModal={toggleTeamModal}
+            toggleEditRoleModal={toggleEditRoleModal}
+            toggleEditStatusModal={toggleEditStatusModal}
+            toggleEditTeamModal={toggleEditTeamModal}
             name="Meu grupo"
           />
           {teams.map((item) => (
