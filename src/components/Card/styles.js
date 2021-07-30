@@ -66,6 +66,8 @@ const Position = styled.p`
   font-family: ${theme.fonts.paragraph};
 `;
 const Flag = styled.div`
+  position: relative;
+  bottom: 0;
   background-color: ${theme.colors.red};
   transform: rotate(45deg);
   margin-right: -25px;
