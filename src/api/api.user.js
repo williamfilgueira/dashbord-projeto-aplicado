@@ -37,7 +37,8 @@ export function getAllUsers() {
   });
 }
 
-export function getUserByUsername(username) {
+export function getUserByUsername() {
+  const username = localStorage.getItem("username");
   return new Promise(async (resolve, reject) => {
     return app
       .get(`/usuario/${username}`)

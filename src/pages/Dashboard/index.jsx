@@ -24,7 +24,7 @@ import ModalUserConfig from "../../components/Modals/ModalUserConfig";
 import ModalEditMember from "../../components/Modals/ModalEditMember";
 import ModalNewTeam from "../../components/Modals/ModalNewTeam";
 
-import { getAllUsers } from "../../api/api.user";
+import { getAllUsers, getUserByUsername } from "../../api/api.user";
 import { getAllTeams } from "../../api/api.team";
 import theme from "../../global/theme";
 import ModalEditRole from "../../components/Modals/ModalEditRole";
@@ -46,6 +46,7 @@ export default function Dashboard() {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
+  const [loggedUser, setLoggedUser] = useState([]);
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -55,9 +56,15 @@ export default function Dashboard() {
     getAllUsers()
       .then((res) => {
         setUsers(res.data);
+        console.log(res.data);
       })
-      // .catch((err) => history.push("/login"))
-      .finally(() => setLoading(false));
+      .catch((err) => history.push("/login"));
+
+    getUserByUsername()
+      .then((res) => {
+        setLoggedUser(res.data);
+      })
+      .catch((err) => history.push("/login"));
 
     getAllTeams()
       .then((res) => {
@@ -142,6 +149,7 @@ export default function Dashboard() {
               teams={teams}
             />
             <Topbar
+              loggedUser={loggedUser}
               toggleUserConfigModal={toggleUserConfigModal}
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}

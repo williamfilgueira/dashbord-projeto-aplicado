@@ -30,6 +30,7 @@ export default function Login() {
     newSession(username, password)
       .then((res) => {
         localStorage.setItem("token", res.headers.authorization);
+        localStorage.setItem("username", username);
         history.push("/");
       })
       .catch((err) => console.error(err));
@@ -46,7 +47,7 @@ export default function Login() {
             name="login"
             innerColor="white"
             onChange={(event) => setUsername(event.target.value)}
-            mediaSize='regular'
+            mediaSize="regular"
           />
           <Input
             id="password"
@@ -55,7 +56,7 @@ export default function Login() {
             name="password"
             innerColor="white"
             onChange={(event) => setPassword(event.target.value)}
-            mediaSize='regular'
+            mediaSize="regular"
           />
           <RememberPassword>
             <div>

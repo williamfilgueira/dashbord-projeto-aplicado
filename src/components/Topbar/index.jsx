@@ -21,10 +21,13 @@ import AvatarImage from "../../assets/images/Avatar.png";
 import Logo from "../Common/Logo";
 
 export default function Topbar({
+  loggedUser,
   toggleUserConfigModal,
   hamburguerMenu,
   handleHamburguer,
 }) {
+  // console.log(loggedUser);
+  const { nome, status, papel, url } = loggedUser;
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   const updateMedia = () => {
@@ -64,11 +67,11 @@ export default function Topbar({
       {isDesktop && (
         <UserContainer>
           <MyAccountContainer>
-            <Avatar src={AvatarImage} small={true} />
+            <Avatar src={url} small={true} />
             <InfoContainer>
-              <Name>Mateus</Name>
+              <Name>{nome}</Name>
               <StatusContainer>
-                <StatusIndicator color="white" />
+                <StatusIndicator status={status} color="white" />
               </StatusContainer>
             </InfoContainer>
           </MyAccountContainer>
@@ -77,7 +80,7 @@ export default function Topbar({
               <Gear
                 onClick={toggleUserConfigModal}
                 color="#FFF"
-                weight='bold'
+                weight="bold"
                 size={30}
               />
             </Icon>
