@@ -1,6 +1,6 @@
 import { app } from "./index";
 
-export function createUser(
+export async function createUser(
   name,
   nickname,
   role,
@@ -10,41 +10,26 @@ export function createUser(
   email,
   birthdate
 ) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .post("/usuario/create", {
-        nome: name,
-        nickName: nickname,
-        papel: role,
-        userName: username,
-        password: password,
-        equipe: team,
-        status: "INDISPONIVEL",
-        email: email,
-        dtNascimento: birthdate,
-      })
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
+  return app.post("/usuario/create", {
+    nome: name,
+    nickName: nickname,
+    papel: role,
+    userName: username,
+    password: password,
+    equipe: team,
+    status: "INDISPONIVEL",
+    email: email,
+    dtNascimento: birthdate,
   });
 }
 
-export function getAllUsers() {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get("/usuario")
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+export async function getAllUsers() {
+  return app.get("/usuario");
 }
 
-export function getUserByUsername() {
+export async function getUserByUsername() {
   const username = localStorage.getItem("username");
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get(`/usuario/${username}`)
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.get(`/usuario/${username}`);
 }
 
 // export function modifyUser(

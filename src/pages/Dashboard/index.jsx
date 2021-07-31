@@ -55,28 +55,34 @@ export default function Dashboard() {
     setLoading(true);
     window.addEventListener("resize", updateMedia);
 
+    // Promise.all([getAllUsers, getUserByUsername, getAllTeams]).then((res) =>
+    //   console.log(res)
+    // );
+
     getUserByUsername()
       .then((res) => {
         setLoggedUser(res.data);
-      })
-      .catch((err) => history.push("/login"));
-    getAllUsers()
-      .then((res) => {
-        const allUsers = res.data;
-        const teamUsersResponse = allUsers.filter(
-          (item) => item.equipe === loggedUser.equipe
-        );
-        setTeamUsers(teamUsersResponse);
-        setAllUsers(allUsers);
-      })
-      .catch((err) => history.push("/login"));
 
-    getAllTeams()
-      .then((res) => {
-        setTeams(res.data);
+        getAllTeams()
+          .then((res) => {
+            setTeams(res.data);
+            console.log(res.data);
+          })
+          .catch((err) => history.push("/login"));
+
+        getAllUsers()
+          .then((res) => {
+            setAllUsers(res.data);
+            // setTeamUsers(
+            //   res.data
+            //   .filter((item) => item.equipe === loggedUser.equipe)
+            // );
+          })
+          .catch((err) => history.push("/login"));
       })
       .catch((err) => history.push("/login"))
       .finally(() => setLoading(false));
+
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
@@ -163,11 +169,17 @@ export default function Dashboard() {
               <Scrollbars autoHeight autoHeightMax="100%">
                 <CardSection>
                   <CardContainer>
-                    {teamUsers.map((item) => {
-                      return (
-                        <Card data={item} toggleCardModal={toggleCardModal} />
-                      );
-                    })}
+                    {allUsers
+                      .filter((item) => item.equipe === loggedUser.equipe)
+                      .map((item, index) => {
+                        return (
+                          <Card
+                            key={index}
+                            data={item}
+                            toggleCardModal={toggleCardModal}
+                          />
+                        );
+                      })}
                   </CardContainer>
                 </CardSection>
               </Scrollbars>

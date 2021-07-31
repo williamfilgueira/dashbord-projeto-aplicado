@@ -14,7 +14,6 @@ import {
 
 import StatusIndicator from "../Common/StatusIndicator";
 
-import avatar from "../../assets/images/Avatar.png";
 import { Pencil } from "phosphor-react";
 export default function Card({ toggleCardModal, data }) {
   const {
