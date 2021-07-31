@@ -1,53 +1,28 @@
 import { app } from "./index";
 
 export function createRole(name, description, color) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .post("/papel", {
-        nome: name,
-        descricao: description,
-        color: color
-      })
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
+  return app.post("/papel", {
+    nome: name,
+    descricao: description,
+    color: color,
   });
 }
 
 export function getAllRoles() {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get("/papel")
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.get("/papel");
 }
 
 export function getRoleByName(name) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get(`/papel/${name}`)
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.get(`/papel/${name}`);
 }
 
 export function modifyRole(name, description) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .put(`/papel/${name}`, {
-        nome: name,
-        descricao: description,
-      })
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
+  return app.put(`/papel/${name}`, {
+    nome: name,
+    descricao: description,
   });
 }
 
 export function deleteRole(name) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .delete(`/papel/${name}`)
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.delete(`/papel/${name}`);
 }

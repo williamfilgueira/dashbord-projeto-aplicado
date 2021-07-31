@@ -62,14 +62,13 @@ export default function Dashboard() {
     getUserByUsername()
       .then((res) => {
         setLoggedUser(res.data);
-
+        localStorage.setItem("loggedUser", res.data);
         getAllTeams()
           .then((res) => {
             setTeams(res.data);
             console.log(res.data);
           })
           .catch((err) => history.push("/login"));
-
         getAllUsers()
           .then((res) => {
             setAllUsers(res.data);

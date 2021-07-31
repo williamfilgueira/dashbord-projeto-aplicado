@@ -1,53 +1,28 @@
 import { app } from "./index";
 
 export function createStatus(name, description, emoji) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .post("/status", {
-        nome: name,
-        descricao: description,
-        emoji: emoji
-      })
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
+  return app.post("/status", {
+    nome: name,
+    descricao: description,
+    emoji: emoji,
   });
 }
 
 export function getAllStatus() {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get("/status")
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.get("/status");
 }
 
 export function getStatusByName(name) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .get(`/status/${name}`)
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.get(`/status/${name}`);
 }
 
 export function modifyStatus(name, description) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .put(`/status/${name}`, {
-        nome: name,
-        descricao: description,
-      })
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
+  return app.put(`/status/${name}`, {
+    nome: name,
+    descricao: description,
   });
 }
 
 export function deleteStatus(name) {
-  return new Promise(async (resolve, reject) => {
-    return app
-      .delete(`/status/${name}`)
-      .then((response) => resolve(response))
-      .catch((error) => reject(error));
-  });
+  return app.delete(`/status/${name}`);
 }

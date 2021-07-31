@@ -16,8 +16,6 @@ import Input from "../Common/Input";
 import StatusIndicator from "../Common/StatusIndicator";
 import Avatar from "../Common/Avatar";
 
-import AvatarImage from "../../assets/images/Avatar.png";
-
 import Logo from "../Common/Logo";
 
 export default function Topbar({

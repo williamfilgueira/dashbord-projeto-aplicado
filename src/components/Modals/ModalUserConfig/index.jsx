@@ -5,13 +5,12 @@ import {
   Upload,
   IconContainer,
   ContainerInput,
-  ContainerSelect
+  ContainerSelect,
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import Avatar from "../../Common/Avatar";
-import avatar from "../../../assets/images/Avatar.png";
 import Select from "../../Common/Select";
 import { Camera } from "phosphor-react";
 
@@ -45,17 +44,17 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
       mediaSize="big"
     >
       <FormAddMember>
-          <ContainerUpload>
-            <Avatar src={avatar} small/>
-            <IconContainer>
-              <label htmlFor="file-input">
-                <Camera size={20} color="#03569C" weight="bold"/>
-              </label>
-              <Upload id="file-input" type="file" />
-            </IconContainer>
-          </ContainerUpload>
+        <ContainerUpload>
+          {/* <Avatar src={avatar} small /> */}
+          <IconContainer>
+            <label htmlFor="file-input">
+              <Camera size={20} color="#03569C" weight="bold" />
+            </label>
+            <Upload id="file-input" type="file" />
+          </IconContainer>
+        </ContainerUpload>
         <ContainerInput>
-        <Input
+          <Input
             placeholder="Nome"
             onChange={(event) => {
               setName(event.target.value);
@@ -94,25 +93,25 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
               setNewBirthDate(event.target.value);
             }}
           />
-        </ContainerInput> 
+        </ContainerInput>
         <ContainerSelect>
-        <Select
-          title="Selecione a papel:"
-          options={[
-            { title: "Bombeiro", value: "A" },
-            { title: "Merge", value: "B" },
-          ]}
-        />
-        <Select
-          title="Selecione o equipe:"
-          options={[
-            { title: "Pack-Contabilidade", value: "A" },
-            { title: "Pack-Financeiro", value: "B" },
-          ]}
-        />
-          </ContainerSelect>  
+          <Select
+            title="Selecione a papel:"
+            options={[
+              { title: "Bombeiro", value: "A" },
+              { title: "Merge", value: "B" },
+            ]}
+          />
+          <Select
+            title="Selecione o equipe:"
+            options={[
+              { title: "Pack-Contabilidade", value: "A" },
+              { title: "Pack-Financeiro", value: "B" },
+            ]}
+          />
+        </ContainerSelect>
         <ButtonCommon
-          maincolor='blue'
+          maincolor="blue"
           title="SALVAR"
           onClick={() => {
             handleSubmit(
