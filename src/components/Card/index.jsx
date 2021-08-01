@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Avatar from "../Common/Avatar";
 import {
   Container,
@@ -15,6 +15,7 @@ import {
 import StatusIndicator from "../Common/StatusIndicator";
 
 import { Pencil } from "phosphor-react";
+
 export default function Card({ toggleCardModal, data }) {
   const {
     dtNascimento,
