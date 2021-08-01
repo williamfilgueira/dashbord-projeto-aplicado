@@ -13,7 +13,7 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
   const [teams, setTeams] = useState([]);
   const [teamId, setTeamId] = useState(0);
   const [roles, setRoles] = useState([]);
-  const [roleId, setRoleId] = useState(0);
+  const [roleName, setRoleName] = useState('');
 
   useEffect(() => {
     getAllTeams().then((res) => setTeams(res.data))
@@ -38,8 +38,8 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
           <ContainerSelect>
           <Select 
           title='Selecione o papel:'
-          value={roleId}
-          onChange={(event) => setRoleId(event.value.target)}
+          value={roleName}
+          onChange={(event) => setRoleName(event.target.value)}
           options={roles}
           />
           <Select 

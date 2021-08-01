@@ -44,7 +44,7 @@ export default function Card({ toggleCardModal, data }) {
       <PositionContainer>
         <Position>{papel}</Position>
       </PositionContainer>
-      <Flag />
+      <Flag/>
       <EditIconContainer onClick={toggleCardModal}>
         <Pencil size={28} />
       </EditIconContainer>

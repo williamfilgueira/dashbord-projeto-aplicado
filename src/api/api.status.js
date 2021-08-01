@@ -1,10 +1,9 @@
 import { app } from "./index";
 
-export function createStatus(name, description, emoji) {
+export function createStatus(emoji, name) {
   return app.post("/status", {
-    nome: name,
-    descricao: description,
     emoji: emoji,
+    nome: name
   });
 }
 

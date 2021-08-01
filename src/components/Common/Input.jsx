@@ -50,7 +50,7 @@ const InputContainer = styled.div`
   @media screen and (max-width: 1000px) {
     width: 80%;
     margin-right: auto;
-    margin-left: auto;
+  
   }
 
   @media screen and (max-width: 600px) {

@@ -2,14 +2,13 @@ import React from "react";
 import theme from "../../global/theme";
 import styled from "styled-components";
 
-export default function Select({ title, options }) {
+export default function Select({ title, options , onChange}) {
   return (
     <SelectContainer>
       <Label htmlFor="GET-name">{title}</Label>
-      <SelectOptions name="select">
-        <Option disabled selected></Option>
+      <SelectOptions name="select" onChange={onChange}>
         {options.map((item) => (
-          <Option key={item.id} value={item.id}>{item.nome}</Option>
+          <Option key={item.id} value={item.nome} onChange={onChange}>{item.nome}</Option>
         ))}
       </SelectOptions>
     </SelectContainer>

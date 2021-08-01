@@ -16,10 +16,11 @@ export function getRoleByName(name) {
   return app.get(`/papel/${name}`);
 }
 
-export function modifyRole(name, description) {
-  return app.put(`/papel/${name}`, {
+export function modifyRole(name, description, color) {
+  return app.put(`/papel/`, {
     nome: name,
     descricao: description,
+    cor: color
   });
 }
 
