@@ -41,7 +41,10 @@ const MenuToggleContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 30px 0 30px;
-  margin-top: ${(props) => (props.mobile ? "30px" : "100px")};
+  margin-top: 100px;
+  @media screen and (max-width: 1000px) {
+    margin-top: 30px;
+  }
 `;
 
 const MenuToggle = styled.div`

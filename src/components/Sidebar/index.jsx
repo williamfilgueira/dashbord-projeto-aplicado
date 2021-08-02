@@ -56,7 +56,7 @@ export default function Sidebar({
           mobile
         />
       )}
-      <MenuToggleContainer mobile>
+      <MenuToggleContainer>
         <UserToggle
           activeMenu={activeMenu}
           onClick={() => {
