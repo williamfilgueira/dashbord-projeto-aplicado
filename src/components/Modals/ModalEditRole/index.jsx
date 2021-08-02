@@ -12,45 +12,47 @@ import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import { useState } from "react";
 import { createRole, getRoleByName } from "../../../api/api.role";
-import Select from '../../Common/Select';
+import Select from "../../Common/Select";
 import { getAllRoles, modifyRole } from "../../../api/api.role";
 import axios from "axios";
 export default function ModalEditRole({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#9c0361");
-  const [roleName, setRoleName] = useState('');
+  const [roleName, setRoleName] = useState("");
   const [roles, setRoles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getAllRoles().then((res) => {
-      setRoles(res.data)
-    })
-  }, [])
+      setRoles(res.data);
+    });
+  }, []);
 
-  function handleSelect(event) {
-    setRoleName(event.target.value)
-    console.log(roleName);
+  useEffect(() => {
     getRoleByName(roleName).then((res) => {
       setName(res.data.nome);
       setDescription(res.data.descricao);
-      setColor(res.data.cor)
+      setColor(res.data.cor);
     });
-  };
+  }, [roleName]);
+
+  function handleSelect(event) {
+    setRoleName(event.target.value);
+  }
 
   function handleSubmit(name, description, color) {
     modifyRole(name, description, color).then((res) => {
-      console.log(res)
-      setName('');
-      setDescription('');
-      setColor('#9c0361');
+      console.log(res);
+      setName("");
+      setDescription("");
+      setColor("#9c0361");
     });
   }
 
   const handleInput = (e) => {
     setColor(e.target.value);
   };
-
 
   return (
     <BaseModal
@@ -60,49 +62,53 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
     >
-      <FormAddMember>
-        <Select
-          title='Selecione um papel'
-          value={roleName}
-          onChange={handleSelect}
-          options={roles}
-        />
-        <Input
-          required
-          placeholder="Papel"
-          onChange={(event) => setName(event.target.value)}
-          value={name}
-        />
-        <Input
-          required
-          placeholder="Descrição"
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-        />
-        <ColorPickerContainer>
-          <Label>Escolha uma cor: </Label>
-          <ColorPicker onChange={handleInput}>
-            <InputColor
-              type="color"
-              value={color}
-              onChange={(event) => setColor(event.target.value)}
-            />
-            <InputText
-              type="text"
-              value={color}
-              onChange={(event) => setColor(event.target.value)}
-            />
-          </ColorPicker>
-        </ColorPickerContainer>
-        <ButtonCommon
-          maincolor="blue"
-          title="CADASTRAR"
-          onClick={() => {
-            handleSubmit(name, description, color);
-            toggleModal();
-          }}
-        />
-      </FormAddMember>
+      {isLoading ? (
+        <> </>
+      ) : (
+        <FormAddMember>
+          <Select
+            title="Selecione um papel"
+            value={roleName}
+            onChange={handleSelect}
+            options={roles}
+          />
+          <Input
+            required
+            placeholder="Papel"
+            onChange={(event) => setName(event.target.value)}
+            value={name}
+          />
+          <Input
+            required
+            placeholder="Descrição"
+            onChange={(event) => setDescription(event.target.value)}
+            value={description}
+          />
+          <ColorPickerContainer>
+            <Label>Escolha uma cor: </Label>
+            <ColorPicker onChange={handleInput}>
+              <InputColor
+                type="color"
+                value={color}
+                onChange={(event) => setColor(event.target.value)}
+              />
+              <InputText
+                type="text"
+                value={color}
+                onChange={(event) => setColor(event.target.value)}
+              />
+            </ColorPicker>
+          </ColorPickerContainer>
+          <ButtonCommon
+            maincolor="blue"
+            title="CADASTRAR"
+            onClick={() => {
+              handleSubmit(name, description, color);
+              toggleModal();
+            }}
+          />
+        </FormAddMember>
+      )}
     </BaseModal>
   );
 }
