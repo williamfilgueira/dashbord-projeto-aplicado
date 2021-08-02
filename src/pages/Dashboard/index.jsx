@@ -45,7 +45,6 @@ export default function Dashboard() {
 
   const history = useHistory();
 
-  const [teamUsers, setTeamUsers] = useState([]);
   const [loggedUser, setLoggedUser] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [teams, setTeams] = useState([]);
@@ -54,12 +53,34 @@ export default function Dashboard() {
   useEffect(() => {
     setLoading(true);
     window.addEventListener("resize", updateMedia);
-    Promise.all([getUserByUsername(), getAllTeams(), getAllUsers()])
+    Promise.all([
+      getUserByUsername(),
+      getAllTeams(),
+      getAllUsers(),
+      getAllRoles(),
+    ])
       .then((res) => {
         setLoggedUser(res[0].data);
         localStorage.setItem("loggedUser", res[0].data);
+
+        const rolesRes = res[3].data;
+        const usersRes = res[2].data;
+
+        console.log(rolesRes, usersRes);
+
+        const userWithColor = usersRes.map((user) => {
+          rolesRes.map((role) => {
+            if (user.papel === role.nome) {
+              user.cor = role.cor;
+            }
+            return role;
+          });
+          return user;
+        });
+
         setTeams(res[1].data);
-        setAllUsers(res[2].data);
+
+        setAllUsers(userWithColor);
       })
       .catch(() => history.push("/login"))
       .finally(() => setLoading(false));

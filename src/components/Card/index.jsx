@@ -26,6 +26,7 @@ export default function Card({ toggleCardModal, data }) {
     nickName,
     nome,
     papel,
+    cor,
     status,
     url,
     userName,
@@ -44,7 +45,7 @@ export default function Card({ toggleCardModal, data }) {
       <PositionContainer>
         <Position>{papel}</Position>
       </PositionContainer>
-      <Flag />
+      <Flag color={cor} />
       <EditIconContainer onClick={toggleCardModal}>
         <Pencil size={28} />
       </EditIconContainer>
