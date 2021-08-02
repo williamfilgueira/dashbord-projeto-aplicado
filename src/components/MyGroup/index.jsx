@@ -12,6 +12,7 @@ export default function MyGroup({ name, data }) {
         <GroupAddAction
           key={item.id}
           title={item.title}
+          icon={item.icon}
           onClick={item.toggle}
         />
       ))}

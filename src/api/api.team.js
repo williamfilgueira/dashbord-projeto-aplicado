@@ -16,7 +16,7 @@ export function getTeamByName(name) {
 }
 
 export function modifyTeam(name, description) {
-  return app.put(`/equipe/${name}`, {
+  return app.put(`/equipe`, {
     nome: name,
     descricao: description,
   });

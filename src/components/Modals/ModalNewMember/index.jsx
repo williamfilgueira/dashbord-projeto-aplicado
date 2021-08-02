@@ -17,7 +17,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [roles, setRoles] = useState([]);
-  const [roleId, setRoleId] = useState(0);
+  const [roleName, setRoleName] = useState('');
 
   // var birthDateFormat = birthDate.split('-').reverse().join('/');
 
@@ -74,8 +74,8 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
         <ContainerSelect>
         <Select
             title="Selecione o papel:"
-            value={roleId}
-            onChange={(event) => setRoleId(event.target.value)}
+            value={roleName}
+            onChange={(event) => setRoleName(event.target.value)}
             options={roles}
           >    
         </Select>

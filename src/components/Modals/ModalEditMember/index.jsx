@@ -1,11 +1,25 @@
-import React from 'react';
+import React , { useEffect, useState, useParams} from 'react';
 import { FormAddMember,ButtonDelete, ContainerSelect, ContainerInput} from './styles';
 import Input from '../../Common/Input';
 import ButtonCommon from '../../Common/Button';
 import BaseModal from '../BaseModal';
 import Select from '../../Common/Select';
+import {getAllTeams} from '../../../api/api.team';
+import {getAllRoles} from '../../../api/api.role';
+import { getUserByUsername } from '../../../api/api.user';
 
 export default function ModalEditMember({ isOpen, toggleModal, title }) {
+  
+  const [teams, setTeams] = useState([]);
+  const [teamId, setTeamId] = useState(0);
+  const [roles, setRoles] = useState([]);
+  const [roleName, setRoleName] = useState('');
+
+  useEffect(() => {
+    getAllTeams().then((res) => setTeams(res.data))
+    getAllRoles().then((res) => setRoles(res.data))
+  }, [])
+  
   return (
       <BaseModal
         isOpen={isOpen}
@@ -22,8 +36,17 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
             <Input placeholder='Username' />
           </ContainerInput>
           <ContainerSelect>
-          <Select title='Selecione o papel:' options={[{ title: 'Bombeiro', value: 'A' }, { title: 'Merge', value: 'B' }]} />
-          <Select title='Selecione a equipe:' options={[{ title: 'Pack-Contabilidade', value: 'A' }, { title: 'Pack-Financeiro', value: 'B' }]} />
+          <Select 
+          title='Selecione o papel:'
+          value={roleName}
+          onChange={(event) => setRoleName(event.target.value)}
+          options={roles}
+          />
+          <Select 
+          title='Selecione a equipe:' 
+          value={teamId}
+          onChange={(event) => setTeamId(event.target.value)}
+          options={teams}/>
           </ContainerSelect>
           <ButtonCommon maincolor='blue' title='SALVAR' />
           <ButtonDelete>DELETAR MEMBRO</ButtonDelete>

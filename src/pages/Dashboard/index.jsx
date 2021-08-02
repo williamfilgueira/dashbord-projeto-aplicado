@@ -72,6 +72,7 @@ export default function Dashboard() {
         getAllUsers()
           .then((res) => {
             setAllUsers(res.data);
+            console.log(res.data)
             // setTeamUsers(
             //   res.data
             //   .filter((item) => item.equipe === loggedUser.equipe)

@@ -12,7 +12,7 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
   const [name, setname] = useState('');
 
   function handleStatus(emoji, name) {
-     createStatus(emoji.unified, name).then((res) => console.log(res));
+     createStatus(emoji.emoji, name).then((res) => console.log(res.data));
   }
 
   function onEmojiClick(event, emoji) {
