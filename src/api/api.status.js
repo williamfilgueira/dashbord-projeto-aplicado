@@ -15,10 +15,10 @@ export function getStatusByName(name) {
   return app.get(`/status/${name}`);
 }
 
-export function modifyStatus(name, description) {
-  return app.put(`/status/${name}`, {
+export function modifyStatus(name, emoji) {
+  return app.put(`/status`, {
     nome: name,
-    descricao: description,
+    emoji: emoji,
   });
 }
 

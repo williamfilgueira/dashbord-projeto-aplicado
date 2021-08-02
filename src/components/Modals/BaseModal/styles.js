@@ -10,7 +10,7 @@ const StyledModal = Modal.styled`
     } else if (props.size === "medium") {
       return "500px";
     } else {
-      return "400px";
+      return "450px";
     }
   }};
   display: flex;
@@ -29,7 +29,7 @@ const StyledModal = Modal.styled`
       }else if (props.mediaSize === "medium"){
         return '500px';
       }else {
-        return'360px';
+        return'450px';
       }
        }};
   }

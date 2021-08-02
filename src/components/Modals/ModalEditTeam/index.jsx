@@ -5,6 +5,7 @@ import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import { getTeamByName, getAllTeams, modifyTeam } from "../../../api/api.team";
 import Select from "../../Common/Select";
+import ButtonDelete from "../../Common/ButtonDelete";
 
 export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
@@ -16,18 +17,18 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   useEffect(() => {
     getAllTeams().then((res) => {
       setTeams(res.data)
-      console.log(res.data);
     })
   }, [])
 
-  const handleSelect = (event) => {
-    setTeamName(event.target.value)
-    console.log(teamName);
+  useEffect(() => {
     getTeamByName(teamName).then((res) => {
       setName(res.data.nome);
       setDescription(res.data.descricao);
     });
+  }, [teamName]);
 
+  const handleSelect = (event) => {
+    setTeamName(event.target.value)
   };
 
   function handleSubmit(name, description) {
@@ -68,13 +69,14 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
 
         <ButtonCommon
           maincolor="blue"
-          title="CADASTRAR"
+          title="SALVAR"
           onClick={() => {
             handleSubmit(name, description);
             toggleModal();
           }
           }
         />
+         <ButtonDelete title='DELETAR'/>
       </FormAddMember>
     </BaseModal>
   );
