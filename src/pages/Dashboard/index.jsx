@@ -14,7 +14,6 @@ import {
 
 import Topbar from "../../components/Topbar";
 import Sidebar from "../../components/Sidebar";
-import Chatbar from "../../components/Chatbar";
 import Card from "../../components/Card";
 
 import ModalNewMember from "../../components/Modals/ModalNewMember";
@@ -72,7 +71,7 @@ export default function Dashboard() {
         getAllUsers()
           .then((res) => {
             setAllUsers(res.data);
-            console.log(res.data)
+            console.log(res.data);
             // setTeamUsers(
             //   res.data
             //   .filter((item) => item.equipe === loggedUser.equipe)
@@ -98,7 +97,6 @@ export default function Dashboard() {
   function toggleUserConfigModal(e) {
     setUserConfigModal(!userConfigModal);
   }
-
   function toggleCardModal(e) {
     setCardModal(!cardModal);
   }
@@ -184,7 +182,6 @@ export default function Dashboard() {
                 </CardSection>
               </Scrollbars>
             </ScrollbarContainer>
-            {/* <Chatbar toggleUserConfigModal={toggleUserConfigModal} /> */}
           </>
         )}
       </Container>
