@@ -40,8 +40,8 @@ const MenuToggleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 100px;
   padding: 0 30px 0 30px;
+  margin-top: ${(props) => (props.mobile ? "30px" : "100px")};
 `;
 
 const MenuToggle = styled.div`

@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { SignOut, Gear } from "phosphor-react";
 import HamburgerMenu from "react-hamburger-menu";
-
-import {
-  Container,
-  StatusContainer,
-  UserContainer,
-  InfoContainer,
-  IconsContainer,
-  Icon,
-  Name,
-  MyAccountContainer,
-} from "./styles";
+import MyUser from "../MyUser";
+import { Container } from "./styles";
 import Input from "../Common/Input";
-import StatusIndicator from "../Common/StatusIndicator";
-import Avatar from "../Common/Avatar";
 
 import Logo from "../Common/Logo";
 
@@ -63,30 +51,12 @@ export default function Topbar({
         />
       )}
       {isDesktop && (
-        <UserContainer>
-          <MyAccountContainer>
-            <Avatar src={url} small={true} circle />
-            <InfoContainer>
-              <Name>{nome}</Name>
-              <StatusContainer>
-                <StatusIndicator status={status} color="white" />
-              </StatusContainer>
-            </InfoContainer>
-          </MyAccountContainer>
-          <IconsContainer>
-            <Icon>
-              <Gear
-                onClick={toggleUserConfigModal}
-                color="#FFF"
-                weight="bold"
-                size={30}
-              />
-            </Icon>
-            <Icon>
-              <SignOut color="#FFF" weight="bold" size={30} />
-            </Icon>
-          </IconsContainer>
-        </UserContainer>
+        <MyUser
+          url={url}
+          name={nome}
+          status={status}
+          toggleUserConfigModal={toggleUserConfigModal}
+        />
       )}
     </Container>
   );

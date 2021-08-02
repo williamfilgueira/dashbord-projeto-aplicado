@@ -156,6 +156,7 @@ export default function Dashboard() {
               isOpen={hamburguerMenu}
               isDesktop={isDesktop}
               teams={teams}
+              loggedUser={loggedUser}
             />
             <Topbar
               loggedUser={loggedUser}

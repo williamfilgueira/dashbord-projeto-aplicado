@@ -14,10 +14,23 @@ import {
 import Group from "../Group";
 import MyGroup from "../MyGroup";
 import Scrollbars from "react-custom-scrollbars";
-import { IdentificationBadge, Smiley, User, UsersFour , Pencil , Plus } from "phosphor-react";
+import {
+  IdentificationBadge,
+  Smiley,
+  User,
+  UsersFour,
+  Pencil,
+  Plus,
+} from "phosphor-react";
+import MyUser from "../MyUser";
 
-
-export default function Sidebar({ data, isOpen, isDesktop, teams }) {
+export default function Sidebar({
+  loggedUser,
+  data,
+  isOpen,
+  isDesktop,
+  teams,
+}) {
   const {
     toggleNewMemberModal,
     toggleRolesModal,
@@ -26,13 +39,24 @@ export default function Sidebar({ data, isOpen, isDesktop, teams }) {
     toggleEditRoleModal,
     toggleEditStatusModal,
     toggleEditTeamModal,
+    toggleUserConfigModal,
   } = data;
 
   const [activeMenu, setActiveMenu] = useState("user");
+  const { nome, status, papel, url } = loggedUser;
 
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>
-      <MenuToggleContainer>
+      {!isDesktop && (
+        <MyUser
+          url={url}
+          name={nome}
+          status={status}
+          toggleUserConfigModal={toggleUserConfigModal}
+          mobile
+        />
+      )}
+      <MenuToggleContainer mobile>
         <UserToggle
           activeMenu={activeMenu}
           onClick={() => {
@@ -82,7 +106,7 @@ export default function Sidebar({ data, isOpen, isDesktop, teams }) {
                   id: 1,
                   title: "Novo membro",
                   toggle: toggleNewMemberModal,
-                  icon: <Plus color="#fff" weight="bold" size={16} /> 
+                  icon: <Plus color="#fff" weight="bold" size={16} />,
                 },
               ]}
               name="Meu grupo"
@@ -97,13 +121,13 @@ export default function Sidebar({ data, isOpen, isDesktop, teams }) {
                   id: 1,
                   title: "Novo papel",
                   toggle: toggleRolesModal,
-                  icon: <Plus color="#fff" weight="bold" size={16} /> 
+                  icon: <Plus color="#fff" weight="bold" size={16} />,
                 },
                 {
                   id: 2,
                   title: "Editar papel",
                   toggle: toggleEditRoleModal,
-                  icon: <Pencil  color="#fff" weight="bold" size={16}/>
+                  icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
               name="Meu grupo"
@@ -118,13 +142,13 @@ export default function Sidebar({ data, isOpen, isDesktop, teams }) {
                   id: 1,
                   title: "Novo status",
                   toggle: toggleStatusModal,
-                  icon: <Plus color="#fff" weight="bold" size={16} /> 
+                  icon: <Plus color="#fff" weight="bold" size={16} />,
                 },
                 {
                   id: 2,
                   title: "Editar status",
                   toggle: toggleEditStatusModal,
-                  icon: <Pencil  color="#fff" weight="bold" size={16}/>
+                  icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
               name="Meu grupo"
@@ -139,13 +163,13 @@ export default function Sidebar({ data, isOpen, isDesktop, teams }) {
                   id: 1,
                   title: "Nova equipe",
                   toggle: toggleTeamModal,
-                  icon: <Plus color="#fff" weight="bold" size={16} /> 
+                  icon: <Plus color="#fff" weight="bold" size={16} />,
                 },
                 {
                   id: 2,
                   title: "Editar equipe",
                   toggle: toggleEditTeamModal,
-                  icon:<Pencil  color="#fff" weight="bold" size={16}/>
+                  icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
               name="Meu grupo"

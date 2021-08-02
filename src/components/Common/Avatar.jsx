@@ -12,8 +12,8 @@ export default function Avatar({ src, small, mediaSize, circle }) {
 
 const ImageContainer = styled.div`
   @media screen and (max-width: ${theme.breakpoints.sm}) {
-    width: 100px;
-    height: 100px;
+    width: ${(props) => (props.small ? "80px" : "100px")};
+    height: ${(props) => (props.small ? "80px" : "100px")};
     border-radius: ${(props) => (props.circle ? "65px" : "20px")};
   }
   width: ${(props) => (props.small ? "80px" : "120px")};
