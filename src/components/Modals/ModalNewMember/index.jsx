@@ -7,7 +7,7 @@ import Select from "../../Common/Select";
 
 import { createUser } from "../../../api/api.user";
 import User from "../../../models/user";
-import { getAllRoles} from "../../../api/api.role";
+import { getAllRoles } from "../../../api/api.role";
 import { useEffect } from "react";
 
 export default function ModalNewMember({ isOpen, toggleModal, title }) {
@@ -17,17 +17,22 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [roles, setRoles] = useState([]);
-  const [roleName, setRoleName] = useState('');
+  const [roleName, setRoleName] = useState("");
 
-  // var birthDateFormat = birthDate.split('-').reverse().join('/');
+  var birthDateFormat = birthDate.split("-").reverse().join("/");
 
   useEffect(() => {
-    getAllRoles().then((res) => setRoles(res.data))
-  }, [])
+    getAllRoles().then((res) => setRoles(res.data));
+  }, []);
 
-  function handleSubmit(name, username, email, password, birthDate) {
-    createUser(new User(name, username, email, password, birthDate));
-    console.log(name, username, email, password, /*birthDateFormat*/);
+  function handleSubmit(name, username, email, password, birthDateFormat) {
+    createUser({
+      name: name,
+      username: username,
+      password: password,
+      email: email,
+      birthdate: birthDateFormat,
+    }).then((res) => console.log(res));
   }
 
   return (
@@ -72,22 +77,21 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
           />
         </ContainerInput>
         <ContainerSelect>
-        <Select
+          <Select
             title="Selecione o papel:"
             value={roleName}
             onChange={(event) => setRoleName(event.target.value)}
             options={roles}
-          >    
-        </Select>
+          ></Select>
         </ContainerSelect>
-      <ButtonCommon
-        maincolor="blue"
-        title="CADASTRAR"
-        onClick={() =>
-          handleSubmit(name, username, email, password, birthDate)
-        }
-      />
+        <ButtonCommon
+          maincolor="blue"
+          title="CADASTRAR"
+          onClick={() =>
+            handleSubmit(name, username, email, password, birthDate)
+          }
+        />
       </FormAddMember>
-    </BaseModal >
+    </BaseModal>
   );
 }

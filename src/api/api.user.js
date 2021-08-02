@@ -10,7 +10,8 @@ export async function createUser(
   email,
   birthdate
 ) {
-  return app.post("/usuario/create", {
+  const formData = new FormData();
+  const user = {
     nome: name,
     nickName: nickname,
     papel: role,
@@ -20,7 +21,15 @@ export async function createUser(
     status: "INDISPONIVEL",
     email: email,
     dtNascimento: birthdate,
-  });
+  };
+  formData.append("usuario", user);
+  console.log(user);
+  const header = {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  };
+  return app.post("/usuario/create", formData, header);
 }
 
 export async function getAllUsers() {
@@ -42,22 +51,26 @@ export async function getUserByUsername() {
 //   email,
 //   birthdate
 // ) {
-//   return new Promise(async (resolve, reject) => {
-//     return app
-//       .put(`/usuario/${username}`, {
-//         nome: name,
-//         nickName: nickname,
-//         papel: role,
-//         useName: username,
-//         password: password,
-//         equipe: team,
-//         status: "INDISPONIVEL",
-//         email: email,
-//         dtNascimento: birthdate,
-//       })
-//       .then((response) => resolve(response))
-//       .catch((error) => reject(error));
-//   });
+//   const formData = new FormData();
+//   const user = {
+//     nome: name,
+//     nickName: nickname,
+//     papel: role,
+//     userName: username,
+//     password: password,
+//     equipe: team,
+//     status: "INDISPONIVEL",
+//     email: email,
+//     dtNascimento: birthdate,
+//   };
+//   const header = {
+//     headers: {
+//       "content-type": "multipart/form-data",
+//     },
+//   };
+//   formData.append("usuario", user);
+//   formData.append("file", Guest);
+//   return app.put(`/usuario/editaPerfil`, formData, header);
 // }
 
 // export function deleteUser(username) {

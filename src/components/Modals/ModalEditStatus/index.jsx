@@ -1,29 +1,37 @@
-import React, { useState, useEffect} from "react";
-import { FormAddMember, Label, ContainerEmojiPicker, ContainerInput } from "./styles";
+import React, { useState, useEffect } from "react";
+import {
+  FormAddMember,
+  Label,
+  ContainerEmojiPicker,
+  ContainerInput,
+} from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
-import Picker from 'emoji-picker-react';
-import { getAllStatus, modifyStatus, getStatusByName} from "../../../api/api.status";
+import Picker from "emoji-picker-react";
+import {
+  getAllStatus,
+  modifyStatus,
+  getStatusByName,
+} from "../../../api/api.status";
 import Select from "../../Common/Select";
-import ButtonDelete from '../../Common/ButtonDelete';
+import ButtonDelete from "../../Common/ButtonDelete";
 
 export default function ModalEditStatus({ isOpen, toggleModal, title }) {
-
-  const [emoji, setEmoji] = useState('');
-  const [name, setName] = useState('');
-  const [statusName, setStatusName] = useState('');
+  const [emoji, setEmoji] = useState("");
+  const [name, setName] = useState("");
+  const [statusName, setStatusName] = useState("");
   const [status, setStatus] = useState([]);
 
   function onEmojiClick(event, emoji) {
     setEmoji(emoji.emoji);
-  };
+  }
 
   useEffect(() => {
     getAllStatus().then((res) => {
-      setStatus(res.data)
-    })
-  }, [])
+      setStatus(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     getStatusByName(statusName).then((res) => {
@@ -33,18 +41,16 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
   }, [statusName]);
 
   const handleSelect = (event) => {
-     setStatusName(event.target.value)
+    setStatusName(event.target.value);
   };
 
   function handleSubmit(name, emoji) {
-     modifyStatus(name, emoji).then((res) => {
-       console.log(res)
-       setName('');
-       setEmoji('');
-     });
+    modifyStatus(name, emoji).then((res) => {
+      setName("");
+      setEmoji("");
+    });
   }
 
- 
   return (
     <BaseModal
       isOpen={isOpen}
@@ -52,31 +58,29 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
       onEscapeKeydown={toggleModal}
       close={toggleModal}
       title={title}
-      size='big'
-      mediaSize='big'
+      size="big"
+      mediaSize="big"
     >
       <FormAddMember>
-      <Select
-          title='Selecione um status:'
+        <Select
+          title="Selecione um status:"
           value={statusName}
           onChange={handleSelect}
           options={status}
         />
         <ContainerEmojiPicker>
-          <Label>
-            Escolha um emoji:
-          </Label>
+          <Label>Escolha um emoji:</Label>
           <Picker onEmojiClick={onEmojiClick} native />
         </ContainerEmojiPicker>
         <ContainerInput>
           <Input
             required
             placeholder=":)"
-            size='small'
-            mediaSize='small'
+            size="small"
+            mediaSize="small"
             value={emoji}
             onChange={(event) => setEmoji(event.target.value)}
-            sizeInput='small'
+            sizeInput="small"
           />
           <Input
             required
@@ -86,11 +90,11 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
           />
         </ContainerInput>
         <ButtonCommon
-          maincolor='blue'
+          maincolor="blue"
           title="SALVAR"
-          onClick={() => handleSubmit(name,emoji)}
+          onClick={() => handleSubmit(name, emoji)}
         />
-        <ButtonDelete title='DELETAR' />
+        <ButtonDelete title="DELETAR" />
       </FormAddMember>
     </BaseModal>
   );

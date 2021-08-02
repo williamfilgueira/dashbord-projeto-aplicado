@@ -29,6 +29,7 @@ import theme from "../../global/theme";
 import ModalEditRole from "../../components/Modals/ModalEditRole";
 import ModalEditStatus from "../../components/Modals/ModalEditStatus";
 import ModalEditTeam from "../../components/Modals/ModalEditTeam";
+import { getAllRoles } from "../../api/api.role";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -53,33 +54,14 @@ export default function Dashboard() {
   useEffect(() => {
     setLoading(true);
     window.addEventListener("resize", updateMedia);
-
-    // Promise.all([getAllUsers, getUserByUsername, getAllTeams]).then((res) =>
-    //   console.log(res)
-    // );
-
-    getUserByUsername()
+    Promise.all([getUserByUsername(), getAllTeams(), getAllUsers()])
       .then((res) => {
-        setLoggedUser(res.data);
-        localStorage.setItem("loggedUser", res.data);
-        getAllTeams()
-          .then((res) => {
-            setTeams(res.data);
-            console.log(res.data);
-          })
-          .catch((err) => history.push("/login"));
-        getAllUsers()
-          .then((res) => {
-            setAllUsers(res.data);
-            console.log(res.data);
-            // setTeamUsers(
-            //   res.data
-            //   .filter((item) => item.equipe === loggedUser.equipe)
-            // );
-          })
-          .catch((err) => history.push("/login"));
+        setLoggedUser(res[0].data);
+        localStorage.setItem("loggedUser", res[0].data);
+        setTeams(res[1].data);
+        setAllUsers(res[2].data);
       })
-      .catch((err) => history.push("/login"))
+      .catch(() => history.push("/login"))
       .finally(() => setLoading(false));
 
     return () => window.removeEventListener("resize", updateMedia);

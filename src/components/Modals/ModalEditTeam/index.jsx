@@ -10,15 +10,14 @@ import ButtonDelete from "../../Common/ButtonDelete";
 export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [teamName, setTeamName] = useState('');
+  const [teamName, setTeamName] = useState("");
   const [teams, setTeams] = useState([]);
-
 
   useEffect(() => {
     getAllTeams().then((res) => {
-      setTeams(res.data)
-    })
-  }, [])
+      setTeams(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     getTeamByName(teamName).then((res) => {
@@ -28,14 +27,13 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   }, [teamName]);
 
   const handleSelect = (event) => {
-    setTeamName(event.target.value)
+    setTeamName(event.target.value);
   };
 
   function handleSubmit(name, description) {
     modifyTeam(name, description).then((res) => {
-      console.log(res)
-      setName('');
-      setDescription('');
+      setName("");
+      setDescription("");
     });
   }
 
@@ -49,7 +47,7 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
     >
       <FormAddMember>
         <Select
-          title='Selecione uma equipe'
+          title="Selecione uma equipe"
           value={teamName}
           onChange={handleSelect}
           options={teams}
@@ -73,10 +71,9 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
           onClick={() => {
             handleSubmit(name, description);
             toggleModal();
-          }
-          }
+          }}
         />
-         <ButtonDelete title='DELETAR'/>
+        <ButtonDelete title="DELETAR" />
       </FormAddMember>
     </BaseModal>
   );

@@ -43,7 +43,6 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
 
   function handleSubmit(name, description, color) {
     modifyRole(name, description, color).then((res) => {
-      console.log(res);
       setName("");
       setDescription("");
       setColor("#9c0361");
@@ -107,7 +106,7 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
               toggleModal();
             }}
           />
-          <ButtonDelete title='DELETAR'/>
+          <ButtonDelete title="DELETAR" />
         </FormAddMember>
       )}
     </BaseModal>

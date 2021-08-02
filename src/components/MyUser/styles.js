@@ -5,7 +5,7 @@ const UserContainer = styled.div`
   margin-top: ${(props) => props.mobile && "120px"};
   display: flex;
   justify-content: space-around;
-  height: 65px;
+  height: 100px;
   width: ${(props) => (props.mobile ? "100%" : "400px")};
 `;
 
@@ -31,7 +31,8 @@ const InfoContainer = styled.div`
 `;
 
 const IconsContainer = styled.div`
-  height: 50px;
+  height: 100px;
+  width: 130px;
   display: flex;
   justify-content: space-around;
   align-items: center;
