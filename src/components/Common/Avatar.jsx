@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "../../global/theme";
 
 export default function Avatar({ src, small, mediaSize, circle }) {
   return (
@@ -10,9 +11,9 @@ export default function Avatar({ src, small, mediaSize, circle }) {
 }
 
 const ImageContainer = styled.div`
-  @media screen and (max-width: 600px) {
-    width: ${(props) => (props.small ? "65px" : "120px")};
-    height: ${(props) => (props.small ? "65px" : "120px")};
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: 100px;
+    height: 100px;
     border-radius: ${(props) => (props.circle ? "65px" : "20px")};
   }
   width: ${(props) => (props.small ? "80px" : "120px")};

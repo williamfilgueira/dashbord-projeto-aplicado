@@ -23,8 +23,9 @@ const Container = styled.div`
   width: 450px;
   @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: 100%;
-    margin-right: 35px;
-    margin-left: 15px;
+    margin-right: 20px;
+    margin-left: 10px;
+    height: 100px;
   }
   @media screen and (min-width: ${theme.breakpoints.lg}) {
     width: 650px;
@@ -41,17 +42,26 @@ const InfoContainer = styled.div`
 const Name = styled.h1`
   font-family: ${theme.fonts.title};
   margin-bottom: 5px;
-  font-size: 1.37rem;
+  font-size: 20px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 17px;
+  }
 `;
 
 const Username = styled.p`
   font-family: ${theme.fonts.paragraph};
   font-size: 13px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 12px;
+  }
 `;
 
 const StatusContainer = styled.div`
   display: flex;
   margin-top: 19px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    margin-top: 10px;
+  }
 `;
 
 const PositionContainer = styled.div`
@@ -63,6 +73,10 @@ const PositionContainer = styled.div`
 
 const Position = styled.p`
   font-family: ${theme.fonts.paragraph};
+  font-size: 14px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 11px;
+  }
 `;
 const Flag = styled.div`
   position: relative;
@@ -72,12 +86,18 @@ const Flag = styled.div`
   transform: rotate(45deg);
   height: 200px;
   width: 40px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: 20px;
+  }
 `;
 
 const EditIconContainer = styled.div`
   position: relative;
   top: 15px;
   right: 20px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    right: 10px;
+  }
   cursor: pointer;
   color: ${theme.colors.alterdataBlue};
   svg {

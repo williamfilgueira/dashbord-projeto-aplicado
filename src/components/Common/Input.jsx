@@ -2,9 +2,16 @@ import styled from "styled-components";
 import theme from "../../global/theme";
 import React from "react";
 
-import { MagnifyingGlass, PaperPlaneTilt,User } from "phosphor-react";
+import { MagnifyingGlass, PaperPlaneTilt, User } from "phosphor-react";
 
-export default function Input({ icon, size, innerColor, mediaSize,sizeInput, ...rest }) {
+export default function Input({
+  icon,
+  size,
+  innerColor,
+  mediaSize,
+  sizeInput,
+  ...rest
+}) {
   return (
     <InputContainer innerColor={innerColor} size={size} mediaSize={mediaSize}>
       <CustomInput innerColor={innerColor} {...rest} sizeInput={sizeInput} />
@@ -50,26 +57,11 @@ const InputContainer = styled.div`
   @media screen and (max-width: 1000px) {
     width: 80%;
     margin-right: auto;
-  
-  }
-
-  @media screen and (max-width: 600px) {
-   
-    width: ${(props) => {
-      if (props.mediaSize === "regular") {
-        return "235px";
-      } else if (props.mediaSize === "small") {
-        return "40px";
-      } else {
-        return "88%";
-      }
-    }};
-    height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
   }
 
   @media screen and (max-width: 1000px) {
-    width: ${(props) => {;
-    if (props.mediaSize === "regular") {
+    width: ${(props) => {
+      if (props.mediaSize === "regular") {
         return "328px";
       } else if (props.mediaSize === "small") {
         return "60px";
@@ -77,22 +69,33 @@ const InputContainer = styled.div`
         return "235px";
       }
     }};
-    margin-right: ${(props) => (props.mediaSize === "small" ? "10px" : "0")}; ;
-
+    margin-right: ${(props) => (props.mediaSize === "small" ? "10px" : "0")};
   }
-
-
+  @media screen and (max-width: 600px) {
+    width: ${(props) => {
+      if (props.mediaSize === "regular") {
+        return "70%";
+      } else if (props.mediaSize === "small") {
+        return "40px";
+      } else {
+        return "88%";
+      }
+    }};
+    margin-right: ${(props) => (props.mediaSize === "regular" ? "auto" : "0")};
+    margin-left: ${(props) => (props.mediaSize === "regular" ? "auto" : "0")};
+    height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
+  }
 `;
 const CustomInput = styled.input`
   background: ${(props) =>
-  props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
+    props.innerColor === "white" ? "#fff" : theme.colors.lightGray};
   font-family: ${theme.fonts.paragraph};
-  padding-left: ${(props) => props.sizeInput === "small" ? "6px" : "14px"};
-  padding-right: ${(props) => props.sizeInput === "small" ? "6px" : "14px"};
+  padding-left: ${(props) => (props.sizeInput === "small" ? "6px" : "14px")};
+  padding-right: ${(props) => (props.sizeInput === "small" ? "6px" : "14px")};
   font-size: 16px;
   outline: none;
   border: none;
-  
+
   ::placeholder {
     color: #707070;
   }
@@ -104,14 +107,11 @@ const CustomInput = styled.input`
 
   @media screen and (max-width: 600px) {
     margin-left: ${(props) => (props.sizeInput === "small" ? "0px" : "14px")};
-
   }
 
   @media screen and (max-width: 1000px) {
     margin-left: ${(props) => (props.sizeInput === "small" ? "10px" : "0px")};
-
   }
-
 `;
 
 const IconContainer = styled.div`
