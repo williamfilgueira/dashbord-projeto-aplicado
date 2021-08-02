@@ -14,7 +14,7 @@ import { useState } from "react";
 import { createRole, getRoleByName } from "../../../api/api.role";
 import Select from "../../Common/Select";
 import { getAllRoles, modifyRole } from "../../../api/api.role";
-import axios from "axios";
+import ButtonDelete from "../../Common/ButtonDelete";
 export default function ModalEditRole({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -101,12 +101,13 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
           </ColorPickerContainer>
           <ButtonCommon
             maincolor="blue"
-            title="CADASTRAR"
+            title="SALVAR"
             onClick={() => {
               handleSubmit(name, description, color);
               toggleModal();
             }}
           />
+          <ButtonDelete title='DELETAR'/>
         </FormAddMember>
       )}
     </BaseModal>
