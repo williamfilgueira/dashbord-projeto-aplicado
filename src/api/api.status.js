@@ -22,6 +22,7 @@ export function modifyStatus(name, emoji) {
   });
 }
 
+
 export function deleteStatus(name) {
   return app.delete(`/status/${name}`);
 }

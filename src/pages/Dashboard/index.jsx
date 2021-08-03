@@ -52,21 +52,20 @@ export default function Dashboard() {
 
   function getSetUsers() {
     Promise.all([getAllUsers(), getAllRoles()]).then((res) => {
+      const usersRes = res[0].data;
       const rolesRes = res[1].data;
-      const users = res[0].data
-        .filter((item) => item.equipe === loggedUser.equipe)
-        .map((user) => {
-          rolesRes.map((role) => {
-            if (user.papel === role.nome) {
-              user.cor = role.cor;
-            }
-            return role;
-          });
-          return user;
-        })
-        .sort((userA, userB) => userA.userName.localeCompare(userB.userName));
 
-      setAllUsers(users);
+      const userWithColor = usersRes.map((user) => {
+        rolesRes.map((role) => {
+          if (user.papel === role.nome) {
+            user.cor = role.cor;
+          }
+          return role;
+        });
+        return user;
+      });
+
+      setAllUsers(userWithColor);
     });
   }
 
@@ -84,22 +83,20 @@ export default function Dashboard() {
         localStorage.setItem("loggedUser", res[0].data);
 
         const rolesRes = res[3].data;
+        const users = res[2].data;
 
-        const users = res[2].data
-          .filter((item) => item.equipe === loggedUser.equipe)
-          .map((user) => {
-            rolesRes.map((role) => {
-              if (user.papel === role.nome) {
-                user.cor = role.cor;
-              }
-              return role;
-            });
-            return user;
-          })
-          .sort((userA, userB) => userA.userName.localeCompare(userB.userName));
+        const usersWithColor = users.map((user) => {
+          rolesRes.map((role) => {
+            if (user.papel === role.nome) {
+              user.cor = role.cor;
+            }
+            return role;
+          });
+          return user;
+        });
 
         setTeams(res[1].data);
-        setAllUsers(users);
+        setAllUsers(usersWithColor);
       })
       .catch(() => history.push("/login"))
       .finally(() => setLoading(false));
@@ -190,16 +187,21 @@ export default function Dashboard() {
               <Scrollbars autoHeight autoHeightMax="100%">
                 <CardSection>
                   <CardContainer>
-                    {allUsers.map((item, index) => {
-                      return (
-                        <Card
-                          key={item.id}
-                          data={item}
-                          toggleCardModal={toggleCardModal}
-                          getSetUsers={getSetUsers}
-                        />
-                      );
-                    })}
+                    {allUsers
+                      .filter((item) => item.equipe === loggedUser.equipe)
+                      .sort((userA, userB) =>
+                        userA.userName.localeCompare(userB.userName)
+                      )
+                      .map((item, index) => {
+                        return (
+                          <Card
+                            key={item.id}
+                            data={item}
+                            toggleCardModal={toggleCardModal}
+                            getSetUsers={getSetUsers}
+                          />
+                        );
+                      })}
                   </CardContainer>
                 </CardSection>
               </Scrollbars>
@@ -242,6 +244,7 @@ export default function Dashboard() {
         toggleModal={toggleEditRoleModal}
         isOpen={editRoleModal}
         title="Editar papel"
+        getSetUsers={getSetUsers}
       />
 
       <ModalEditStatus
