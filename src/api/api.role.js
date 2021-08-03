@@ -16,11 +16,12 @@ export function getRoleByName(name) {
   return app.get(`/papel/${name}`);
 }
 
-export function modifyRole(name, description, color) {
-  return app.put(`/papel/`, {
-    nome: name,
+export function modifyRole(oldName, newName, description, color) {
+  console.log(oldName, newName, description, color);
+  return app.put(`/papel/${oldName}`, {
+    nome: newName,
     descricao: description,
-    cor: color
+    cor: color,
   });
 }
 

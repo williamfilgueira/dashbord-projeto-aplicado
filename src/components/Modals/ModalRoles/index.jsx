@@ -23,7 +23,9 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
   };
 
   function handleSubmit(name, color, description) {
-    createRole(name, description, color).then((res) => console.log(res));
+    createRole(name, description, color)
+      .then((res) => console.log(res))
+      .finally(() => toggleModal());
   }
 
   return (
@@ -65,7 +67,6 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
           title="CADASTRAR"
           onClick={() => {
             handleSubmit(name, description, color);
-            toggleModal();
           }}
         />
       </FormAddMember>
