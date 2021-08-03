@@ -19,8 +19,9 @@ export default function ResetPassword() {
 
   function handleSubmit(userName) {
     const email = sendEmail(userName).then(function recebeRespo(response) {
-      console.log(email);
-    });
+      alert("Email enviado com sucesso!")
+    })
+    .catch((err) => {alert("Email inválido, tente novamente")});
   }
 
   return (
