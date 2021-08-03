@@ -5,6 +5,8 @@ import {
   ContainerResetPassword,
   ContainerImage,
   Button,
+  ContainerInput
+
 } from "./styles";
 import { StyledLink } from "../Login/style";
 import { sendEmail } from "../../api/api.email";
@@ -34,6 +36,7 @@ export default function ResetPassword() {
         </ContainerImage>
         <h3>Esqueceu sua senha?</h3>
         <h2>Entre com o seu nome de usuário</h2>
+        <ContainerInput>
         <Input
           type="mail"
           placeholder="Usuário"
@@ -42,6 +45,7 @@ export default function ResetPassword() {
           mediaSize="regular"
           icon="User"
         />
+        </ContainerInput>  
         <Button onClick={() => handleSubmit(userName)}>ENVIAR</Button>
         <StyledLink to="login">
           <h3>voltar</h3>

@@ -77,18 +77,20 @@ const InputContainer = styled.div`
   @media screen and (max-width: 600px) {
     width: ${(props) => {
       if (props.mediaSize === "regular") {
-        return "70%";
+        return "100%";
       } else if (props.mediaSize === "small") {
         return "40px";
       } else if (props.mediaSize === "medium") {
         return "270px";
+      } else if (props.mediaSize === "searchBar") {
+        return "70%";
       } else {
         return "88%";
       }
     }};
-    margin-right: ${(props) => (props.mediaSize === "regular" ? "auto" : "0")};
-    margin-left: ${(props) => (props.mediaSize === "regular" ? "auto" : "0")};
-    height: ${(props) => (props.mediaSize === "regular" ? "40px" : "30px")};
+    margin-right: ${(props) => (props.mediaSize === "regular" || "searchBar" ? "auto" : "0")};
+    margin-left: ${(props) => (props.mediaSize === "regular" || "searchBar" ? "auto" : "0")};
+    height: ${(props) => (props.mediaSize === "regular"  || "searchBar"? "40px" : "30px")};
   }
 `;
 const CustomInput = styled.input`
