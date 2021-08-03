@@ -18,7 +18,6 @@ import ButtonDelete from "../../Common/ButtonDelete";
 export default function ModalEditRole({ isOpen, toggleModal, title }) {
   const [newName, setNewName] = useState("");
   const [oldName, setOldName] = useState("");
-
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#9c0361");
   const [roles, setRoles] = useState([]);
@@ -30,14 +29,14 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
     });
   }, []);
 
-  // useEffect(() => {
-  //   getRoleByName(oldName).then((res) => {
-  //     setOldName(res.data.nome);
-  //     setDescription(res.data.descricao);
-  //     setColor(res.data.cor);
-  //   });
-  //   console.log("useEffect oldName");
-  // }, [oldName]);
+  //  useEffect(() => {
+  //    getRoleByName(oldName).then((res) => {
+  //      setNewName(res.data.nome);
+  //      setDescription(res.data.descricao);
+  //      setColor(res.data.cor);
+  //    });
+  //    console.log("useEffect oldName");
+  //  }, [oldName]);
 
   function handleSubmit(oldName, newName, description, color) {
     modifyRole(oldName, newName, description, color).then((res) => {

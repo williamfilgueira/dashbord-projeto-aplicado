@@ -12,11 +12,16 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   const [description, setDescription] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teams, setTeams] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  function getAll() {
     getAllTeams().then((res) => {
       setTeams(res.data);
     });
+  }
+  
+  useEffect(() => {
+   getAll();
   }, []);
 
   useEffect(() => {
@@ -26,14 +31,14 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
     });
   }, [teamName]);
 
-  const handleSelect = (event) => {
-    setTeamName(event.target.value);
-  };
-
-  function handleSubmit(name, description) {
-    modifyTeam(name, description).then((res) => {
+  function handleSubmit(teamName, name, description) {
+    modifyTeam(teamName, name, description).then((res) => {
       setName("");
       setDescription("");
+    })
+    .finally(() => {
+      getAll();
+      toggleModal();
     });
   }
 
@@ -45,11 +50,14 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
     >
+        {isLoading ? (
+        <> </>
+      ) : (
       <FormAddMember>
         <Select
           title="Selecione uma equipe"
           value={teamName}
-          onChange={handleSelect}
+          onChange={(event) => setTeamName(event.target.value)}
           options={teams}
         />
         <Input
@@ -69,12 +77,12 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
           maincolor="blue"
           title="SALVAR"
           onClick={() => {
-            handleSubmit(name, description);
-            toggleModal();
+            handleSubmit(teamName, name, description)
           }}
         />
         <ButtonDelete title="DELETAR" />
       </FormAddMember>
+       )}
     </BaseModal>
   );
 }
