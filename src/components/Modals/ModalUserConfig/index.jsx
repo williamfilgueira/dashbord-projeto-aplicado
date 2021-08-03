@@ -14,17 +14,15 @@ import Avatar from "../../Common/Avatar";
 import Select from "../../Common/Select";
 import { Camera } from "phosphor-react";
 
-export default function ModalUserConfig({ isOpen, toggleModal, title }) {
-  function handleSubmit(
-    name,
-    username,
-    email,
-    oldPassword,
-    newPassword,
-    newBirthDate
-  ) {
-    console.log(name, username, email, oldPassword, newPassword, newBirthDate);
-  }
+import { changeMe } from "../../../api/api.user";
+
+export default function ModalUserConfig({
+  isOpen,
+  toggleModal,
+  title,
+  loggedUser,
+}) {
+  const { url } = loggedUser;
 
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -32,6 +30,26 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newBirthDate, setNewBirthDate] = useState("");
+  const [newPhoto, setNewPhoto] = useState("");
+  const [rawPhoto, setRawPhoto] = useState("");
+
+  function handleSubmit(
+    name,
+    nickname,
+    role,
+    username,
+    password,
+    email,
+    rawPhoto
+  ) {
+    changeMe(name, nickname, role, username, password, email, rawPhoto);
+  }
+
+  function handleFileUpload(event) {
+    const inputUrl = URL.createObjectURL(event.target.files[0]);
+    setNewPhoto(inputUrl);
+    setRawPhoto(event.target.files[0]);
+  }
 
   return (
     <BaseModal
@@ -45,12 +63,16 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
     >
       <FormAddMember>
         <ContainerUpload>
-          {/* <Avatar src={avatar} small /> */}
+          <Avatar src={newPhoto || url} small />
           <IconContainer>
             <label htmlFor="file-input">
               <Camera size={20} color="#03569C" weight="bold" />
             </label>
-            <Upload id="file-input" type="file" />
+            <Upload
+              id="file-input"
+              type="file"
+              onChange={(e) => handleFileUpload(e)}
+            />
           </IconContainer>
         </ContainerUpload>
         <ContainerInput>
@@ -62,6 +84,12 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
           />
           <Input
             placeholder="Username"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <Input
+            placeholder="Nickname"
             onChange={(event) => {
               setUsername(event.target.value);
             }}
@@ -87,12 +115,12 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
               setNewPassword(event.target.value);
             }}
           />
-          <Input
+          {/* <Input
             placeholder="Data de nascimento"
             onChange={(event) => {
               setNewBirthDate(event.target.value);
             }}
-          />
+          /> */}
         </ContainerInput>
         <ContainerSelect>
           <Select
@@ -120,7 +148,8 @@ export default function ModalUserConfig({ isOpen, toggleModal, title }) {
               email,
               oldPassword,
               newPassword,
-              newBirthDate
+              newBirthDate,
+              rawPhoto
             );
           }}
         />

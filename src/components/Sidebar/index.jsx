@@ -30,6 +30,7 @@ export default function Sidebar({
   isOpen,
   isDesktop,
   teams,
+  getSetUsers,
 }) {
   const {
     toggleNewMemberModal,
@@ -43,7 +44,7 @@ export default function Sidebar({
   } = data;
 
   const [activeMenu, setActiveMenu] = useState("user");
-  const { nome, status, papel, url } = loggedUser;
+  const { nome, status, papel, url, equipe } = loggedUser;
 
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>
@@ -109,7 +110,7 @@ export default function Sidebar({
                   icon: <Plus color="#fff" weight="bold" size={16} />,
                 },
               ]}
-              name="Meu grupo"
+              name={equipe}
             />
           ) : (
             <></>
@@ -130,7 +131,7 @@ export default function Sidebar({
                   icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
-              name="Meu grupo"
+              name={equipe}
             />
           ) : (
             <></>
@@ -151,7 +152,7 @@ export default function Sidebar({
                   icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
-              name="Meu grupo"
+              name={equipe}
             />
           ) : (
             <></>
@@ -172,15 +173,22 @@ export default function Sidebar({
                   icon: <Pencil color="#fff" weight="bold" size={16} />,
                 },
               ]}
-              name="Meu grupo"
+              name={equipe}
             />
           ) : (
             <></>
           )}
 
-          {teams.map((item) => (
-            <Group key={item.id} name={item.nome} />
-          ))}
+          {teams
+            .filter((team) => team.nome !== equipe)
+            .sort((teamA, teamB) => teamA.nome.localeCompare(teamB.nome))
+            .map((item) => (
+              <Group
+                key={item.id}
+                groupName={item.nome}
+                getSetUsers={getSetUsers}
+              />
+            ))}
         </GroupList>
       </Scrollbars>
     </Container>

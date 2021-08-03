@@ -3,10 +3,20 @@ import React from "react";
 import { SignIn } from "phosphor-react";
 import { GroupName, GroupContainer } from "./styles";
 
-export default function Group({ name }) {
+import { changeMyGroup } from "../../api/api.user";
+
+export default function Group({ groupName, getSetUsers }) {
+  function handleChangeMyGroup(getSetUsers) {
+    changeMyGroup(groupName).finally(() => getSetUsers());
+  }
+
   return (
-    <GroupContainer>
-      <GroupName>{name}</GroupName>
+    <GroupContainer
+      onClick={() => {
+        handleChangeMyGroup(getSetUsers);
+      }}
+    >
+      <GroupName>{groupName}</GroupName>
       <SignIn color="#FFF" weight="bold" size={22} />
     </GroupContainer>
   );
