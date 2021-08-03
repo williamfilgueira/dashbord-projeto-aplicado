@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../global/theme";
 import { getAllStatus } from "../../api/api.status";
-import { modifyUserStatus } from "../../api/api.user";
+import { changeUserStatus } from "../../api/api.user";
 
 export default function StatusIndicator({
   color,
@@ -17,7 +17,7 @@ export default function StatusIndicator({
   }, []);
 
   function handleSelect(status, username) {
-    modifyUserStatus(status, username)
+    changeUserStatus(status, username)
       .then((res) => console.log(res))
       .catch((err) => console.error(err))
       .finally(() => {

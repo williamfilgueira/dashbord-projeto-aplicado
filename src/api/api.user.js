@@ -18,11 +18,19 @@ export async function getUserByUsername() {
   return app.get(`/usuario/${myUsername}`);
 }
 
-export async function modifyUserStatus(status, username) {
+export async function changeUserStatus(status, username) {
   const myUsername = localStorage.getItem("username");
 
   return app.put(`/usuario/editaPerfilN2/${myUsername}`, {
     userName: username,
     status: status,
+  });
+}
+export async function changeMyGroup(groupName) {
+  const myUsername = localStorage.getItem("username");
+
+  return app.put(`/usuario/editaPerfilN2/${myUsername}`, {
+    userName: myUsername,
+    equipe: groupName,
   });
 }

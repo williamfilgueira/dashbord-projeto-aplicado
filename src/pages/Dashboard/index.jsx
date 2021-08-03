@@ -51,27 +51,6 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
 
   function getSetUsers() {
-    Promise.all([getAllUsers(), getAllRoles()]).then((res) => {
-      const usersRes = res[0].data;
-      const rolesRes = res[1].data;
-
-      const userWithColor = usersRes.map((user) => {
-        rolesRes.map((role) => {
-          if (user.papel === role.nome) {
-            user.cor = role.cor;
-          }
-          return role;
-        });
-        return user;
-      });
-
-      setAllUsers(userWithColor);
-    });
-  }
-
-  useEffect(() => {
-    setLoading(true);
-    window.addEventListener("resize", updateMedia);
     Promise.all([
       getUserByUsername(),
       getAllTeams(),
@@ -100,6 +79,12 @@ export default function Dashboard() {
       })
       .catch(() => history.push("/login"))
       .finally(() => setLoading(false));
+  }
+
+  useEffect(() => {
+    setLoading(true);
+    getSetUsers();
+    window.addEventListener("resize", updateMedia);
 
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
@@ -176,6 +161,7 @@ export default function Dashboard() {
               isDesktop={isDesktop}
               teams={teams}
               loggedUser={loggedUser}
+              getSetUsers={getSetUsers}
             />
             <Topbar
               loggedUser={loggedUser}

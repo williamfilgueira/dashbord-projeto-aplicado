@@ -30,6 +30,7 @@ export default function Sidebar({
   isOpen,
   isDesktop,
   teams,
+  getSetUsers,
 }) {
   const {
     toggleNewMemberModal,
@@ -179,7 +180,11 @@ export default function Sidebar({
           )}
 
           {teams.map((item) => (
-            <Group key={item.id} name={item.nome} />
+            <Group
+              key={item.id}
+              groupName={item.nome}
+              getSetUsers={getSetUsers}
+            />
           ))}
         </GroupList>
       </Scrollbars>
