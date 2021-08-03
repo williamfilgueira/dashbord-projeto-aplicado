@@ -6,7 +6,7 @@ const UserContainer = styled.div`
   display: flex;
   justify-content: space-around;
   height: 100px;
-  width: ${(props) => (props.mobile ? "100%" : "400px")};
+  width: ${(props) => (props.mobile ? "85%" : "400px")};
 `;
 
 const Name = styled.h1`
@@ -36,13 +36,17 @@ const IconsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 `;
 
 const Icon = styled.div`
   width: 40px;
   height: 40px;
   cursor: pointer;
-  margin-left: 10px;
 `;
 
 const MyAccountContainer = styled.div`
