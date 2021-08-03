@@ -16,34 +16,41 @@ import Select from "../../Common/Select";
 import { getAllRoles, modifyRole } from "../../../api/api.role";
 import ButtonDelete from "../../Common/ButtonDelete";
 export default function ModalEditRole({ isOpen, toggleModal, title }) {
-  const [newName, setNewName] = useState("");
-  const [oldName, setOldName] = useState("");
+  const [name, setName] = useState(""); // = new name;
+  const [roleName, setRoleName] = useState("");  // = old name;
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#9c0361");
   const [roles, setRoles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+function getAll() {
+  getAllRoles().then((res) => {
+    setRoles(res.data);
+  });
+}
+
   useEffect(() => {
-    getAllRoles().then((res) => {
-      setRoles(res.data);
-    });
+    getAll();
   }, []);
 
-  //  useEffect(() => {
-  //    getRoleByName(oldName).then((res) => {
-  //      setNewName(res.data.nome);
-  //      setDescription(res.data.descricao);
-  //      setColor(res.data.cor);
-  //    });
-  //    console.log("useEffect oldName");
-  //  }, [oldName]);
+    useEffect(() => {
+      getRoleByName(roleName).then((res) => {
+        setName(res.data.nome);
+        setDescription(res.data.descricao);
+        setColor(res.data.cor);
+      });
+    }, [roleName]);
 
-  function handleSubmit(oldName, newName, description, color) {
-    modifyRole(oldName, newName, description, color).then((res) => {
-      setOldName("");
+  function handleSubmit(roleName, name, description, color) {
+    modifyRole(roleName, name, description, color).then((res) => {
+      setName("");
       setDescription("");
       setColor("#9c0361");
-    });
+    })
+    .finally(() => {
+      getAll();
+      toggleModal();
+    })
   }
 
   const handleInput = (e) => {
@@ -64,32 +71,33 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
         <FormAddMember>
           <Select
             title="Selecione um papel"
-            onChange={(event) => setOldName(event.target.value)}
+            value={roleName}
+            onChange={(event) => setRoleName(event.target.value)}
             options={roles}
           />
           <Input
             required
             placeholder="Papel"
-            onChange={(event) => setNewName(event.target.value)}
-            // value={oldName}
+            onChange={(event) => setName(event.target.value)}
+            value={name}
           />
           <Input
             required
             placeholder="Descrição"
             onChange={(event) => setDescription(event.target.value)}
-            // value={description}
+            value={description}
           />
           <ColorPickerContainer>
             <Label>Escolha uma cor: </Label>
             <ColorPicker onChange={handleInput}>
               <InputColor
                 type="color"
-                // value={color}
+                value={color}
                 onChange={(event) => setColor(event.target.value)}
               />
               <InputText
                 type="text"
-                // value={color}
+                 value={color}
                 onChange={(event) => setColor(event.target.value)}
               />
             </ColorPicker>
@@ -98,8 +106,7 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
             maincolor="blue"
             title="SALVAR"
             onClick={() => {
-              handleSubmit(oldName, newName, description, color);
-              toggleModal();
+              handleSubmit(roleName, name, description, color);
             }}
           />
           <ButtonDelete title="DELETAR" />
