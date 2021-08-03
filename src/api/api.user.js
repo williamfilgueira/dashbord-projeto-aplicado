@@ -34,3 +34,37 @@ export async function changeMyGroup(groupName) {
     equipe: groupName,
   });
 }
+
+export async function changeMe({
+  name,
+  nickname,
+  role,
+  username,
+  password,
+  email,
+  rawPhoto,
+}) {
+  const myUsername = localStorage.getItem("username");
+
+  const userChanges = {
+    nome: name,
+    nickName: nickname,
+    papel: role,
+    userName: username,
+    password: password,
+    email: email,
+  };
+
+  const formData = new FormData();
+
+  formData.append("usuario", userChanges);
+  formData.append("file", rawPhoto);
+
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData, config);
+}

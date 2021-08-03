@@ -215,6 +215,7 @@ export default function Dashboard() {
         toggleModal={toggleUserConfigModal}
         isOpen={userConfigModal}
         title="Configurações do usuário"
+        loggedUser={loggedUser}
       />
       <ModalEditMember
         toggleModal={toggleCardModal}
