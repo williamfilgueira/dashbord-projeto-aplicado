@@ -30,15 +30,6 @@ export default function ModalEditRole({ isOpen, toggleModal, title }) {
     });
   }, []);
 
-  // useEffect(() => {
-  //   getRoleByName(oldName).then((res) => {
-  //     setOldName(res.data.nome);
-  //     setDescription(res.data.descricao);
-  //     setColor(res.data.cor);
-  //   });
-  //   console.log("useEffect oldName");
-  // }, [oldName]);
-
   function handleSubmit(oldName, newName, description, color) {
     modifyRole(oldName, newName, description, color).then((res) => {
       setOldName("");

@@ -17,7 +17,6 @@ export function getRoleByName(name) {
 }
 
 export function modifyRole(oldName, newName, description, color) {
-  console.log(oldName, newName, description, color);
   return app.put(`/papel/${oldName}`, {
     nome: newName,
     descricao: description,
