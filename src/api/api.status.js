@@ -1,9 +1,10 @@
 import { app } from "./index";
 
-export function createStatus(emoji, name) {
+export function createStatus(emoji, name, description) {
   return app.post("/status", {
     emoji: emoji,
-    nome: name
+    nome: name,
+    descricao: description
   });
 }
 
@@ -15,10 +16,11 @@ export function getStatusByName(name) {
   return app.get(`/status/${name}`);
 }
 
-export function modifyStatus(name, emoji) {
-  return app.put(`/status`, {
+export function modifyStatus(statusName,name, emoji,description) {
+  return app.put(`/status/${statusName}`, {
     nome: name,
     emoji: emoji,
+    descricao: description
   });
 }
 

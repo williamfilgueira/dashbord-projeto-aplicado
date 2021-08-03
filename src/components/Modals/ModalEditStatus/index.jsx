@@ -4,6 +4,7 @@ import {
   Label,
   ContainerEmojiPicker,
   ContainerInput,
+  ContainerInputEmoji
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
@@ -22,33 +23,43 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
   const [name, setName] = useState("");
   const [statusName, setStatusName] = useState("");
   const [status, setStatus] = useState([]);
+  const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function onEmojiClick(event, emoji) {
-    setEmoji(emoji.emoji);
-  }
-
-  useEffect(() => {
+  function getAll() {
     getAllStatus().then((res) => {
       setStatus(res.data);
     });
+  }
+
+  useEffect(() => {
+    getAll();
   }, []);
 
   useEffect(() => {
     getStatusByName(statusName).then((res) => {
       setName(res.data.nome);
       setEmoji(res.data.emoji);
+      setDescription(res.data.descricao);      
     });
   }, [statusName]);
 
-  const handleSelect = (event) => {
-    setStatusName(event.target.value);
-  };
 
-  function handleSubmit(name, emoji) {
-    modifyStatus(name, emoji).then((res) => {
+
+  function onEmojiClick(event, emoji) {
+    setEmoji(emoji.emoji);
+  }
+
+  function handleSubmit(teamName, name, emoji, description) {
+    modifyStatus(teamName, name, emoji, description).then((res) => {
       setName("");
       setEmoji("");
-    });
+      setDescription("");
+    })
+    .finally(() => {
+      getAll();
+      toggleModal();
+    })
   }
 
   return (
@@ -61,11 +72,14 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
       size="big"
       mediaSize="big"
     >
+       {isLoading ? (
+        <> </>
+      ) : (
       <FormAddMember>
         <Select
           title="Selecione um status:"
           value={statusName}
-          onChange={handleSelect}
+          onChange={(event) => setStatusName(event.target.value)}
           options={status}
         />
         <ContainerEmojiPicker>
@@ -73,6 +87,7 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
           <Picker onEmojiClick={onEmojiClick} native />
         </ContainerEmojiPicker>
         <ContainerInput>
+        <ContainerInputEmoji>
           <Input
             required
             placeholder=":)"
@@ -88,14 +103,25 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
+          
+        </ContainerInputEmoji>
+        <Input
+          required
+          placeholder="Descrição"
+          size="medium"
+          mediaSize="medium"
+          onChange={(event) => setDescription(event.target.value)}
+          value={description}
+        />
         </ContainerInput>
         <ButtonCommon
           maincolor="blue"
           title="SALVAR"
-          onClick={() => handleSubmit(name, emoji)}
+          onClick={() => handleSubmit(statusName, name, emoji, description)}
         />
-        <ButtonDelete title="DELETAR" />
+        {/* <ButtonDelete title="DELETAR" /> */}
       </FormAddMember>
+       )}
     </BaseModal>
   );
 }
