@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../global/theme";
-import Workout from "../../assets/emoji/Workout.png";
 import { getAllStatus } from "../../api/api.status";
 
-export default function StatusIndicator({ color, size }) {
-  const [statusId, setStatusId] = useState("0");
+export default function StatusIndicator({ color, title }) {
   const [status, setStatus] = useState([]);
 
   useEffect(() => {
@@ -13,14 +11,12 @@ export default function StatusIndicator({ color, size }) {
   }, []);
 
   const handleSelect = (event) => {
-    setStatusId(event.target.value);
+    console.log(event.target.value);
   };
 
   return (
     <>
-      <Select color={color} value={statusId} onChange={handleSelect}>
-        {/* <Option>{"\u{1f3dd}\u{fe0f}"} Férias</Option>
-        <Option>{"\u{2615}"} Café</Option> */}
+      <Select color={color} value={title} onChange={handleSelect}>
         {status.map((item) => (
           <Option key={item.id} value={item.nome}>
             {item.emoji} {item.nome}
@@ -30,16 +26,6 @@ export default function StatusIndicator({ color, size }) {
     </>
   );
 }
-
-const Status = styled.p`
-  font-family: ${theme.fonts.paragraph};
-  font-size: 1rem;
-  color: ${(props) => (props.color === "white" ? "#FFF" : "#000")};
-`;
-
-const Icon = styled.img`
-  margin-right: 9px;
-`;
 
 const Select = styled.select`
   color: ${(props) => (props.color === "white" ? "#fff" : "#000")};
@@ -58,9 +44,12 @@ const Select = styled.select`
     font-size: 12px;
     width: 120px;
   }
+
+  :focus {
+    outline: none;
+  }
 `;
 
 const Option = styled.option`
-  color: ${(props) => (props.color === "white" ? "#fff" : "#000")};
   font-family: ${theme.fonts.paragraph};
 `;

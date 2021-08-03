@@ -39,7 +39,7 @@ export default function Card({ toggleCardModal, data }) {
         <Name>{nickName || "Sem nick :("}</Name>
         <Username>{userName}</Username>
         <StatusContainer>
-          <StatusIndicator title={status} />
+          <StatusIndicator username={userName} title={status} />
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>

@@ -82,7 +82,7 @@ const Flag = styled.div`
   position: relative;
   bottom: 0;
   right: 0px;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => (props.color ? props.color : "#000")};
   transform: rotate(45deg);
   height: 200px;
   width: 40px;
