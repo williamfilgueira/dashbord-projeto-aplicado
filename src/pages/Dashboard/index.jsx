@@ -192,7 +192,7 @@ export default function Dashboard() {
                       .sort((userA, userB) =>
                         userA.userName.localeCompare(userB.userName)
                       )
-                      .map((item, index) => {
+                      .map((item) => {
                         return (
                           <Card
                             key={item.id}

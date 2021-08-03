@@ -2,10 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../../global/theme";
 
+import AvatarImage from "../../assets/images/avatar.png";
+
 export default function Avatar({ src, small, mediaSize, circle }) {
   return (
     <ImageContainer circle={circle} small={small} mediaSize={mediaSize}>
-      <Image src={src} />
+      <Image
+        src={src}
+        onError={(e) => {
+          e.target.src = AvatarImage;
+        }}
+      />
     </ImageContainer>
   );
 }
