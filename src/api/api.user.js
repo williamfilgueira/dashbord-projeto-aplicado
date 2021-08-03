@@ -41,7 +41,7 @@ export async function changeMe({
   role,
   username,
   password,
-  email,
+  newEmail,
   rawPhoto,
 }) {
   const myUsername = localStorage.getItem("username");
@@ -52,7 +52,7 @@ export async function changeMe({
     papel: role,
     userName: username,
     password: password,
-    email: email,
+    email: newEmail,
   };
 
   const formData = new FormData();

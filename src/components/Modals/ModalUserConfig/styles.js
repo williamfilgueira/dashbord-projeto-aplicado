@@ -8,11 +8,11 @@ const FormAddMember = styled.form`
   height: 570px;
   justify-content: space-between;
 
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 600px) {
     height: 490px;
   }
 
-  @media screen and (max-width: 1440px){
+  @media screen and (max-width: 1440px) {
     height: 505px;
   }
 `;
@@ -27,9 +27,9 @@ const Upload = styled.input`
 `;
 
 const ContainerInput = styled.section`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const IconContainer = styled.div`
@@ -51,18 +51,22 @@ const IconContainer = styled.div`
 `;
 
 const ContainerSelect = styled.section`
-width:100%;
-height: 12%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-margin-bottom: 15px;
-@media screen and (max-width: 600px) {
-  width: 90%;
-  height: 20%;
-  margin-bottom: 10px;
-}
-`
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    height: 20%;
+    margin-bottom: 10px;
+  }
+`;
+
+const Option = styled.option`
+  font-family: ${theme.fonts.paragraph};
+`;
 
 export {
   FormAddMember,
@@ -70,5 +74,6 @@ export {
   Upload,
   IconContainer,
   ContainerInput,
-  ContainerSelect
+  ContainerSelect,
+  Option,
 };

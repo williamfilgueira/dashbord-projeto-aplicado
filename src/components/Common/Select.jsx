@@ -2,14 +2,26 @@ import React from "react";
 import theme from "../../global/theme";
 import styled from "styled-components";
 
-export default function Select({ title, options , onChange}) {
+export default function Select({ title, options, onChange, selected }) {
   return (
     <SelectContainer>
       <Label htmlFor="GET-name">{title}</Label>
-      <SelectOptions name="select" onChange={onChange}>
-        {options.map((item) => (
-          <Option key={item.id} value={item.nome} onChange={onChange}>{item.nome}</Option>
-        ))}
+      <SelectOptions onChange={onChange}>
+        {options.map((item) => {
+          if (item.nome === selected) {
+            return (
+              <Option key={item.id} value={item.nome} selected>
+                {item.nome}
+              </Option>
+            );
+          } else {
+            return (
+              <Option key={item.id} value={item.nome}>
+                {item.nome}
+              </Option>
+            );
+          }
+        })}
       </SelectOptions>
     </SelectContainer>
   );
@@ -20,11 +32,10 @@ const SelectContainer = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  @media screen and (max-width: 600px){
+
+  @media screen and (max-width: 600px) {
     flex-direction: column;
   }
-
 `;
 
 const Label = styled.label`
