@@ -1,35 +1,15 @@
 import { app } from "./index";
 
-export async function createUser(
-  name,
-  nickname,
-  role,
-  username,
-  password,
-  team,
-  email,
-  birthdate
-) {
-  const formData = new FormData();
-  const user = {
+export async function createUser(name, email) {
+  const username = localStorage.getItem("username");
+  console.log(`/usuario/criaPerfil/${username}`, {
     nome: name,
-    nickName: nickname,
-    papel: role,
-    userName: username,
-    password: password,
-    equipe: team,
-    status: "INDISPONIVEL",
     email: email,
-    dtNascimento: birthdate,
-  };
-  formData.append("usuario", user);
-  console.log(user);
-  const header = {
-    headers: {
-      "content-type": "multipart/form-data",
-    },
-  };
-  return app.post("/usuario/create", formData, header);
+  });
+  return app.post(`/usuario/criaPerfil/${username}`, {
+    nome: name,
+    email: email,
+  });
 }
 
 export async function getAllUsers() {

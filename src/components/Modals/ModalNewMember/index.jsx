@@ -25,14 +25,13 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
     getAllRoles().then((res) => setRoles(res.data));
   }, []);
 
-  function handleSubmit(name, username, email, password, birthDateFormat) {
-    createUser({
-      name: name,
-      username: username,
-      password: password,
-      email: email,
-      birthdate: birthDateFormat,
-    }).then((res) => console.log(res));
+  function handleSubmit(name, email) {
+    createUser(name, email)
+      .then((res) => alert(res.data))
+      .catch((err) => console.log(err))
+      .finally(() => {
+        toggleModal();
+      });
   }
 
   return (
@@ -42,54 +41,50 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       onEscapeKeydown={toggleModal}
       close={toggleModal}
       title={title}
-      size="medium"
-      mediaSize="medium"
+      // size="medium"
+      // mediaSize="medium"
     >
       <FormAddMember>
-        <ContainerInput>
-          <Input
-            placeholder="Nome"
-            required
-            onChange={(event) => setName(event.target.value)}
-          />
-          <Input
+        <Input
+          placeholder="Nome"
+          required
+          onChange={(event) => setName(event.target.value)}
+        />
+        {/* <Input
             placeholder="Username"
             required
             onChange={(event) => setUsername(event.target.value)}
-          />
-          <Input
-            placeholder="Email"
-            type="email"
-            required
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <Input
+          /> */}
+        <Input
+          placeholder="Email"
+          type="email"
+          required
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        {/* <Input
             placeholder="Senha"
             type="password"
             minlength="6"
             required
             onChange={(event) => setPassword(event.target.value)}
-          />
-          <Input
+          /> */}
+        {/* <Input
             placeholder="Data de nascimento"
             required
             onChange={(event) => setBirthDate(event.target.value)}
-          />
-        </ContainerInput>
+          /> */}
         <ContainerSelect>
-          <Select
+          {/* <Select
             title="Selecione o papel:"
             value={roleName}
             onChange={(event) => setRoleName(event.target.value)}
             options={roles}
-          ></Select>
+          ></Select> */}
         </ContainerSelect>
         <ButtonCommon
           maincolor="blue"
           title="CADASTRAR"
-          onClick={() =>
-            handleSubmit(name, username, email, password, birthDate)
-          }
+          onClick={() => handleSubmit(name, email)}
         />
       </FormAddMember>
     </BaseModal>

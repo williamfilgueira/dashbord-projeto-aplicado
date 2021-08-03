@@ -66,8 +66,6 @@ export default function Dashboard() {
         const rolesRes = res[3].data;
         const usersRes = res[2].data;
 
-        console.log(rolesRes, usersRes);
-
         const userWithColor = usersRes.map((user) => {
           rolesRes.map((role) => {
             if (user.papel === role.nome) {
