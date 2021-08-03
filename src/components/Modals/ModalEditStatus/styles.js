@@ -16,12 +16,17 @@ const Label = styled.label`
 `;
 
 const ContainerInput = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
+
+const ContainerInputEmoji = styled.div`
   display: flex;
   width: 70%;
   @media screen and (max-width: 600px) {
     width: 92%;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 }
 `;
 
@@ -36,5 +41,6 @@ export {
   FormAddMember,
   Label,
   ContainerInput,
-  ContainerEmojiPicker
+  ContainerEmojiPicker,
+  ContainerInputEmoji
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormAddMember, Label, ContainerEmojiPicker, ContainerInput } from "./styles";
+import { FormAddMember, Label, ContainerEmojiPicker, ContainerInput, ContainerInputEmoji } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
@@ -10,9 +10,12 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
 
   const [emoji, setEmoji] = useState('');
   const [name, setname] = useState('');
+  const [description, setDescription] = useState("");
 
-  function handleStatus(emoji, name) {
-     createStatus(emoji.emoji, name).then((res) => console.log(res.data));
+  function handleStatus(emoji, name, description) {
+     createStatus(emoji.emoji, name, description)
+     .then((res) => console.log(res.data))
+     .finally(() => toggleModal());
   }
 
   function onEmojiClick(event, emoji) {
@@ -37,6 +40,7 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
           <Picker onEmojiClick={onEmojiClick} native />
         </ContainerEmojiPicker>
         <ContainerInput>
+        <ContainerInputEmoji>
           <Input
             required
             placeholder=":)"
@@ -52,11 +56,20 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
             value={name}
             onChange={(event) => setname(event.target.value)}
           />
+        </ContainerInputEmoji>
+        <Input
+          required
+          placeholder="Descrição"
+          size="medium"
+          mediaSize="medium"
+          onChange={(event) => setDescription(event.target.value)}
+        />
+
         </ContainerInput>
         <ButtonCommon
           maincolor='blue'
           title="CADASTRAR"
-          onClick={() => handleStatus(emoji, name)}
+          onClick={() => handleStatus(emoji, name, description)}
         />
       </FormAddMember>
     </BaseModal>
