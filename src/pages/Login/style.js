@@ -37,7 +37,9 @@ export const RememberPassword = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   div {
+    margin:10px;
     align-items: center;
+    font-family: ${theme.fonts.paragraph};
     input {
       margin-right: 5px;
     }

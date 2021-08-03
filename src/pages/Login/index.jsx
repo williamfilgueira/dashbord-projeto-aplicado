@@ -14,8 +14,10 @@ import Input from "../../components/Common/Input";
 import { newSession } from "../../api/api.auth";
 
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
-// import { makeStyles } from '@material-ui/core/styles';
+
+
 export default function Login() {
   const history = useHistory();
 
@@ -24,17 +26,37 @@ export default function Login() {
   const [remindMe, setRemindMe] = useState(false);
 
   function handleSubmit(username, password, remindMe) {
-    // if (!username || !password) {
-    //   alert("Favor informar e-mail e senha");
-    // } else
+    if (!username || !password) { 
+      alert("Favor informar e-mail e senha");
+     return; 
+    }
+    //  if (remindMe == false){
+    //   localStorage.setItem("saveUserName", username);
+    //   localStorage.setItem("password", password);
+    // }
     newSession(username, password)
       .then((res) => {
         localStorage.setItem("token", res.headers.authorization);
         localStorage.setItem("username", username);
         history.push("/");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {alert("Email ou senha inválidos.")});
   }
+
+  function handleCheckBox(){
+    setRemindMe(!remindMe)
+    
+
+  }
+
+  useEffect(()=>{
+    
+   const saveUserNamer = localStorage.getItem("saveUserName")
+   const password = localStorage.getItem("password")
+
+  },[])
+
+  
 
   return (
     <Container>
@@ -60,7 +82,9 @@ export default function Login() {
           />
           <RememberPassword>
             <div>
-              <h3>Lembrar</h3>
+              <input type="checkbox" value="remindMe" onChange={handleCheckBox}/>
+              <label>Lembrar</label>
+              
             </div>
 
             <StyledLink to="ResetPassword">
