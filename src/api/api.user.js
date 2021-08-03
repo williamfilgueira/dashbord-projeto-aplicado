@@ -1,12 +1,9 @@
 import { app } from "./index";
 
 export async function createUser(name, email) {
-  const username = localStorage.getItem("username");
-  console.log(`/usuario/criaPerfil/${username}`, {
-    nome: name,
-    email: email,
-  });
-  return app.post(`/usuario/criaPerfil/${username}`, {
+  const myUsername = localStorage.getItem("username");
+
+  return app.post(`/usuario/criaPerfil/${myUsername}`, {
     nome: name,
     email: email,
   });
@@ -17,6 +14,15 @@ export async function getAllUsers() {
 }
 
 export async function getUserByUsername() {
-  const username = localStorage.getItem("username");
-  return app.get(`/usuario/${username}`);
+  const myUsername = localStorage.getItem("username");
+  return app.get(`/usuario/${myUsername}`);
+}
+
+export async function modifyUserStatus(status, username) {
+  const myUsername = localStorage.getItem("username");
+
+  return app.put(`/usuario/editaPerfilN2/${myUsername}`, {
+    userName: username,
+    status: status,
+  });
 }

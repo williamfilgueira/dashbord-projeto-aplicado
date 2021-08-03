@@ -16,7 +16,7 @@ import StatusIndicator from "../Common/StatusIndicator";
 
 import { Pencil } from "phosphor-react";
 
-export default function Card({ toggleCardModal, data }) {
+export default function Card({ toggleCardModal, data, getSetUsers }) {
   const {
     dtNascimento,
     email,
@@ -39,7 +39,11 @@ export default function Card({ toggleCardModal, data }) {
         <Name>{nickName || "Sem nick :("}</Name>
         <Username>{userName}</Username>
         <StatusContainer>
-          <StatusIndicator username={userName} title={status} />
+          <StatusIndicator
+            getSetUsers={getSetUsers}
+            username={userName}
+            title={status}
+          />
         </StatusContainer>
       </InfoContainer>
       <PositionContainer>

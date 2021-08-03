@@ -20,6 +20,7 @@ export default function MyUser({
   status,
   toggleUserConfigModal,
   mobile,
+  username,
 }) {
   return (
     <UserContainer mobile={mobile}>
@@ -28,7 +29,11 @@ export default function MyUser({
         <InfoContainer>
           <Name>{name}</Name>
           <StatusContainer>
-            <StatusIndicator status={status} color="white" />
+            <StatusIndicator
+              username={username}
+              status={status}
+              color="white"
+            />
           </StatusContainer>
         </InfoContainer>
       </MyAccountContainer>

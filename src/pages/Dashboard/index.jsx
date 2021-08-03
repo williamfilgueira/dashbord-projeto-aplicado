@@ -50,6 +50,25 @@ export default function Dashboard() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  function getSetUsers() {
+    Promise.all([getAllUsers(), getAllRoles()]).then((res) => {
+      const usersRes = res[0].data;
+      const rolesRes = res[1].data;
+
+      const userWithColor = usersRes.map((user) => {
+        rolesRes.map((role) => {
+          if (user.papel === role.nome) {
+            user.cor = role.cor;
+          }
+          return role;
+        });
+        return user;
+      });
+
+      setAllUsers(userWithColor);
+    });
+  }
+
   useEffect(() => {
     setLoading(true);
     window.addEventListener("resize", updateMedia);
@@ -64,9 +83,9 @@ export default function Dashboard() {
         localStorage.setItem("loggedUser", res[0].data);
 
         const rolesRes = res[3].data;
-        const usersRes = res[2].data;
+        const users = res[2].data;
 
-        const userWithColor = usersRes.map((user) => {
+        const usersWithColor = users.map((user) => {
           rolesRes.map((role) => {
             if (user.papel === role.nome) {
               user.cor = role.cor;
@@ -77,8 +96,7 @@ export default function Dashboard() {
         });
 
         setTeams(res[1].data);
-
-        setAllUsers(userWithColor);
+        setAllUsers(usersWithColor);
       })
       .catch(() => history.push("/login"))
       .finally(() => setLoading(false));
@@ -171,12 +189,16 @@ export default function Dashboard() {
                   <CardContainer>
                     {allUsers
                       .filter((item) => item.equipe === loggedUser.equipe)
-                      .map((item, index) => {
+                      .sort((userA, userB) =>
+                        userA.userName.localeCompare(userB.userName)
+                      )
+                      .map((item) => {
                         return (
                           <Card
-                            key={index}
+                            key={item.id}
                             data={item}
                             toggleCardModal={toggleCardModal}
+                            getSetUsers={getSetUsers}
                           />
                         );
                       })}
@@ -222,6 +244,7 @@ export default function Dashboard() {
         toggleModal={toggleEditRoleModal}
         isOpen={editRoleModal}
         title="Editar papel"
+        getSetUsers={getSetUsers}
       />
 
       <ModalEditStatus

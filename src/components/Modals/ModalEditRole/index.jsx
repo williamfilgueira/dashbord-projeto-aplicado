@@ -15,42 +15,49 @@ import { createRole, getRoleByName } from "../../../api/api.role";
 import Select from "../../Common/Select";
 import { getAllRoles, modifyRole } from "../../../api/api.role";
 import ButtonDelete from "../../Common/ButtonDelete";
-export default function ModalEditRole({ isOpen, toggleModal, title }) {
+export default function ModalEditRole({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [name, setName] = useState(""); // = new name;
-  const [roleName, setRoleName] = useState("");  // = old name;
+  const [roleName, setRoleName] = useState(""); // = old name;
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#9c0361");
   const [roles, setRoles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-function getAll() {
-  getAllRoles().then((res) => {
-    setRoles(res.data);
-  });
-}
+  function getAll() {
+    getAllRoles().then((res) => {
+      setRoles(res.data);
+    });
+  }
 
   useEffect(() => {
     getAll();
   }, []);
 
-    useEffect(() => {
-      getRoleByName(roleName).then((res) => {
-        setName(res.data.nome);
-        setDescription(res.data.descricao);
-        setColor(res.data.cor);
-      });
-    }, [roleName]);
+  useEffect(() => {
+    getRoleByName(roleName).then((res) => {
+      setName(res.data.nome);
+      setDescription(res.data.descricao);
+      setColor(res.data.cor);
+    });
+  }, [roleName]);
 
   function handleSubmit(roleName, name, description, color) {
-    modifyRole(roleName, name, description, color).then((res) => {
-      setName("");
-      setDescription("");
-      setColor("#9c0361");
-    })
-    .finally(() => {
-      getAll();
-      toggleModal();
-    })
+    modifyRole(roleName, name, description, color)
+      .then((res) => {
+        setName("");
+        setDescription("");
+        setColor("#9c0361");
+      })
+      .finally(() => {
+        getAll();
+        getSetUsers();
+        toggleModal();
+      });
   }
 
   const handleInput = (e) => {
@@ -97,7 +104,7 @@ function getAll() {
               />
               <InputText
                 type="text"
-                 value={color}
+                value={color}
                 onChange={(event) => setColor(event.target.value)}
               />
             </ColorPicker>

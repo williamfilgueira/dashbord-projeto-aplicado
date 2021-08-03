@@ -2,21 +2,36 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../global/theme";
 import { getAllStatus } from "../../api/api.status";
+import { modifyUserStatus } from "../../api/api.user";
 
-export default function StatusIndicator({ color, title }) {
+export default function StatusIndicator({
+  color,
+  title,
+  username,
+  getSetUsers,
+}) {
   const [status, setStatus] = useState([]);
 
   useEffect(() => {
     getAllStatus().then((res) => setStatus(res.data));
   }, []);
 
-  const handleSelect = (event) => {
-    console.log(event.target.value);
-  };
+  function handleSelect(status, username) {
+    modifyUserStatus(status, username)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err))
+      .finally(() => {
+        getSetUsers();
+      });
+  }
 
   return (
     <>
-      <Select color={color} value={title} onChange={handleSelect}>
+      <Select
+        color={color}
+        value={title}
+        onChange={(e) => handleSelect(e.target.value, username)}
+      >
         {status.map((item) => (
           <Option key={item.id} value={item.nome}>
             {item.emoji} {item.nome}

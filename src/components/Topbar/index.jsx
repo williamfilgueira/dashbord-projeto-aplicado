@@ -12,8 +12,7 @@ export default function Topbar({
   hamburguerMenu,
   handleHamburguer,
 }) {
-  // console.log(loggedUser);
-  const { nome, status, papel, url } = loggedUser;
+  const { nome, status, papel, url, userName } = loggedUser;
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   const updateMedia = () => {
@@ -54,6 +53,7 @@ export default function Topbar({
         <MyUser
           url={url}
           name={nome}
+          username={userName}
           status={status}
           toggleUserConfigModal={toggleUserConfigModal}
         />
