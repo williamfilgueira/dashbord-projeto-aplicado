@@ -16,6 +16,8 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
       .finally(() => {
         toggleModal();
       });
+
+     
   }
 
   return (
