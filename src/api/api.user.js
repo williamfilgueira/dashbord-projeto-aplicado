@@ -60,8 +60,6 @@ export async function changeMe(
     password: password,
     email: newEmail,
   };
-  console.log(userChanges);
-
   const formData = new FormData();
   formData.append("file", rawPhoto);
   formData.append(
@@ -72,6 +70,25 @@ export async function changeMe(
   );
 
   return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData);
+}
+
+export async function changeMeJSON(
+  name,
+  nickname,
+  role,
+  username,
+  password,
+  newEmail
+) {
+  const myUsername = localStorage.getItem("username");
+  return app.put(`/usuario/editaPerfilN1b/${myUsername}`, {
+    nome: name,
+    nickName: nickname,
+    papel: role,
+    userName: username,
+    password: password,
+    email: newEmail,
+  });
 }
 
 export async function editMembers(username, nickname, role, team) {

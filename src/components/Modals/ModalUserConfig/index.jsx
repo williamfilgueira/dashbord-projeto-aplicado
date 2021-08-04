@@ -15,7 +15,7 @@ import Avatar from "../../Common/Avatar";
 import Select from "../../Common/Select";
 import { Camera } from "phosphor-react";
 
-import { changeMe } from "../../../api/api.user";
+import { changeMe, changeMeJSON } from "../../../api/api.user";
 import { getAllRoles } from "../../../api/api.role";
 
 export default function ModalUserConfig({
@@ -33,7 +33,7 @@ export default function ModalUserConfig({
   const [nickname, setNickname] = useState("");
   const [role, setRole] = useState("");
   const [newPhoto, setNewPhoto] = useState("");
-  const [rawPhoto, setRawPhoto] = useState("");
+  const [rawPhoto, setRawPhoto] = useState(null);
   const [allRoles, setAllRoles] = useState([]);
 
   function handleSubmit(
@@ -45,18 +45,27 @@ export default function ModalUserConfig({
     newEmail,
     rawPhoto
   ) {
-    changeMe(
-      name,
-      nickname,
-      role,
-      username,
-      password,
-      newEmail,
-      rawPhoto
-    ).finally(() => {
-      getSetUsers();
-      toggleModal();
-    });
+    if (!rawPhoto) {
+      changeMeJSON(name, nickname, role, username, password, newEmail).finally(
+        () => {
+          getSetUsers();
+          toggleModal();
+        }
+      );
+    } else {
+      changeMe(
+        name,
+        nickname,
+        role,
+        username,
+        password,
+        newEmail,
+        rawPhoto
+      ).finally(() => {
+        getSetUsers();
+        toggleModal();
+      });
+    }
   }
 
   function handleFileUpload(event) {
