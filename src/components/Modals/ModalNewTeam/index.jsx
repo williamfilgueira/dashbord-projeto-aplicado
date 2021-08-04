@@ -10,7 +10,7 @@ export default function ModalNewTeam({ isOpen, toggleModal, title }) {
   const [description, setDescription] = useState("");
 
   function handleSubmit(name, description) {
-    createTeam(name, description).then((res) => console.log(res));
+    createTeam(name, description);
   }
 
   return (

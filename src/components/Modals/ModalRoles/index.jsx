@@ -23,9 +23,7 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
   };
 
   function handleSubmit(name, color, description) {
-    createRole(name, description, color)
-      .then((res) => console.log(res))
-      .finally(() => toggleModal());
+    createRole(name, description, color).finally(() => toggleModal());
   }
 
   return (

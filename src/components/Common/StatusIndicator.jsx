@@ -17,12 +17,9 @@ export default function StatusIndicator({
   }, []);
 
   function handleSelect(status, username) {
-    changeUserStatus(status, username)
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err))
-      .finally(() => {
-        getSetUsers();
-      });
+    changeUserStatus(status, username).finally(() => {
+      getSetUsers();
+    });
   }
 
   return (

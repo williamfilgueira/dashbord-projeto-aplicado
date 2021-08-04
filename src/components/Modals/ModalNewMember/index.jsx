@@ -13,7 +13,6 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
   function handleSubmit(name, email) {
     createUser(name, email)
       .then((res) => alert(res.data))
-      .catch((err) => console.log(err))
       .finally(() => {
         toggleModal();
       });

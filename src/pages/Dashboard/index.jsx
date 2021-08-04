@@ -84,7 +84,7 @@ export default function Dashboard() {
       })
       .catch((err) =>
         // history.push("/login")
-        console.error(err)
+        console.log(err)
       )
       .finally(() => setLoading(false));
   }
@@ -254,6 +254,7 @@ export default function Dashboard() {
         isOpen={cardModal}
         title="Editar perfil"
         editMember={editMember}
+        getSetUsers={getSetUsers}
       />
       <ModalNewTeam
         toggleModal={toggleTeamModal}

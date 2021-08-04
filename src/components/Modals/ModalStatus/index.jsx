@@ -1,26 +1,29 @@
 import React, { useState } from "react";
-import { FormAddMember, Label, ContainerEmojiPicker, ContainerInput, ContainerInputEmoji } from "./styles";
+import {
+  FormAddMember,
+  Label,
+  ContainerEmojiPicker,
+  ContainerInput,
+  ContainerInputEmoji,
+} from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
-import Picker from 'emoji-picker-react';
+import Picker from "emoji-picker-react";
 import { createStatus } from "../../../api/api.status";
 
 export default function ModalStatus({ isOpen, toggleModal, title }) {
-
-  const [emoji, setEmoji] = useState('');
-  const [name, setname] = useState('');
+  const [emoji, setEmoji] = useState("");
+  const [name, setname] = useState("");
   const [description, setDescription] = useState("");
 
   function handleStatus(emoji, name, description) {
-     createStatus(emoji.emoji, name, description)
-     .then((res) => console.log(res.data))
-     .finally(() => toggleModal());
+    createStatus(emoji.emoji, name, description).finally(() => toggleModal());
   }
 
   function onEmojiClick(event, emoji) {
     setEmoji(emoji);
-  };
+  }
 
   return (
     <BaseModal
@@ -29,45 +32,42 @@ export default function ModalStatus({ isOpen, toggleModal, title }) {
       onEscapeKeydown={toggleModal}
       close={toggleModal}
       title={title}
-      size='big'
-      mediaSize='big'
+      size="big"
+      mediaSize="big"
     >
       <FormAddMember>
         <ContainerEmojiPicker>
-          <Label>
-            Escolha um emoji:
-          </Label>
+          <Label>Escolha um emoji:</Label>
           <Picker onEmojiClick={onEmojiClick} native />
         </ContainerEmojiPicker>
         <ContainerInput>
-        <ContainerInputEmoji>
+          <ContainerInputEmoji>
+            <Input
+              required
+              placeholder=":)"
+              size="small"
+              mediaSize="small"
+              value={emoji.emoji}
+              onChange={(event) => setEmoji(event.target.value)}
+              sizeInput="small"
+            />
+            <Input
+              required
+              placeholder="Status"
+              value={name}
+              onChange={(event) => setname(event.target.value)}
+            />
+          </ContainerInputEmoji>
           <Input
             required
-            placeholder=":)"
-            size='small'
-            mediaSize='small'
-            value={emoji.emoji}
-            onChange={(event) => setEmoji(event.target.value)}
-            sizeInput='small'
+            placeholder="Descrição"
+            size="medium"
+            mediaSize="medium"
+            onChange={(event) => setDescription(event.target.value)}
           />
-          <Input
-            required
-            placeholder="Status"
-            value={name}
-            onChange={(event) => setname(event.target.value)}
-          />
-        </ContainerInputEmoji>
-        <Input
-          required
-          placeholder="Descrição"
-          size="medium"
-          mediaSize="medium"
-          onChange={(event) => setDescription(event.target.value)}
-        />
-
         </ContainerInput>
         <ButtonCommon
-          maincolor='blue'
+          maincolor="blue"
           title="CADASTRAR"
           onClick={() => handleStatus(emoji, name, description)}
         />
