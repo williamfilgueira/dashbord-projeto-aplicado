@@ -32,7 +32,7 @@ export default function MyUser({
           <StatusContainer>
             <StatusIndicator
               username={username}
-              status={status}
+              title={status}
               color="white"
               getSetUsers={getSetUsers}
             />

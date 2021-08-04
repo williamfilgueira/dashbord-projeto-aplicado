@@ -60,10 +60,16 @@ export async function changeMe(
     password: password,
     email: newEmail,
   };
+  console.log(userChanges);
 
   const formData = new FormData();
   formData.append("file", rawPhoto);
-  formData.append("usuario", JSON.stringify(userChanges));
+  formData.append(
+    "usuario",
+    new Blob([JSON.stringify(userChanges)], {
+      type: "application/json",
+    })
+  );
 
   return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData);
 }

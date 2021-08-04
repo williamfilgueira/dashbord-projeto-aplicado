@@ -82,26 +82,19 @@ export default function Dashboard() {
         setTeams(res[1].data);
         setAllUsers(usersWithColor);
       })
-      .catch((err) =>
-        // history.push("/login")
-        console.log(err)
-      )
+      .catch((err) => {
+        history.push("/login");
+        console.log(err);
+      })
       .finally(() => setLoading(false));
   }
 
   useEffect(() => {
-    const remindMe = localStorage.getItem("remindMe");
     setLoading(true);
     getSetUsers();
     window.addEventListener("resize", updateMedia);
-    window.addEventListener("beforeunload", () => clearStorage(remindMe));
-    console.log(remindMe);
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
-
-  async function clearStorage() {
-    localStorage.clear();
-  }
 
   function toggleSearchMode(event) {
     if (event.target.value !== "") {
@@ -255,6 +248,7 @@ export default function Dashboard() {
         isOpen={userConfigModal}
         title="Configurações do usuário"
         loggedUser={loggedUser}
+        getSetUsers={getSetUsers}
       />
       <ModalEditMember
         toggleModal={toggleCardModal}
