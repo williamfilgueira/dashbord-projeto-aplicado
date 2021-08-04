@@ -90,12 +90,18 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
+    const remindMe = localStorage.getItem("remindMe");
     setLoading(true);
     getSetUsers();
     window.addEventListener("resize", updateMedia);
-
+    window.addEventListener("beforeunload", () => clearStorage(remindMe));
+    console.log(remindMe);
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
+
+  async function clearStorage() {
+    localStorage.clear();
+  }
 
   function toggleSearchMode(event) {
     if (event.target.value !== "") {
@@ -187,6 +193,7 @@ export default function Dashboard() {
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}
               toggleSearchMode={toggleSearchMode}
+              getSetUsers={getSetUsers}
             />
             <ScrollbarContainer isOpen={hamburguerMenu} isDesktop={isDesktop}>
               <Scrollbars autoHeight autoHeightMax="100%">

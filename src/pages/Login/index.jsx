@@ -34,14 +34,11 @@ export default function Login() {
       alert("Favor informar e-mail e senha");
       return;
     }
-    //  if (remindMe == false){
-    //   localStorage.setItem("saveUserName", username);
-    //   localStorage.setItem("password", password);
-    // }
-    newSession(username, password)
+    newSession(username, password, remindMe)
       .then((res) => {
         localStorage.setItem("token", res.headers.authorization);
         localStorage.setItem("username", username);
+        localStorage.setItem("remindMe", remindMe);
         history.push("/");
       })
       .catch((err) => {
@@ -82,7 +79,6 @@ export default function Login() {
             mediaSize="regular"
             icon={lockKey}
           />
-          
 
           <RememberPassword>
             <div>

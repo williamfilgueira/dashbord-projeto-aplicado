@@ -21,6 +21,7 @@ export default function MyUser({
   toggleUserConfigModal,
   mobile,
   username,
+  getSetUsers,
 }) {
   return (
     <UserContainer mobile={mobile}>
@@ -33,6 +34,7 @@ export default function MyUser({
               username={username}
               status={status}
               color="white"
+              getSetUsers={getSetUsers}
             />
           </StatusContainer>
         </InfoContainer>

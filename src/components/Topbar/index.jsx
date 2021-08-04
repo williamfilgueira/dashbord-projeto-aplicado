@@ -12,6 +12,7 @@ export default function Topbar({
   hamburguerMenu,
   handleHamburguer,
   toggleSearchMode,
+  getSetUsers,
 }) {
   const { nome, status, papel, url, userName } = loggedUser;
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
@@ -58,6 +59,7 @@ export default function Topbar({
           username={userName}
           status={status}
           toggleUserConfigModal={toggleUserConfigModal}
+          getSetUsers={getSetUsers}
         />
       )}
     </Container>
