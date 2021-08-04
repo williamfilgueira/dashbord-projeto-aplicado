@@ -10,7 +10,7 @@ const StyledModal = Modal.styled`
     } else if (props.size === "medium") {
       return "500px";
     } else {
-      return "450px";
+      return "400px";
     }
   }};
   display: flex;
@@ -25,11 +25,11 @@ const StyledModal = Modal.styled`
     width: 90%;
     height: ${(props) => {
       if(props.mediaSize === 'big'){
-        return '620px';
+        return '630px';
       }else if (props.mediaSize === "medium"){
-        return '500px';
+        return '450px';
       }else {
-        return'450px';
+        return'380px';
       }
        }};
   }

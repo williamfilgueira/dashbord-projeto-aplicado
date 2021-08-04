@@ -30,8 +30,8 @@ export const ContainerResetPassword = styled.div`
   }
   h2 {
     font-size: 15px;
-    font-weight: 100;
-    color: ${theme.colors.alterdataBlue};
+    font-weight: 300;
+    color: ${theme.colors.darkerGray};
     font-family: ${theme.fonts.paragraph};
     margin-bottom: 20px;
   }
@@ -39,8 +39,8 @@ export const ContainerResetPassword = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 15px;
-    font-weight: 100;
-    color: ${theme.colors.alterdataBlue};
+    font-weight: 300;
+    color: ${theme.colors.darkerGray};
     font-family: ${theme.fonts.paragraph};
   }
 `;
@@ -75,3 +75,11 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+export const  ContainerInput = styled.div`
+  margin: 10px 0 10px 0;
+  @media screen and (max-width: 600px) {
+  width: 324px;
+  
+  }
+`

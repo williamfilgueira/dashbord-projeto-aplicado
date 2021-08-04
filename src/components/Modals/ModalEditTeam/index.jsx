@@ -80,7 +80,7 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
             handleSubmit(teamName, name, description)
           }}
         />
-        <ButtonDelete title="DELETAR" />
+        {/* <ButtonDelete title="DELETAR" /> */}
       </FormAddMember>
        )}
     </BaseModal>

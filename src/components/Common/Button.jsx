@@ -31,7 +31,7 @@ const Button = styled.div`
   
   @media screen and (max-width: 600px) {
     width: ${(props) =>
-    props.mediaSize === "regular" ? "335px" : "88%"}
+    props.mediaSize === "regular" ? "300px" : "88%"}
 }
 
   &:hover {

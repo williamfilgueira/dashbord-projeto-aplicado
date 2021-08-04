@@ -46,7 +46,7 @@ export default function Topbar({
           placeholder="Pesquise pelo login"
           icon="MagnifyingGlass"
           size="big"
-          mediaSize="regular"
+          mediaSize="searchBar"
           innerColor="white"
           onChange={toggleSearchMode}
         />

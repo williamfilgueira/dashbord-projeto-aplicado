@@ -116,7 +116,7 @@ export default function ModalEditRole({
               handleSubmit(roleName, name, description, color);
             }}
           />
-          <ButtonDelete title="DELETAR" />
+          {/* <ButtonDelete title="DELETAR" /> */}
         </FormAddMember>
       )}
     </BaseModal>
