@@ -30,6 +30,8 @@ export const Actions = styled.form`
     font-size: 10px;
     font-family: ${theme.fonts.paragraph};
   }
+  
+ 
 `;
 export const RememberPassword = styled.div`
   display: flex;
