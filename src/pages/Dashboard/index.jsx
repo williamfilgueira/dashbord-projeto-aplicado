@@ -52,8 +52,14 @@ export default function Dashboard() {
   const [allUsers, setAllUsers] = useState([]);
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
   const [editMember, setEditMember] = useState({}); 
   const [search, setSearch] = useState("");
+=======
+  const [search, setSearch] = useState("");
+  const [editMember, setEditMember] = useState({});
+
+>>>>>>> 9bae31c2b83fa6998bd65bc51159814e78b5b81a
   function getSetUsers() {
     Promise.all([
       getUserByUsername(),
@@ -83,7 +89,7 @@ export default function Dashboard() {
       })
       .catch((err) =>
         // history.push("/login")
-        console.error(err)
+        console.log(err)
       )
       .finally(() => setLoading(false));
   }
@@ -253,6 +259,7 @@ export default function Dashboard() {
         isOpen={cardModal}
         title="Editar perfil"
         editMember={editMember}
+        getSetUsers={getSetUsers}
       />
       <ModalNewTeam
         toggleModal={toggleTeamModal}

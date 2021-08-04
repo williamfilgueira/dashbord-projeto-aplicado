@@ -25,7 +25,6 @@ export default function ModalUserConfig({
   loggedUser,
 }) {
   const { url, email, papel, nickName, nome, userName } = loggedUser;
-  console.log(loggedUser);
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [newEmail, setNewEmail] = useState("");
@@ -45,9 +44,7 @@ export default function ModalUserConfig({
     newEmail,
     rawPhoto
   ) {
-    changeMe(name, nickname, role, username, password, newEmail, rawPhoto)
-      .then((res) => console.log(res))
-      .catch((error) => console.error(error));
+    changeMe(name, nickname, role, username, password, newEmail, rawPhoto);
   }
 
   function handleFileUpload(event) {

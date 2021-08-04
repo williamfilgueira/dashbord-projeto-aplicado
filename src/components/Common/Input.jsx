@@ -2,7 +2,7 @@ import styled from "styled-components";
 import theme from "../../global/theme";
 import React from "react";
 
-import { MagnifyingGlass, PaperPlaneTilt, User, } from "phosphor-react";
+import { MagnifyingGlass, PaperPlaneTilt, User, LockKey } from "phosphor-react";
 
 export default function Input({
   icon,
@@ -15,7 +15,12 @@ export default function Input({
 }) {
   return (
     <InputContainer innerColor={innerColor} size={size} mediaSize={mediaSize}>
-      <CustomInput innerColor={innerColor} {...rest} sizeInput={sizeInput} required={required} />
+      <CustomInput
+        innerColor={innerColor}
+        {...rest}
+        sizeInput={sizeInput}
+        required={required}
+      />
 
       {icon === "MagnifyingGlass" ? (
         <IconContainer>
@@ -28,6 +33,10 @@ export default function Input({
       ) : icon === "User" ? (
         <IconContainer>
           <User weight="regular" size={20} color="#707070" />
+        </IconContainer>
+      ) : icon === "LockKey" ? (
+        <IconContainer>
+          <LockKey weight="regular" size={20} color="#707070" />
         </IconContainer>
       ) : null}
     </InputContainer>

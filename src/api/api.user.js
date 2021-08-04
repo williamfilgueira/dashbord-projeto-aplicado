@@ -65,24 +65,18 @@ export async function changeMe(
   formData.append("file", rawPhoto);
   formData.append("usuario", JSON.stringify(userChanges));
 
-  console.log(rawPhoto);
-
   return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData);
 }
 
 export async function editMembers(username, nickname, role, team) {
-  console.log(username);
-  return app.put(`/usuario/editaPerfilN2/${username}` , {
-      nickName: nickname, 
-      papel: role,
-      equipe: team,
-      userName: username
-    });
+  return app.put(`/usuario/editaPerfilN2/${username}`, {
+    nickName: nickname,
+    papel: role,
+    equipe: team,
+    userName: username,
+  });
 }
-
 
 export async function deleteMember(username) {
-  console.log(username);
-  return app.delete(`/usuario/${username}`)
+  return app.delete(`/usuario/${username}`);
 }
-
