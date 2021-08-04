@@ -35,17 +35,16 @@ export async function changeMyGroup(groupName) {
   });
 }
 
-export async function changeMe({
+export async function changeMe(
   name,
   nickname,
   role,
   username,
   password,
   newEmail,
-  rawPhoto,
-}) {
+  rawPhoto
+) {
   const myUsername = localStorage.getItem("username");
-
   const userChanges = {
     nome: name,
     nickName: nickname,
@@ -56,13 +55,14 @@ export async function changeMe({
   };
 
   const formData = new FormData();
-
-  formData.append("usuario", userChanges);
+  formData.append("usuario", JSON.stringify(userChanges));
   formData.append("file", rawPhoto);
+
+  console.log(rawPhoto);
 
   const config = {
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
   };
 

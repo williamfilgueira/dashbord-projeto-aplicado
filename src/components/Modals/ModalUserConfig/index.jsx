@@ -45,7 +45,9 @@ export default function ModalUserConfig({
     newEmail,
     rawPhoto
   ) {
-    changeMe(name, nickname, role, username, password, newEmail, rawPhoto);
+    changeMe(name, nickname, role, username, password, newEmail, rawPhoto)
+      .then((res) => console.log(res))
+      .catch((error) => console.error(error));
   }
 
   function handleFileUpload(event) {
@@ -55,8 +57,15 @@ export default function ModalUserConfig({
   }
 
   useEffect(() => {
-    getAllRoles().then((res) => setAllRoles(res.data));
-  }, []);
+    getAllRoles()
+      .then((res) => setAllRoles(res.data))
+      .finally(() => {
+        setName(nome);
+        setNickname(nickName);
+        setUsername(userName);
+        setNewEmail(email);
+      });
+  }, [email, nickName, userName, nome]);
 
   return (
     <BaseModal
@@ -88,21 +97,21 @@ export default function ModalUserConfig({
             onChange={(event) => {
               setName(event.target.value);
             }}
-            value={nome}
+            value={name}
           />
           <Input
             placeholder="Username"
             onChange={(event) => {
               setUsername(event.target.value);
             }}
-            value={userName}
+            value={username}
           />
           <Input
             placeholder="Nickname"
             onChange={(event) => {
               setNickname(event.target.value);
             }}
-            value={nickName}
+            value={nickname}
           />
           <Input
             placeholder="Email"
@@ -110,8 +119,15 @@ export default function ModalUserConfig({
             onChange={(event) => {
               setNewEmail(event.target.value);
             }}
-            value={email}
+            value={newEmail}
           />
+          {/* <Input
+            placeholder="Sua senha atual"
+            type="password"
+            onChange={(event) => {
+              setOldPassword(event.target.value);
+            }}
+          /> */}
           <Input
             placeholder="Sua nova senha"
             type="password"
