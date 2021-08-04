@@ -28,6 +28,11 @@ export default function SearchCard({ data, getSetUsers }) {
         <Team>{equipe}</Team>
       </InfoContainer>
       <PlusIconContainer onClick={() => pullToMyTeam(userName)}>
+        <div>
+          <p>
+            Adicionar à sua equipe
+          </p>
+        </div>
         <UserPlus size={28} />
       </PlusIconContainer>
     </Container>

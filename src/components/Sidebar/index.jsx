@@ -54,6 +54,7 @@ export default function Sidebar({
           name={nome}
           status={status}
           toggleUserConfigModal={toggleUserConfigModal}
+          getSetUsers={getSetUsers}
           mobile
         />
       )}
