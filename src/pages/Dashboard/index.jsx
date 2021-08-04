@@ -238,11 +238,13 @@ export default function Dashboard() {
         toggleModal={toggleRolesModal}
         isOpen={rolesModal}
         title="Novo papel"
+        getSetUsers={getSetUsers}
       />
       <ModalStatus
         toggleModal={toggleStatusModal}
         isOpen={statusModal}
         title="Novo status"
+        getSetUsers={getSetUsers}
       />
       <ModalUserConfig
         toggleModal={toggleUserConfigModal}
@@ -262,6 +264,7 @@ export default function Dashboard() {
         toggleModal={toggleTeamModal}
         isOpen={teamModal}
         title="Nova equipe"
+        getSetUsers={getSetUsers}
       />
       <ModalEditRole
         toggleModal={toggleEditRoleModal}
@@ -274,12 +277,14 @@ export default function Dashboard() {
         toggleModal={toggleEditStatusModal}
         isOpen={editStatusModal}
         title="Editar status"
+        getSetUsers={getSetUsers}
       />
 
       <ModalEditTeam
         toggleModal={toggleEditTeamModal}
         isOpen={editTeamModal}
         title="Editar equipe"
+        getSetUsers={getSetUsers}
       />
     </ModalProvider>
   );

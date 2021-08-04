@@ -5,12 +5,20 @@ import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import { createTeam } from "../../../api/api.team";
 
-export default function ModalNewTeam({ isOpen, toggleModal, title }) {
+export default function ModalNewTeam({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
   function handleSubmit(name, description) {
-    createTeam(name, description);
+    createTeam(name, description).finally(() => {
+      toggleModal();
+      getSetUsers();
+    });
   }
 
   return (

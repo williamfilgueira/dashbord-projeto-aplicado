@@ -13,7 +13,12 @@ import BaseModal from "../BaseModal";
 import { useState } from "react";
 import { createRole } from "../../../api/api.role";
 
-export default function ModalRoles({ isOpen, toggleModal, title }) {
+export default function ModalRoles({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#03569C");
@@ -23,7 +28,10 @@ export default function ModalRoles({ isOpen, toggleModal, title }) {
   };
 
   function handleSubmit(name, color, description) {
-    createRole(name, description, color).finally(() => toggleModal());
+    createRole(name, description, color).finally(() => {
+      getSetUsers();
+      toggleModal();
+    });
   }
 
   return (

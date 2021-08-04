@@ -41,7 +41,7 @@ export default function ModalEditMember({
         setRole(papel);
         setTeam(equipe);
       });
-  }, [nickName, userName, papel, equipe]);
+  }, [nickName, userName, papel, equipe, isOpen]);
 
   function handleSubmit(username, nickname, role, team) {
     editMembers(username, nickname, role, team).finally(() => {
