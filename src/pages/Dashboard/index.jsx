@@ -49,6 +49,7 @@ export default function Dashboard() {
   const [allUsers, setAllUsers] = useState([]);
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [editMember, setEditMember] = useState({}); 
 
   function getSetUsers() {
     Promise.all([
@@ -101,8 +102,9 @@ export default function Dashboard() {
   function toggleUserConfigModal(e) {
     setUserConfigModal(!userConfigModal);
   }
-  function toggleCardModal(e) {
+  function toggleCardModal(data) {
     setCardModal(!cardModal);
+    setEditMember(data);
   }
 
   function toggleTeamModal(e) {
@@ -221,6 +223,7 @@ export default function Dashboard() {
         toggleModal={toggleCardModal}
         isOpen={cardModal}
         title="Editar perfil"
+        editMember={editMember}
       />
       <ModalNewTeam
         toggleModal={toggleTeamModal}

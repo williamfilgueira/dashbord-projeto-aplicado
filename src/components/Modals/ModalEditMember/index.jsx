@@ -6,20 +6,49 @@ import BaseModal from '../BaseModal';
 import Select from '../../Common/Select';
 import {getAllTeams} from '../../../api/api.team';
 import {getAllRoles} from '../../../api/api.role';
-import { getUserByUsername } from '../../../api/api.user';
+import {deleteMember, editMembers} from '../../../api/api.user'; 
 
-export default function ModalEditMember({ isOpen, toggleModal, title }) {
+export default function ModalEditMember({ isOpen, toggleModal, title, editMember }) {
   
+  const {
+    nickName, 
+    userName,
+    papel,
+    equipe
+  } = editMember; 
+
   const [teams, setTeams] = useState([]);
-  const [teamId, setTeamId] = useState(0);
+  /*const [teamId, setTeamId] = useState(0);*/
   const [roles, setRoles] = useState([]);
-  const [roleName, setRoleName] = useState('');
+  /*const [roleName, setRoleName] = useState('');*/
+  const [nickname, setNickname] = useState('');
+  const [role, setRole] = useState('');
+  const [team, setTeam] = useState('');
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     getAllTeams().then((res) => setTeams(res.data))
     getAllRoles().then((res) => setRoles(res.data))
-  }, [])
+    .finally(() => {
+      setNickname(nickName);
+      setUsername(userName);
+      setRole(papel);
+      setTeam(equipe);
+    })
+  }, [nickName, userName, papel, equipe ])
   
+
+  function handleSubmit(username, nickname, role, team) {
+    editMembers(username, nickname, role, team)
+    .then((res) => console.log(res.data))
+    // .finally(() => toggleModal());
+  }
+
+  function handleDelete(username) {
+    deleteMember(username)
+    .then(() => alert('Usuário removido com sucesso!'))
+  }
+
   return (
       <BaseModal
         isOpen={isOpen}
@@ -33,23 +62,34 @@ export default function ModalEditMember({ isOpen, toggleModal, title }) {
        >
         <FormAddMember>
           <ContainerInput>
-            <Input placeholder='Username' />
+            <Input 
+            placeholder='Nickname' 
+            value={nickname}
+            onChange={(event) => setNickname(event.target.value) }/>
           </ContainerInput>
           <ContainerSelect>
           <Select 
           title='Selecione o papel:'
-          value={roleName}
-          onChange={(event) => setRoleName(event.target.value)}
+          onChange={(event) => setRole(event.target.value)}
+          selected={papel}
+          alue={role}
           options={roles}
           />
           <Select 
           title='Selecione a equipe:' 
-          value={teamId}
-          onChange={(event) => setTeamId(event.target.value)}
+          selected={equipe}
+          onChange={(event) => setTeam(event.target.value)}
+          value={team}
           options={teams}/>
           </ContainerSelect>
-          <ButtonCommon maincolor='blue' title='SALVAR' />
-          <ButtonDelete>DELETAR MEMBRO</ButtonDelete>
+          <ButtonCommon 
+          maincolor='blue' 
+          title='SALVAR'
+          onClick={() => handleSubmit(username, nickname, role, team)} />
+          <ButtonDelete  
+              onClick={() => handleDelete(username)} >
+            DELETAR MEMBRO
+          </ButtonDelete>
         </FormAddMember>
       </BaseModal>
   )

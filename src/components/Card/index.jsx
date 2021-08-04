@@ -50,7 +50,7 @@ export default function Card({ toggleCardModal, data, getSetUsers }) {
         <Position>{papel}</Position>
       </PositionContainer>
       <Flag color={cor} />
-      <EditIconContainer onClick={toggleCardModal}>
+      <EditIconContainer onClick={() => toggleCardModal(data)}>
         <Pencil size={28} />
       </EditIconContainer>
     </Container>
