@@ -13,6 +13,7 @@ const FormAddMember = styled.form`
 const ColorPickerContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
   @media screen and (max-width: 600px) {
     flex-direction: column;
   }
