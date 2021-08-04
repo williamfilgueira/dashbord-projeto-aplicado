@@ -11,6 +11,7 @@ export default function Topbar({
   toggleUserConfigModal,
   hamburguerMenu,
   handleHamburguer,
+  toggleSearchMode,
 }) {
   const { nome, status, papel, url, userName } = loggedUser;
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
@@ -47,6 +48,7 @@ export default function Topbar({
           size="big"
           mediaSize="searchBar"
           innerColor="white"
+          onChange={toggleSearchMode}
         />
       )}
       {isDesktop && (

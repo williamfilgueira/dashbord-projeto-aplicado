@@ -30,6 +30,7 @@ import ModalEditRole from "../../components/Modals/ModalEditRole";
 import ModalEditStatus from "../../components/Modals/ModalEditStatus";
 import ModalEditTeam from "../../components/Modals/ModalEditTeam";
 import { getAllRoles } from "../../api/api.role";
+import SearchCard from "../../components/SearchCard";
 
 export default function Dashboard() {
   const [newMemberModal, setNewMemberModal] = useState(false);
@@ -43,6 +44,8 @@ export default function Dashboard() {
   const [editTeamModal, setEditTeamModal] = useState(false);
   const [hamburguerMenu, setHamburguerMenu] = useState(false);
 
+  const [searchMode, setSearchMode] = useState(false);
+
   const history = useHistory();
 
   const [loggedUser, setLoggedUser] = useState([]);
@@ -50,7 +53,7 @@ export default function Dashboard() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editMember, setEditMember] = useState({}); 
-
+  const [search, setSearch] = useState("");
   function getSetUsers() {
     Promise.all([
       getUserByUsername(),
@@ -78,7 +81,10 @@ export default function Dashboard() {
         setTeams(res[1].data);
         setAllUsers(usersWithColor);
       })
-      .catch(() => history.push("/login"))
+      .catch((err) =>
+        // history.push("/login")
+        console.error(err)
+      )
       .finally(() => setLoading(false));
   }
 
@@ -90,6 +96,15 @@ export default function Dashboard() {
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
+  function toggleSearchMode(event) {
+    if (event.target.value !== "") {
+      setSearchMode(true);
+      setSearch(event.target.value);
+    } else {
+      setSearch("");
+      setSearchMode(false);
+    }
+  }
   function toggleNewMemberModal(e) {
     setNewMemberModal(!newMemberModal);
   }
@@ -170,26 +185,40 @@ export default function Dashboard() {
               toggleUserConfigModal={toggleUserConfigModal}
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}
+              toggleSearchMode={toggleSearchMode}
             />
             <ScrollbarContainer isOpen={hamburguerMenu} isDesktop={isDesktop}>
               <Scrollbars autoHeight autoHeightMax="100%">
                 <CardSection>
                   <CardContainer>
-                    {allUsers
-                      .filter((item) => item.equipe === loggedUser.equipe)
-                      .sort((userA, userB) =>
-                        userA.userName.localeCompare(userB.userName)
-                      )
-                      .map((item) => {
-                        return (
-                          <Card
-                            key={item.id}
-                            data={item}
-                            toggleCardModal={toggleCardModal}
-                            getSetUsers={getSetUsers}
-                          />
-                        );
-                      })}
+                    {searchMode
+                      ? allUsers
+                          .filter((item) => item.equipe !== loggedUser.equipe)
+                          .filter((item) => item.userName.match(search))
+                          .sort((userA, userB) =>
+                            userA.userName.localeCompare(userB.userName)
+                          )
+                          .map((item) => (
+                            <SearchCard
+                              key={item.id}
+                              data={item}
+                              toggleCardModal={toggleCardModal}
+                              getSetUsers={getSetUsers}
+                            />
+                          ))
+                      : allUsers
+                          .filter((item) => item.equipe === loggedUser.equipe)
+                          .sort((userA, userB) =>
+                            userA.userName.localeCompare(userB.userName)
+                          )
+                          .map((item) => (
+                            <Card
+                              key={item.id}
+                              data={item}
+                              toggleCardModal={toggleCardModal}
+                              getSetUsers={getSetUsers}
+                            />
+                          ))}
                   </CardContainer>
                 </CardSection>
               </Scrollbars>

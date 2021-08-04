@@ -34,39 +34,40 @@ export async function changeMyGroup(groupName) {
     equipe: groupName,
   });
 }
+export async function changeUserToMyGroup(username) {
+  const myUsername = localStorage.getItem("username");
 
-export async function changeMe({
+  return app.put(`/usuario/editaPerfilN3/${myUsername}`, {
+    userName: username,
+  });
+}
+
+export async function changeMe(
   name,
   nickname,
   role,
   username,
   password,
-  email,
-  rawPhoto,
-}) {
+  newEmail,
+  rawPhoto
+) {
   const myUsername = localStorage.getItem("username");
-
   const userChanges = {
     nome: name,
     nickName: nickname,
     papel: role,
     userName: username,
     password: password,
-    email: email,
+    email: newEmail,
   };
 
   const formData = new FormData();
-
-  formData.append("usuario", userChanges);
   formData.append("file", rawPhoto);
+  formData.append("usuario", JSON.stringify(userChanges));
 
-  const config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  };
+  console.log(rawPhoto);
 
-  return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData, config);
+  return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData);
 }
 
 export async function editMembers(username, nickname, role, team) {

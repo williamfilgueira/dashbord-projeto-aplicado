@@ -2,12 +2,12 @@ import React from "react";
 import theme from "../../global/theme";
 import styled from "styled-components";
 
-export default function Select({ title, options , onChange, selected}) {
+export default function Select({ title, options, onChange, selected }) {
   return (
     <SelectContainer>
       <Label htmlFor="GET-name">{title}</Label>
-      <SelectOptions name="select" onChange={onChange}>
-      {options.map((item) => {
+      <SelectOptions onChange={onChange}>
+        {options.map((item) => {
           if (item.nome === selected) {
             return (
               <Option key={item.id} value={item.nome} selected>
@@ -32,11 +32,10 @@ const SelectContainer = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  @media screen and (max-width: 600px){
+
+  @media screen and (max-width: 600px) {
     flex-direction: column;
   }
-
 `;
 
 const Label = styled.label`

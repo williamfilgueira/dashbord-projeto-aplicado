@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FormAddMember,
   ContainerUpload,
@@ -6,6 +6,7 @@ import {
   IconContainer,
   ContainerInput,
   ContainerSelect,
+  Option,
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
@@ -15,6 +16,7 @@ import Select from "../../Common/Select";
 import { Camera } from "phosphor-react";
 
 import { changeMe } from "../../../api/api.user";
+import { getAllRoles } from "../../../api/api.role";
 
 export default function ModalUserConfig({
   isOpen,
@@ -22,16 +24,17 @@ export default function ModalUserConfig({
   title,
   loggedUser,
 }) {
-  const { url } = loggedUser;
-
+  const { url, email, papel, nickName, nome, userName } = loggedUser;
+  console.log(loggedUser);
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newBirthDate, setNewBirthDate] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [role, setRole] = useState("");
   const [newPhoto, setNewPhoto] = useState("");
   const [rawPhoto, setRawPhoto] = useState("");
+  const [allRoles, setAllRoles] = useState([]);
 
   function handleSubmit(
     name,
@@ -39,10 +42,12 @@ export default function ModalUserConfig({
     role,
     username,
     password,
-    email,
+    newEmail,
     rawPhoto
   ) {
-    changeMe(name, nickname, role, username, password, email, rawPhoto);
+    changeMe(name, nickname, role, username, password, newEmail, rawPhoto)
+      .then((res) => console.log(res))
+      .catch((error) => console.error(error));
   }
 
   function handleFileUpload(event) {
@@ -50,6 +55,17 @@ export default function ModalUserConfig({
     setNewPhoto(inputUrl);
     setRawPhoto(event.target.files[0]);
   }
+
+  useEffect(() => {
+    getAllRoles()
+      .then((res) => setAllRoles(res.data))
+      .finally(() => {
+        setName(nome);
+        setNickname(nickName);
+        setUsername(userName);
+        setNewEmail(email);
+      });
+  }, [email, nickName, userName, nome]);
 
   return (
     <BaseModal
@@ -81,61 +97,51 @@ export default function ModalUserConfig({
             onChange={(event) => {
               setName(event.target.value);
             }}
+            value={name}
           />
           <Input
             placeholder="Username"
             onChange={(event) => {
               setUsername(event.target.value);
             }}
+            value={username}
           />
           <Input
             placeholder="Nickname"
             onChange={(event) => {
-              setUsername(event.target.value);
+              setNickname(event.target.value);
             }}
+            value={nickname}
           />
           <Input
             placeholder="Email"
             type="email"
             onChange={(event) => {
-              setEmail(event.target.value);
+              setNewEmail(event.target.value);
             }}
+            value={newEmail}
           />
-          <Input
-            placeholder="Senha"
+          {/* <Input
+            placeholder="Sua senha atual"
             type="password"
             onChange={(event) => {
               setOldPassword(event.target.value);
             }}
-          />
+          /> */}
           <Input
-            placeholder="Nova senha"
+            placeholder="Sua nova senha"
             type="password"
             onChange={(event) => {
-              setNewPassword(event.target.value);
+              setPassword(event.target.value);
             }}
           />
-          {/* <Input
-            placeholder="Data de nascimento"
-            onChange={(event) => {
-              setNewBirthDate(event.target.value);
-            }}
-          /> */}
         </ContainerInput>
         <ContainerSelect>
           <Select
-            title="Selecione a papel:"
-            options={[
-              { title: "Bombeiro", value: "A" },
-              { title: "Merge", value: "B" },
-            ]}
-          />
-          <Select
-            title="Selecione o equipe:"
-            options={[
-              { title: "Pack-Contabilidade", value: "A" },
-              { title: "Pack-Financeiro", value: "B" },
-            ]}
+            title="Selecione seu papel:"
+            onChange={(event) => setRole(event.target.value)}
+            selected={papel}
+            options={allRoles}
           />
         </ContainerSelect>
         <ButtonCommon
@@ -144,11 +150,11 @@ export default function ModalUserConfig({
           onClick={() => {
             handleSubmit(
               name,
+              nickname,
+              role,
               username,
-              email,
-              oldPassword,
-              newPassword,
-              newBirthDate,
+              password,
+              newEmail,
               rawPhoto
             );
           }}
