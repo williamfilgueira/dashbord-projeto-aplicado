@@ -150,6 +150,7 @@ export default function Dashboard() {
     toggleEditRoleModal,
     toggleEditStatusModal,
     toggleEditTeamModal,
+    toggleUserConfigModal,
   };
 
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
