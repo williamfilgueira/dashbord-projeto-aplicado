@@ -82,10 +82,10 @@ export default function Dashboard() {
         setTeams(res[1].data);
         setAllUsers(usersWithColor);
       })
-      .catch((err) =>
-        // history.push("/login")
-        console.log(err)
-      )
+      .catch((err) => {
+        history.push("/login");
+        console.log(err);
+      })
       .finally(() => setLoading(false));
   }
 
@@ -93,7 +93,6 @@ export default function Dashboard() {
     setLoading(true);
     getSetUsers();
     window.addEventListener("resize", updateMedia);
-
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
@@ -187,6 +186,7 @@ export default function Dashboard() {
               hamburguerMenu={hamburguerMenu}
               handleHamburguer={handleHamburguer}
               toggleSearchMode={toggleSearchMode}
+              getSetUsers={getSetUsers}
             />
             <ScrollbarContainer isOpen={hamburguerMenu} isDesktop={isDesktop}>
               <Scrollbars autoHeight autoHeightMax="100%">
@@ -248,6 +248,7 @@ export default function Dashboard() {
         isOpen={userConfigModal}
         title="Configurações do usuário"
         loggedUser={loggedUser}
+        getSetUsers={getSetUsers}
       />
       <ModalEditMember
         toggleModal={toggleCardModal}

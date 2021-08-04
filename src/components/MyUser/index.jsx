@@ -21,7 +21,7 @@ export default function MyUser({
   toggleUserConfigModal,
   mobile,
   username,
-  getSetUsers, 
+  getSetUsers,
 }) {
   return (
     <UserContainer mobile={mobile}>
