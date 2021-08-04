@@ -34,6 +34,13 @@ export async function changeMyGroup(groupName) {
     equipe: groupName,
   });
 }
+export async function changeUserToMyGroup(username) {
+  const myUsername = localStorage.getItem("username");
+
+  return app.put(`/usuario/editaPerfilN3/${myUsername}`, {
+    userName: username,
+  });
+}
 
 export async function changeMe(
   name,
@@ -55,16 +62,10 @@ export async function changeMe(
   };
 
   const formData = new FormData();
-  formData.append("usuario", JSON.stringify(userChanges));
   formData.append("file", rawPhoto);
+  formData.append("usuario", JSON.stringify(userChanges));
 
   console.log(rawPhoto);
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData, config);
+  return app.put(`/usuario/editaPerfilN1/${myUsername}`, formData);
 }
