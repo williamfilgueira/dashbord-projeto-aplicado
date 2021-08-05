@@ -51,7 +51,11 @@ export default function ModalEditMember({
   }
 
   function handleDelete(username) {
-    deleteMember(username).then(() => alert("Usuário removido com sucesso!"));
+    deleteMember(username).then(() => alert("Usuário removido com sucesso!"))
+    .finally(() => {
+      toggleModal({ nickName: "", userName: "", papel: "", equipe: "" });
+      getSetUsers();
+    });
   }
 
   return (
