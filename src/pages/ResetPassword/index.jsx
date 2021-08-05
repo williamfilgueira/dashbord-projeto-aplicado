@@ -28,12 +28,12 @@ export default function ResetPassword() {
 
   return (
     <Container>
-      <img src={fundo2} />
+      <img src={fundo2} alt="Pessoas programando" />
 
       <ContainerResetPassword>
         <AlterdataLogoAzul />
         <ContainerImage>
-          <img src={cadeado} />
+          <img src={cadeado} alt="Cadeado"  />
         </ContainerImage>
         <h3>Esqueceu sua senha?</h3>
         <h2>Entre com o seu nome de usuário</h2>

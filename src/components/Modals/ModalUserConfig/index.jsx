@@ -6,7 +6,6 @@ import {
   IconContainer,
   ContainerInput,
   ContainerSelect,
-  Option,
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";

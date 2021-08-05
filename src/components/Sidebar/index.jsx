@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
 import {
   Container,
@@ -44,7 +44,7 @@ export default function Sidebar({
   } = data;
 
   const [activeMenu, setActiveMenu] = useState("user");
-  const { nome, status, papel, url, equipe, userName } = loggedUser;
+  const { nome, status, url, equipe, userName } = loggedUser;
 
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>

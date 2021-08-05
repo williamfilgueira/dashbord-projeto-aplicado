@@ -16,8 +16,6 @@ import {
   getStatusByName,
 } from "../../../api/api.status";
 import Select from "../../Common/Select";
-import ButtonDelete from "../../Common/ButtonDelete";
-
 export default function ModalEditStatus({
   isOpen,
   toggleModal,

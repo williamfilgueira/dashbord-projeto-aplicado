@@ -47,13 +47,6 @@ const MenuToggleContainer = styled.div`
   }
 `;
 
-const MenuToggle = styled.div`
-  padding: 10px;
-  border-radius: 6px;
-  background-color: ${(props) =>
-    props.isActive && theme.colors.alterdataSecondaryBlue};
-  cursor: pointer;
-`;
 const UserToggle = styled.div`
   padding: 10px;
   border-radius: 6px;
