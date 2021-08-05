@@ -12,13 +12,21 @@ import BaseModal from "../BaseModal";
 import Picker from "emoji-picker-react";
 import { createStatus } from "../../../api/api.status";
 
-export default function ModalStatus({ isOpen, toggleModal, title }) {
+export default function ModalStatus({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [emoji, setEmoji] = useState("");
   const [name, setname] = useState("");
   const [description, setDescription] = useState("");
 
   function handleStatus(emoji, name, description) {
-    createStatus(emoji.emoji, name, description).finally(() => toggleModal());
+    createStatus(emoji.emoji, name, description).finally(() => {
+      toggleModal();
+      getSetUsers();
+    });
   }
 
   function onEmojiClick(event, emoji) {

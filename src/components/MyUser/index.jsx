@@ -14,6 +14,8 @@ import { SignOut, Gear } from "phosphor-react";
 import Avatar from "../Common/Avatar";
 import StatusIndicator from "../Common/StatusIndicator";
 
+import { useHistory } from "react-router";
+
 export default function MyUser({
   url,
   name,
@@ -23,6 +25,12 @@ export default function MyUser({
   username,
   getSetUsers,
 }) {
+  const history = useHistory();
+  function logOut() {
+    localStorage.clear();
+    history.push("/login");
+  }
+
   return (
     <UserContainer mobile={mobile}>
       <MyAccountContainer>
@@ -48,7 +56,7 @@ export default function MyUser({
             size={30}
           />
         </Icon>
-        <Icon>
+        <Icon onClick={logOut}>
           <SignOut color="#FFF" weight="bold" size={30} />
         </Icon>
       </IconsContainer>

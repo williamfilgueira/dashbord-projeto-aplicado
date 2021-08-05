@@ -16,7 +16,6 @@ const Container = styled.div`
   /* box-shadow: 0px 5px 15px ${theme.colors.lightGray}; */
   transition: all 0.3s ease-in-out;
 
-
   &:hover {
     transform: translate(0, -5px);
   }
@@ -26,7 +25,7 @@ const Container = styled.div`
     width: 100%;
     margin-right: 20px;
     margin-left: 10px;
-    height: 100px;
+    height: 80px;
   }
   @media screen and (min-width: ${theme.breakpoints.lg}) {
     width: 650px;
@@ -39,7 +38,6 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: auto;
- 
 `;
 
 const Name = styled.h1`
@@ -71,7 +69,7 @@ const PlusIconContainer = styled.div`
   position: relative;
   top: 15px;
   right: 20px;
- 
+
   @media screen and (max-width: ${theme.breakpoints.sm}) {
     right: 10px;
   }
@@ -84,25 +82,24 @@ const PlusIconContainer = styled.div`
     transition: all ease-in-out 0.3s;
   }
 
- div {
-   display: none;
-   position: absolute;
-   top: 28px;
-   right: 8px;
-   background-color: #B2B2B2;
-   color: black;
-   width: 100px;
-   height: 32px;
-   text-align: center;
-   border-radius: 8px;
-   font-size: 0.8rem;
-   font-family:${theme.fonts.paragraph}; 
-   font-weight: 200;
+  div {
+    display: none;
+    position: absolute;
+    top: 28px;
+    right: 8px;
+    background-color: #b2b2b2;
+    color: black;
+    width: 100px;
+    height: 32px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-family: ${theme.fonts.paragraph};
+    font-weight: 200;
   }
 
-  &:hover div{
+  &:hover div {
     display: block;
-
   }
 `;
 

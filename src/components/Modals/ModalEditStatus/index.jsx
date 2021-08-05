@@ -4,7 +4,7 @@ import {
   Label,
   ContainerEmojiPicker,
   ContainerInput,
-  ContainerInputEmoji
+  ContainerInputEmoji,
 } from "./styles";
 import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
@@ -18,7 +18,12 @@ import {
 import Select from "../../Common/Select";
 import ButtonDelete from "../../Common/ButtonDelete";
 
-export default function ModalEditStatus({ isOpen, toggleModal, title }) {
+export default function ModalEditStatus({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [emoji, setEmoji] = useState("");
   const [name, setName] = useState("");
   const [statusName, setStatusName] = useState("");
@@ -34,32 +39,32 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
 
   useEffect(() => {
     getAll();
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     getStatusByName(statusName).then((res) => {
       setName(res.data.nome);
       setEmoji(res.data.emoji);
-      setDescription(res.data.descricao);      
+      setDescription(res.data.descricao);
     });
   }, [statusName]);
-
-
 
   function onEmojiClick(event, emoji) {
     setEmoji(emoji.emoji);
   }
 
   function handleSubmit(teamName, name, emoji, description) {
-    modifyStatus(teamName, name, emoji, description).then((res) => {
-      setName("");
-      setEmoji("");
-      setDescription("");
-    })
-    .finally(() => {
-      getAll();
-      toggleModal();
-    })
+    modifyStatus(teamName, name, emoji, description)
+      .then((res) => {
+        setName("");
+        setEmoji("");
+        setDescription("");
+      })
+      .finally(() => {
+        getAll();
+        toggleModal();
+        getSetUsers();
+      });
   }
 
   return (
@@ -72,56 +77,55 @@ export default function ModalEditStatus({ isOpen, toggleModal, title }) {
       size="big"
       mediaSize="big"
     >
-       {isLoading ? (
+      {isLoading ? (
         <> </>
       ) : (
-      <FormAddMember>
-        <Select
-          title="Selecione um status:"
-          value={statusName}
-          onChange={(event) => setStatusName(event.target.value)}
-          options={status}
-        />
-        <ContainerEmojiPicker>
-          <Label>Escolha um emoji:</Label>
-          <Picker onEmojiClick={onEmojiClick} native />
-        </ContainerEmojiPicker>
-        <ContainerInput>
-        <ContainerInputEmoji>
-          <Input
-            required
-            placeholder=":)"
-            size="small"
-            mediaSize="small"
-            value={emoji}
-            onChange={(event) => setEmoji(event.target.value)}
-            sizeInput="small"
+        <FormAddMember>
+          <Select
+            title="Selecione um status:"
+            value={statusName}
+            onChange={(event) => setStatusName(event.target.value)}
+            options={status}
           />
-          <Input
-            required
-            placeholder="Status"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+          <ContainerEmojiPicker>
+            <Label>Escolha um emoji:</Label>
+            <Picker onEmojiClick={onEmojiClick} native />
+          </ContainerEmojiPicker>
+          <ContainerInput>
+            <ContainerInputEmoji>
+              <Input
+                required
+                placeholder=":)"
+                size="small"
+                mediaSize="small"
+                value={emoji}
+                onChange={(event) => setEmoji(event.target.value)}
+                sizeInput="small"
+              />
+              <Input
+                required
+                placeholder="Status"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </ContainerInputEmoji>
+            <Input
+              required
+              placeholder="Descrição"
+              size="medium"
+              mediaSize="medium"
+              onChange={(event) => setDescription(event.target.value)}
+              value={description}
+            />
+          </ContainerInput>
+          <ButtonCommon
+            maincolor="blue"
+            title="SALVAR"
+            onClick={() => handleSubmit(statusName, name, emoji, description)}
           />
-          
-        </ContainerInputEmoji>
-        <Input
-          required
-          placeholder="Descrição"
-          size="medium"
-          mediaSize="medium"
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-        />
-        </ContainerInput>
-        <ButtonCommon
-          maincolor="blue"
-          title="SALVAR"
-          onClick={() => handleSubmit(statusName, name, emoji, description)}
-        />
-        {/* <ButtonDelete title="DELETAR" /> */}
-      </FormAddMember>
-       )}
+          {/* <ButtonDelete title="DELETAR" /> */}
+        </FormAddMember>
+      )}
     </BaseModal>
   );
 }

@@ -7,7 +7,12 @@ import { getTeamByName, getAllTeams, modifyTeam } from "../../../api/api.team";
 import Select from "../../Common/Select";
 import ButtonDelete from "../../Common/ButtonDelete";
 
-export default function ModalEditTeam({ isOpen, toggleModal, title }) {
+export default function ModalEditTeam({
+  isOpen,
+  toggleModal,
+  title,
+  getSetUsers,
+}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [teamName, setTeamName] = useState("");
@@ -19,10 +24,10 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
       setTeams(res.data);
     });
   }
-  
+
   useEffect(() => {
-   getAll();
-  }, []);
+    getAll();
+  }, [isOpen]);
 
   useEffect(() => {
     getTeamByName(teamName).then((res) => {
@@ -32,14 +37,16 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
   }, [teamName]);
 
   function handleSubmit(teamName, name, description) {
-    modifyTeam(teamName, name, description).then((res) => {
-      setName("");
-      setDescription("");
-    })
-    .finally(() => {
-      getAll();
-      toggleModal();
-    });
+    modifyTeam(teamName, name, description)
+      .then((res) => {
+        setName("");
+        setDescription("");
+      })
+      .finally(() => {
+        getAll();
+        toggleModal();
+        getSetUsers();
+      });
   }
 
   return (
@@ -50,39 +57,39 @@ export default function ModalEditTeam({ isOpen, toggleModal, title }) {
       close={toggleModal}
       title={title}
     >
-        {isLoading ? (
+      {isLoading ? (
         <> </>
       ) : (
-      <FormAddMember>
-        <Select
-          title="Selecione uma equipe"
-          value={teamName}
-          onChange={(event) => setTeamName(event.target.value)}
-          options={teams}
-        />
-        <Input
-          required
-          placeholder="Nome"
-          onChange={(event) => setName(event.target.value)}
-          value={name}
-        />
-        <Input
-          required
-          placeholder="Descrição"
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-        />
+        <FormAddMember>
+          <Select
+            title="Selecione uma equipe"
+            value={teamName}
+            onChange={(event) => setTeamName(event.target.value)}
+            options={teams}
+          />
+          <Input
+            required
+            placeholder="Nome"
+            onChange={(event) => setName(event.target.value)}
+            value={name}
+          />
+          <Input
+            required
+            placeholder="Descrição"
+            onChange={(event) => setDescription(event.target.value)}
+            value={description}
+          />
 
-        <ButtonCommon
-          maincolor="blue"
-          title="SALVAR"
-          onClick={() => {
-            handleSubmit(teamName, name, description)
-          }}
-        />
-        {/* <ButtonDelete title="DELETAR" /> */}
-      </FormAddMember>
-       )}
+          <ButtonCommon
+            maincolor="blue"
+            title="SALVAR"
+            onClick={() => {
+              handleSubmit(teamName, name, description);
+            }}
+          />
+          {/* <ButtonDelete title="DELETAR" /> */}
+        </FormAddMember>
+      )}
     </BaseModal>
   );
 }

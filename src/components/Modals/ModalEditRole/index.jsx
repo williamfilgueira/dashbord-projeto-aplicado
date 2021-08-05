@@ -36,7 +36,7 @@ export default function ModalEditRole({
 
   useEffect(() => {
     getAll();
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     getRoleByName(roleName).then((res) => {
