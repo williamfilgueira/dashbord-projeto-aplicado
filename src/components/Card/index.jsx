@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Avatar from "../Common/Avatar";
 import {
   Container,
@@ -18,13 +18,7 @@ import { Pencil } from "phosphor-react";
 
 export default function Card({ toggleCardModal, data, getSetUsers }) {
   const {
-    dtNascimento,
-    email,
-    equipe,
-    id,
-    imagem,
     nickName,
-    nome,
     papel,
     cor,
     status,

@@ -11,10 +11,9 @@ import Input from "../../Common/Input";
 import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import { useState } from "react";
-import { createRole, getRoleByName } from "../../../api/api.role";
+import { getRoleByName } from "../../../api/api.role";
 import Select from "../../Common/Select";
 import { getAllRoles, modifyRole } from "../../../api/api.role";
-import ButtonDelete from "../../Common/ButtonDelete";
 export default function ModalEditRole({
   isOpen,
   toggleModal,

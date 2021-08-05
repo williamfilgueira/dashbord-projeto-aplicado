@@ -5,7 +5,6 @@ import ButtonCommon from "../../Common/Button";
 import BaseModal from "../BaseModal";
 import { getTeamByName, getAllTeams, modifyTeam } from "../../../api/api.team";
 import Select from "../../Common/Select";
-import ButtonDelete from "../../Common/ButtonDelete";
 
 export default function ModalEditTeam({
   isOpen,

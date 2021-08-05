@@ -14,7 +14,7 @@ export default function Topbar({
   toggleSearchMode,
   getSetUsers,
 }) {
-  const { nome, status, papel, url, userName } = loggedUser;
+  const { nome, status, url, userName } = loggedUser;
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   const updateMedia = () => {

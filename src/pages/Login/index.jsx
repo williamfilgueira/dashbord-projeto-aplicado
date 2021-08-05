@@ -12,13 +12,9 @@ import Logo from "../../components/Common/Logo";
 //imagem
 import Fundo from "../../assets/images/Fundo.png";
 import lockKey from "../../assets/images/lockKey.png";
-import lockKeyOpen from "../../assets/images/lockKeyOpen.png";
-
 import ButtonCommon from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
-
 import { newSession } from "../../api/api.auth";
-
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 

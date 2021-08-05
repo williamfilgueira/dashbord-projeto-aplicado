@@ -8,6 +8,10 @@ const Imagem = styled.img`
   @media screen and (max-width: 600px) {
     width: 350px;
   }
+
+  @media screen and (max-width: 1400px) {
+    width: 360px;
+  }
 `;
 const Container = styled.div`
   display: flex;
