@@ -30,7 +30,7 @@ export default function ModalNewMember({ isOpen, toggleModal, title }) {
     >
       <FormAddMember>
         <Input
-          placeholder="Nome"
+          placeholder="Nome completo"
           required
           onChange={(event) => setName(event.target.value)}
         />

@@ -110,7 +110,7 @@ export default function ModalUserConfig({
         </ContainerUpload>
         <ContainerInput>
           <Input
-            placeholder="Nome"
+            placeholder="Nome completo"
             onChange={(event) => {
               setName(event.target.value);
             }}
