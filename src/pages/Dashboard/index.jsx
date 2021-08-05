@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import { ModalProvider } from "styled-react-modal";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
@@ -160,7 +159,7 @@ export default function Dashboard() {
   };
 
   return (
-    <ModalProvider>
+    <>
       <Container>
         {loading ? (
           <LoaderContainer>
@@ -286,6 +285,6 @@ export default function Dashboard() {
         title="Editar equipe"
         getSetUsers={getSetUsers}
       />
-    </ModalProvider>
+    </>
   );
 }
