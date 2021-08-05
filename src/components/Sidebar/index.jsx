@@ -44,7 +44,7 @@ export default function Sidebar({
   } = data;
 
   const [activeMenu, setActiveMenu] = useState("user");
-  const { nome, status, papel, url, equipe } = loggedUser;
+  const { nome, status, papel, url, equipe, userName } = loggedUser;
 
   return (
     <Container isOpen={isOpen} isDesktop={isDesktop}>
@@ -53,6 +53,7 @@ export default function Sidebar({
           url={url}
           name={nome}
           status={status}
+          username={userName}
           toggleUserConfigModal={toggleUserConfigModal}
           getSetUsers={getSetUsers}
           mobile
