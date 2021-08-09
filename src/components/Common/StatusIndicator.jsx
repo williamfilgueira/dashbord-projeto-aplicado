@@ -14,7 +14,7 @@ export default function StatusIndicator({
 
   useEffect(() => {
     getAllStatus().then((res) => setStatus(res.data));
-  }, [status]);
+  }, []);
 
   function handleSelect(status, username) {
     changeUserStatus(status, username).finally(() => {

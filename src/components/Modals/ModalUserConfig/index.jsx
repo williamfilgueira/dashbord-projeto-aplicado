@@ -157,7 +157,7 @@ export default function ModalUserConfig({
           <Select
             title="Selecione seu papel:"
             onChange={(event) => setRole(event.target.value)}
-            selected={papel}
+            defaultValue={papel}
             options={allRoles}
           />
         </ContainerSelect>

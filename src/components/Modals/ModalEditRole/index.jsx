@@ -46,17 +46,10 @@ export default function ModalEditRole({
   }, [roleName]);
 
   function handleSubmit(roleName, name, description, color) {
-    modifyRole(roleName, name, description, color)
-      .then((res) => {
-        setName("");
-        setDescription("");
-        setColor("#9c0361");
-      })
-      .finally(() => {
-        getAll();
-        getSetUsers();
-        toggleModal();
-      });
+    modifyRole(roleName, name, description, color).finally(() => {
+      getSetUsers();
+      toggleModal();
+    });
   }
 
   const handleInput = (e) => {
